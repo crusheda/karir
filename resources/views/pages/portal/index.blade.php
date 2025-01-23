@@ -3,16 +3,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
-    <meta name="keywords"
-        content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
-    <meta name="author" content="elemis">
-    <title>Sandbox - Modern & Multipurpose Bootstrap 5 Template</title>
-    <link rel="shortcut icon" href="img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Portal Resmi Rumah Sakit PKU Muhammadiyah Sukoharjo" />
+    <meta name="keywords" content="rumah sakit, rspkuskh, pkuskh, pkusukoharjo, pku sukoharjo, rs pku, rs pku skh, rs pku sukoharjo, rawat jalan, rawat inap, rs bpjs, pku muhammadiyah sukoharjo, rs pku muhammadiyah sukoharjo, sistem rumah sakit">
+    <meta content="Yussuf Faisal" name="author" />
+    <title>Karir | RS PKU Muhammadiyah Sukoharjo</title>
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/pku/pku_ico.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('img/pku/pku_ico.png') }}">
+    <link rel="shortcut icon" href="{{ asset('img/pku/pku_ico.png') }}">
     <link rel="stylesheet" href="css/plugins.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
 </head>
 
 <body class="onepage">
@@ -22,12 +23,13 @@
                 <div class="container flex-lg-row flex-nowrap align-items-center">
                     <div class="navbar-brand w-100">
                         <a href="index.html">
-                            <img src="img/logo.png" srcset="./img/logo@2x.png 2x" alt="" />
+                            <img src="{{ asset('img/pku/logo-1.png') }}" alt="logo" class="img-fluid" style="height: 2rem;width: auto">
+                            {{-- <img src="img/logo.png" srcset="./img/logo@2x.png 2x" alt="" /> --}}
                         </a>
                     </div>
                     <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
                         <div class="offcanvas-header d-lg-none">
-                            <h3 class="text-white fs-30 mb-0">Sandbox</h3>
+                            <h3 class="text-white fs-30 mb-0">Menu</h3>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
@@ -1048,41 +1050,39 @@
     <footer class="bg-soft-primary">
         <div class="container pt-17 pt-md-19 pb-14 pb-md-16">
             <div class="row gy-6 gy-lg-0">
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-6 col-lg-3">
                     <div class="widget">
-                        <img class="mb-4" src="img/logo-dark.png" srcset="img/logo-dark@2x.png 2x"
-                            alt="" />
+                        <img class="mb-4" src="{{ asset('img/pku/logo_admin.png') }}" alt="" />
                         <p class="mb-4">©
                             <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
                             <script>
                                 document.write(new Date().getUTCFullYear());
-                            </script> Sandbox. <br class="d-none d-lg-block" />All rights reserved.
+                            </script> EST. <br class="d-none d-lg-block" />All rights reserved.
                         </p>
                         <nav class="nav social ">
-                            <a href="#"><i class="uil uil-twitter"></i></a>
-                            <a href="#"><i class="uil uil-facebook-f"></i></a>
-                            <a href="#"><i class="uil uil-dribbble"></i></a>
-                            <a href="#"><i class="uil uil-instagram"></i></a>
-                            <a href="#"><i class="uil uil-youtube"></i></a>
+                            <a href="https://x.com/rspkusukoharjo" target="_blank"><i class="uil uil-twitter" style="font-size: 25px;color:black"></i></a>
+                            <a href="https://www.facebook.com/rspkusukoharjo" target="_blank"><i class="uil uil-facebook-f" style="font-size: 25px"></i></a>
+                            <a href="https://www.instagram.com/rspkusukoharjo" target="_blank"><i class="uil uil-instagram" style="font-size: 25px"></i></a>
+                            <a href="https://www.youtube.com/channel/UC7KDgt-THy4y9tdso4YbDSw" target="_blank" class="ms-1"><i class="uil uil-youtube" style="font-size: 25px"></i></a>
+                            <a href="https://www.tiktok.com/@rspkusukoharjo" target="_blank" class="ms-1" style="margin-top:5px"><i class="fi fi-brands-tik-tok" style="color: black"></i></a>
                         </nav>
                         <!-- /.social -->
                     </div>
                     <!-- /.widget -->
                 </div>
                 <!-- /column -->
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-6 col-lg-6">
                     <div class="widget">
-                        <h4 class="widget-title  mb-3">Get in Touch</h4>
-                        <address class="pe-xl-15 pe-xxl-17">Moonshine St. 14/05 Light City, London, United Kingdom
-                        </address>
-                        <a href="cdn-cgi/l/email-protection.html#7053" class="link-body"><span class="__cf_email__"
-                                data-cfemail="9df4f3fbf2ddf8f0fcf4f1b3fef2f0">[email&#160;protected]</span></a><br />
-                        00 (123) 456 78 90
+                        <h4 class="widget-title mb-3">Kunjungi Kami</h4>
+                        <address class="pe-xl-15 pe-xxl-17">Jl. Mayor Sunaryo No. 37 Sukoharjo, JT (57512)</address>
+                        <strong>Telp:</strong> <a href="tel:0271593979"> 0271 593 979</a>&nbsp;<strong>(24 Jam)</strong><br>
+                        <strong>Email:</strong> <a href="mailto:pku.sukoharjo@gmail.com"> pku.sukoharjo@gmail.com</a><br>
+                        <strong>Informasi:</strong> <a href="https://wa.me/6281227203899" target="_blank"> +62 812-2720-3899</a>&nbsp;<strong>(WA)</strong>
                     </div>
                     <!-- /.widget -->
                 </div>
                 <!-- /column -->
-                <div class="col-md-4 col-lg-3">
+                {{-- <div class="col-md-4 col-lg-3">
                     <div class="widget">
                         <h4 class="widget-title  mb-3">Learn More</h4>
                         <ul class="list-unstyled text-reset mb-0">
@@ -1094,7 +1094,7 @@
                         </ul>
                     </div>
                     <!-- /.widget -->
-                </div>
+                </div> --}}
                 <!-- /column -->
                 <div class="col-md-12 col-lg-3">
                     <div class="widget">
