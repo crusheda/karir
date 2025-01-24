@@ -15,6 +15,14 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a href="javascript:void(0);"></a>
+                    <a href="javascript:void(0);"></a>
+                    <a href="javascript:void(0);"></a>
+                    <a href="javascript:void(0);"></a>
+                    <a href="javascript:void(0);"></a>
+                    <a href="javascript:void(0);"></a>
+                    <a href="javascript:void(0);"></a>
+                    <a href="javascript:void(0);"></a>
                 </div>
             </div>
         </div>

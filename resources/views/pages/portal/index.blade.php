@@ -1,1155 +1,717 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Portal Resmi Rumah Sakit PKU Muhammadiyah Sukoharjo" />
-    <meta name="keywords" content="rumah sakit, rspkuskh, pkuskh, pkusukoharjo, pku sukoharjo, rs pku, rs pku skh, rs pku sukoharjo, rawat jalan, rawat inap, rs bpjs, pku muhammadiyah sukoharjo, rs pku muhammadiyah sukoharjo, sistem rumah sakit">
-    <meta content="Yussuf Faisal" name="author" />
-    <title>Karir | RS PKU Muhammadiyah Sukoharjo</title>
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/pku/pku_ico.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('img/pku/pku_ico.png') }}">
-    <link rel="shortcut icon" href="{{ asset('img/pku/pku_ico.png') }}">
-    <link rel="stylesheet" href="css/plugins.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
-</head>
-
-<body class="onepage">
-    <div class="content-wrapper">
-        <header class="wrapper bg-gray">
-            <nav class="navbar navbar-expand-lg center-logo transparent navbar-light">
-                <div class="container flex-lg-row flex-nowrap align-items-center">
-                    <div class="navbar-brand w-100">
-                        <a href="index.html">
-                            <img src="{{ asset('img/pku/logo-1.png') }}" alt="logo" class="img-fluid" style="height: 2rem;width: auto">
-                            {{-- <img src="img/logo.png" srcset="./img/logo@2x.png 2x" alt="" /> --}}
-                        </a>
+@section('content')
+    <section class="wrapper image-wrapper bg-cover bg-image bg-xs-none bg-gray" data-image-src="img/pku/gedung/bg-gedung-very-small.png">
+        <div class="container pt-17 pb-15 py-sm-17 py-xxl-20">
+            <div class="row">
+                <div class="col-sm-6 col-xxl-5 text-center text-sm-start" data-cues="slideInDown" data-group="page-title" data-interval="-200" data-delay="500">
+                    <h6 class="display-1 fs-30 mb-4 mt-0 mt-lg-5 ls-xs pe-xl-5 pe-xxl-0"><span class="underline-3 style-3 yellow">Portal Resmi</span></h6>
+                    <h2 class="display-1 fs-56 mb-4 mt-0 mt-lg-5 ls-xs pe-xl-5 pe-xxl-0">Rumah Sakit PKU Muhammadiyah Sukoharjo</h2>
+                    <p class="lead fs-23 lh-sm mb-7 pe-lg-5 pe-xl-5 pe-xxl-0">Amanah, Santun, Ramah, Ikhlas (ASRI)</p>
+                    <div>
+                        <a href="#" class="btn btn-lg btn-dark rounded me-2"><i class="fas fa-user me-1"></i> Reservasi Online</a>
+                        <a href="#" class="btn btn-lg btn-success text-white rounded"><i class="fas fa-calendar me-1"></i> Jadwal Dokter</a>
                     </div>
-                    <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
-                        <div class="offcanvas-header d-lg-none">
-                            <h3 class="text-white fs-30 mb-0">Menu</h3>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
-                            <ul class="navbar-nav">
-                                <li class="nav-item"><a class="nav-link scroll active" href="#home">Home</a></li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="dropdown dropdown-submenu dropend"><a
-                                                class="dropdown-item dropdown-toggle" href="#"
-                                                data-bs-toggle="dropdown">Services</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="services.html">Services I</a></li>
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="services2.html">Services II</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown dropdown-submenu dropend"><a
-                                                class="dropdown-item dropdown-toggle" href="#"
-                                                data-bs-toggle="dropdown">About</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item"><a class="dropdown-item" href="about.html">About
-                                                        I</a></li>
-                                                <li class="nav-item"><a class="dropdown-item" href="about2.html">About
-                                                        II</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown dropdown-submenu dropend"><a
-                                                class="dropdown-item dropdown-toggle" href="#"
-                                                data-bs-toggle="dropdown">Shop</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item"><a class="dropdown-item" href="shop.html">Shop
-                                                        I</a></li>
-                                                <li class="nav-item"><a class="dropdown-item" href="shop2.html">Shop
-                                                        II</a></li>
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="shop-product.html">Product Page</a></li>
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="shop-cart.html">Shopping Cart</a></li>
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="shop-checkout.html">Checkout</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown dropdown-submenu dropend"><a
-                                                class="dropdown-item dropdown-toggle" href="#"
-                                                data-bs-toggle="dropdown">Contact</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="contact.html">Contact I</a></li>
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="contact2.html">Contact II</a></li>
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="contact3.html">Contact III</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown dropdown-submenu dropend"><a
-                                                class="dropdown-item dropdown-toggle" href="#"
-                                                data-bs-toggle="dropdown">Career</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item"><a class="dropdown-item" href="career.html">Job
-                                                        Listing I</a></li>
-                                                <li class="nav-item"><a class="dropdown-item" href="career2.html">Job
-                                                        Listing II</a></li>
-                                                <li class="nav-item"><a class="dropdown-item" href="career-job.html">Job
-                                                        Description</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown dropdown-submenu dropend"><a
-                                                class="dropdown-item dropdown-toggle" href="#"
-                                                data-bs-toggle="dropdown">Utility</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item"><a class="dropdown-item" href="404.html">404 Not
-                                                        Found</a></li>
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="page-loader.html">Page Loader</a></li>
-                                                <li class="nav-item"><a class="dropdown-item" href="signin.html">Sign In
-                                                        I</a></li>
-                                                <li class="nav-item"><a class="dropdown-item" href="signin2.html">Sign
-                                                        In II</a></li>
-                                                <li class="nav-item"><a class="dropdown-item" href="signup.html">Sign Up
-                                                        I</a></li>
-                                                <li class="nav-item"><a class="dropdown-item" href="signup2.html">Sign
-                                                        Up II</a></li>
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="terms.html">Terms</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item"><a class="dropdown-item" href="pricing.html">Pricing</a>
-                                        </li>
-                                        <li class="nav-item"><a class="dropdown-item" href="onepage.html">One Page</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Projects</a>
-                                    <div class="dropdown-menu dropdown-lg">
-                                        <div class="dropdown-lg-content">
-                                            <div>
-                                                <h6 class="dropdown-header">Project Pages</h6>
-                                                <ul class="list-unstyled">
-                                                    <li><a class="dropdown-item" href="projects.html">Projects I</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="projects2.html">Projects II</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="projects3.html">Projects III</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="projects4.html">Projects IV</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- /.column -->
-                                            <div>
-                                                <h6 class="dropdown-header">Single Projects</h6>
-                                                <ul class="list-unstyled">
-                                                    <li><a class="dropdown-item" href="single-project.html">Single
-                                                            Project I</a></li>
-                                                    <li><a class="dropdown-item" href="single-project2.html">Single
-                                                            Project II</a></li>
-                                                    <li><a class="dropdown-item" href="single-project3.html">Single
-                                                            Project III</a></li>
-                                                    <li><a class="dropdown-item" href="single-project4.html">Single
-                                                            Project IV</a></li>
-                                                </ul>
-                                            </div>
-                                            <!-- /.column -->
-                                        </div>
-                                        <!-- /auto-column -->
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Blog</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="dropdown-item" href="blog.html">Blog without
-                                                Sidebar</a></li>
-                                        <li class="nav-item"><a class="dropdown-item" href="blog2.html">Blog with
-                                                Sidebar</a></li>
-                                        <li class="nav-item"><a class="dropdown-item" href="blog3.html">Blog with Left
-                                                Sidebar</a></li>
-                                        <li class="dropdown dropdown-submenu dropend"><a
-                                                class="dropdown-item dropdown-toggle" href="#"
-                                                data-bs-toggle="dropdown">Blog Posts</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item"><a class="dropdown-item" href="blog-post.html">Post
-                                                        without Sidebar</a></li>
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="blog-post2.html">Post with Sidebar</a></li>
-                                                <li class="nav-item"><a class="dropdown-item"
-                                                        href="blog-post3.html">Post with Left Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown dropdown-mega">
-                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Blocks</a>
-                                    <ul class="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
-                                        <li class="mega-menu-content">
-                                            <ul class="row row-cols-1 row-cols-lg-6 gx-0 gx-lg-6 gy-lg-4 list-unstyled">
-                                                <li class="col"><a class="dropdown-item" href="docs/blocks/about.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block1.svg"
-                                                                alt=""></div>
-                                                        <span>About</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item" href="docs/blocks/blog.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block2.svg"
-                                                                alt=""></div>
-                                                        <span>Blog</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item"
-                                                        href="docs/blocks/call-to-action.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block3.svg"
-                                                                alt=""></div>
-                                                        <span>Call to Action</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item"
-                                                        href="docs/blocks/clients.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block4.svg"
-                                                                alt=""></div>
-                                                        <span>Clients</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item"
-                                                        href="docs/blocks/contact.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block5.svg"
-                                                                alt=""></div>
-                                                        <span>Contact</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item" href="docs/blocks/facts.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block6.svg"
-                                                                alt=""></div>
-                                                        <span>Facts</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item" href="docs/blocks/faq.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block7.svg"
-                                                                alt=""></div>
-                                                        <span>FAQ</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item"
-                                                        href="docs/blocks/features.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block8.svg"
-                                                                alt=""></div>
-                                                        <span>Features</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item" href="docs/blocks/footer.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block9.svg"
-                                                                alt=""></div>
-                                                        <span>Footer</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item" href="docs/blocks/hero.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block10.svg"
-                                                                alt=""></div>
-                                                        <span>Hero</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item" href="docs/blocks/misc.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block17.svg"
-                                                                alt=""></div>
-                                                        <span>Misc</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item" href="docs/blocks/navbar.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block11.svg"
-                                                                alt=""></div>
-                                                        <span>Navbar</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item"
-                                                        href="docs/blocks/portfolio.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block12.svg"
-                                                                alt=""></div>
-                                                        <span>Portfolio</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item"
-                                                        href="docs/blocks/pricing.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block13.svg"
-                                                                alt=""></div>
-                                                        <span>Pricing</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item"
-                                                        href="docs/blocks/process.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block14.svg"
-                                                                alt=""></div>
-                                                        <span>Process</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item" href="docs/blocks/team.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block15.svg"
-                                                                alt=""></div>
-                                                        <span>Team</span>
-                                                    </a>
-                                                </li>
-                                                <li class="col"><a class="dropdown-item"
-                                                        href="docs/blocks/testimonials.html">
-                                                        <div class="rounded img-svg d-none d-lg-block p-4 mb-lg-2"><img
-                                                                class="rounded-0" src="img/demos/block16.svg"
-                                                                alt=""></div>
-                                                        <span>Testimonials</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <!--/.row -->
-                                        </li>
-                                        <!--/.mega-menu-content-->
-                                    </ul>
-                                    <!--/.dropdown-menu -->
-                                </li>
-                                <li class="nav-item dropdown dropdown-mega">
-                                    <a class="nav-link dropdown-toggle" href="#"
-                                        data-bs-toggle="dropdown">Documentation</a>
-                                    <ul class="dropdown-menu mega-menu">
-                                        <li class="mega-menu-content">
-                                            <div class="row gx-0 gx-lg-3">
-                                                <div class="col-lg-4">
-                                                    <h6 class="dropdown-header">Usage</h6>
-                                                    <ul class="list-unstyled cc-2 pb-lg-1">
-                                                        <li><a class="dropdown-item" href="docs/index.html">Get
-                                                                Started</a></li>
-                                                        <li><a class="dropdown-item" href="docs/forms.html">Forms</a>
-                                                        </li>
-                                                        <li><a class="dropdown-item" href="docs/faq.html">FAQ</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/changelog.html">Changelog</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/credits.html">Credits</a></li>
-                                                    </ul>
-                                                    <h6 class="dropdown-header mt-lg-6">Styleguide</h6>
-                                                    <ul class="list-unstyled cc-2">
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/styleguide/colors.html">Colors</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/styleguide/fonts.html">Fonts</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/styleguide/icons-svg.html">SVG Icons</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/styleguide/icons-font.html">Font Icons</a>
-                                                        </li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/styleguide/illustrations.html">Illustrations</a>
-                                                        </li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/styleguide/backgrounds.html">Backgrounds</a>
-                                                        </li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/styleguide/misc.html">Misc</a></li>
-                                                    </ul>
-                                                </div>
-                                                <!--/column -->
-                                                <div class="col-lg-8">
-                                                    <h6 class="dropdown-header">Elements</h6>
-                                                    <ul class="list-unstyled cc-3">
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/accordion.html">Accordion</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/alerts.html">Alerts</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/animations.html">Animations</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/avatars.html">Avatars</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/background.html">Background</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/badges.html">Badges</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/buttons.html">Buttons</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/card.html">Card</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/carousel.html">Carousel</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/dividers.html">Dividers</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/form-elements.html">Form
-                                                                Elements</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/image-hover.html">Image Hover</a>
-                                                        </li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/image-mask.html">Image Mask</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/lightbox.html">Lightbox</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/player.html">Media Player</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/modal.html">Modal</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/pagination.html">Pagination</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/progressbar.html">Progressbar</a>
-                                                        </li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/shadows.html">Shadows</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/shapes.html">Shapes</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/tables.html">Tables</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/tabs.html">Tabs</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/text-animations.html">Text
-                                                                Animations</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/text-highlight.html">Text
-                                                                Highlight</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/tiles.html">Tiles</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/tooltips-popovers.html">Tooltips &
-                                                                Popovers</a></li>
-                                                        <li><a class="dropdown-item"
-                                                                href="docs/elements/typography.html">Typography</a></li>
-                                                    </ul>
-                                                </div>
-                                                <!--/column -->
-                                            </div>
-                                            <!--/.row -->
-                                        </li>
-                                        <!--/.mega-menu-content-->
-                                    </ul>
-                                    <!--/.dropdown-menu -->
-                                </li>
-                            </ul>
-                            <!-- /.navbar-nav -->
-                            <div class="offcanvas-footer d-lg-none">
-                                <div>
-                                    <a href="cdn-cgi/l/email-protection.html#7d1b140f0e0953111c0e093d18101c1411531e1210"
-                                        class="link-inverse"><span class="__cf_email__"
-                                            data-cfemail="d1b8bfb7be91b4bcb0b8bdffb2bebc">[email&#160;protected]</span></a>
-                                    <br /> 00 (123) 456 78 90 <br />
-                                    <nav class="nav social social-white mt-4">
-                                        <a href="#"><i class="uil uil-twitter"></i></a>
-                                        <a href="#"><i class="uil uil-facebook-f"></i></a>
-                                        <a href="#"><i class="uil uil-dribbble"></i></a>
-                                        <a href="#"><i class="uil uil-instagram"></i></a>
-                                        <a href="#"><i class="uil uil-youtube"></i></a>
-                                    </nav>
-                                    <!-- /.social -->
-                                </div>
-                            </div>
-                            <!-- /.offcanvas-footer -->
-                        </div>
-                        <!-- /.offcanvas-body -->
+                    <div style="display: flex; align-items: center" class="mt-4">
+                        <a style=”text-align:justify;” href="javascript:void(0)" class="me-3">Radio : </a>
+                        <audio class="" controls>
+                            <source src="https://b3.stri.my.id:4320/radio" type="audio/mpeg">
+                        </audio>
                     </div>
-                    <!-- /.navbar-collapse -->
-                    <div class="navbar-other w-100 d-flex ms-auto">
-                        <ul class="navbar-nav flex-row align-items-center ms-auto">
-                            <li class="nav-item dropdown language-select text-uppercase">
-                                <a class="nav-link dropdown-item dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">En</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="dropdown-item" href="#">En</a></li>
-                                    <li class="nav-item"><a class="dropdown-item" href="#">De</a></li>
-                                    <li class="nav-item"><a class="dropdown-item" href="#">Es</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item d-none d-md-block">
-                                <a href="contact.html" class="btn btn-sm btn-primary rounded-pill">Contact</a>
-                            </li>
-                            <li class="nav-item d-lg-none">
-                                <button class="hamburger offcanvas-nav-btn"><span></span></button>
-                            </li>
-                        </ul>
-                        <!-- /.navbar-nav -->
-                    </div>
-                    <!-- /.navbar-other -->
                 </div>
-                <!-- /.container -->
-            </nav>
-            <!-- /.navbar -->
-        </header>
-        <!-- /header -->
-        <section id="home">
-            <div class="wrapper bg-gray">
-                <div class="container pt-10 pt-md-14 pb-14 pb-md-17 text-center">
-                    <div class="row text-center">
-                        <div class="col-lg-9 col-xxl-7 mx-auto" data-cues="zoomIn" data-group="welcome"
-                            data-interval="-200">
-                            <h2 class="display-1 mb-4">Creative. Smart. Awesome.</h2>
-                            <p class="lead fs-24 lh-sm px-md-5 px-xl-15 px-xxl-10">We are an award winning web & mobile
-                                design agency that strongly believes in the power of creative ideas.</p>
-                        </div>
-                        <!-- /column -->
-                    </div>
-                    <!-- /.row -->
-                    <div class="row text-center mt-10">
-                        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-                            <figure><img class="w-auto" src="img/illustrations/i8.png"
-                                    srcset="./img/illustrations/i8@2x.png 2x" alt="" /></figure>
-                        </div>
-                        <!-- /column -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.container -->
+                <!--/column -->
             </div>
-            <!-- /.wrapper -->
-        </section>
-        <!-- /section -->
-        <section id="services">
-            <div class="wrapper bg-light">
-                <div class="container py-14 py-md-17">
-                    <div class="row gx-lg-8 gx-xl-12 gy-6 mb-10 align-items-center">
-                        <div class="col-lg-6 order-lg-2">
-                            <ul class="progress-list">
-                                <li>
-                                    <p>Marketing</p>
-                                    <div class="progressbar line blue" data-value="100"></div>
-                                </li>
-                                <li>
-                                    <p>Strategy</p>
-                                    <div class="progressbar line green" data-value="80"></div>
-                                </li>
-                                <li>
-                                    <p>Development</p>
-                                    <div class="progressbar line yellow" data-value="85"></div>
-                                </li>
-                                <li>
-                                    <p>Data Analysis</p>
-                                    <div class="progressbar line orange" data-value="90"></div>
-                                </li>
-                            </ul>
-                            <!-- /.progress-list -->
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-light">
+        <div class="container py-15 py-md-17">
+            <div class="row text-center">
+                <div class="col-md-10 col-lg-9 col-xxl-8 mx-auto">
+                    <h2 class="fs-15 text-uppercase text-muted mb-3">What We Do?</h2>
+                    <h3 class="display-3 ls-sm mb-9 px-xl-11">The service we offer is specifically designed to meet
+                        your needs.</h3>
+                </div>
+                <!-- /column -->
+            </div>
+            <!-- /.row -->
+            <div class="row gx-lg-8 gx-xl-12 gy-8">
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex flex-row">
+                        <div>
+                            <img src="img/icons/lineal/telephone-3.svg"
+                                class="svg-inject icon-svg icon-svg-md text-blue me-5 mt-1" alt="" />
                         </div>
-                        <!--/column -->
-                        <div class="col-lg-6">
-                            <h3 class="display-5 mb-5">The full service we are offering is specifically designed to
-                                meet your business needs and projects.</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus,
-                                porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel
-                                scelerisque nisl consectetur duis mollis commodo.</p>
+                        <div>
+                            <h4 class="fs-20 ls-sm">24/7 Support</h4>
+                            <p class="mb-0">Duis mollis gravida commodo id luctus erat porttitor ligula, eget
+                                lacinia odio sem aget elit nullam quis risus eget.</p>
                         </div>
-                        <!--/column -->
                     </div>
-                    <!--/.row -->
-                    <div class="row gx-lg-8 gx-xl-12 gy-6 gy-md-0 text-center">
-                        <div class="col-md-6 col-lg-3">
+                </div>
+                <!--/column -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex flex-row">
+                        <div>
+                            <img src="img/icons/lineal/shield.svg"
+                                class="svg-inject icon-svg icon-svg-md text-yellow me-5 mt-1" alt="" />
+                        </div>
+                        <div>
+                            <h4 class="fs-20 ls-sm">Secure Payments</h4>
+                            <p class="mb-0">Duis mollis gravida commodo id luctus erat porttitor ligula, eget
+                                lacinia odio sem aget elit nullam quis risus eget.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/column -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex flex-row">
+                        <div>
+                            <img src="img/icons/lineal/cloud-computing-2.svg"
+                                class="svg-inject icon-svg icon-svg-md text-orange me-5" alt="" />
+                        </div>
+                        <div>
+                            <h4 class="fs-20 ls-sm">Daily Updates</h4>
+                            <p class="mb-0">Duis mollis gravida commodo id luctus erat porttitor ligula, eget
+                                lacinia odio sem aget elit nullam quis risus eget.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/column -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex flex-row">
+                        <div>
+                            <img src="img/icons/lineal/analytics.svg"
+                                class="svg-inject icon-svg icon-svg-md text-pink me-5" alt="" />
+                        </div>
+                        <div>
+                            <h4 class="fs-20 ls-sm">Market Research</h4>
+                            <p class="mb-0">Duis mollis gravida commodo id luctus erat porttitor ligula, eget
+                                lacinia odio sem aget elit nullam quis risus eget.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/column -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex flex-row">
+                        <div>
+                            <img src="img/icons/lineal/chat-2.svg"
+                                class="svg-inject icon-svg icon-svg-md text-green me-5 mt-1" alt="" />
+                        </div>
+                        <div>
+                            <h4 class="fs-20 ls-sm">Social Engagement</h4>
+                            <p class="mb-0">Duis mollis gravida commodo id luctus erat porttitor ligula, eget
+                                lacinia odio sem aget elit nullam quis risus eget.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/column -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="d-flex flex-row">
+                        <div>
                             <img src="img/icons/lineal/megaphone.svg"
-                                class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
-                            <h4>Marketing</h4>
-                            <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                gravida at eget metus. Cras justo cum sociis natoque magnis.</p>
+                                class="svg-inject icon-svg icon-svg-md text-purple me-5 mt-1" alt="" />
                         </div>
-                        <!--/column -->
-                        <div class="col-md-6 col-lg-3">
-                            <img src="img/icons/lineal/target.svg"
-                                class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
-                            <h4>Strategy</h4>
-                            <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                gravida at eget metus. Cras justo cum sociis natoque magnis.</p>
+                        <div>
+                            <h4 class="fs-20 ls-sm">Content Marketing</h4>
+                            <p class="mb-0">Duis mollis gravida commodo id luctus erat porttitor ligula, eget
+                                lacinia odio sem aget elit nullam quis risus eget.</p>
                         </div>
-                        <!--/column -->
-                        <div class="col-md-6 col-lg-3">
-                            <img src="img/icons/lineal/settings-3.svg"
-                                class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
-                            <h4>Development</h4>
-                            <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                gravida at eget metus. Cras justo cum sociis natoque magnis.</p>
-                        </div>
-                        <!--/column -->
-                        <div class="col-md-6 col-lg-3">
-                            <img src="img/icons/lineal/bar-chart.svg"
-                                class="svg-inject icon-svg icon-svg-md text-orange mb-3" alt="" />
-                            <h4>Data Analysis</h4>
-                            <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                gravida at eget metus. Cras justo cum sociis natoque magnis.</p>
-                        </div>
-                        <!--/column -->
                     </div>
-                    <!--/.row -->
                 </div>
-                <!-- /.container -->
-            </div>
-            <!-- /.wrapper -->
-        </section>
-        <!-- /section -->
-        <section id="process">
-            <div class="wrapper bg-gray">
-                <div class="container py-14 py-md-17">
-                    <div class="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-16 align-items-center">
-                        <div class="col-lg-7">
-                            <figure><img class="w-auto" src="img/illustrations/i3.png"
-                                    srcset="./img/illustrations/i3@2x.png 2x" alt="" /></figure>
-                        </div>
-                        <!--/column -->
-                        <div class="col-lg-5">
-                            <h2 class="fs-15 text-uppercase text-line text-primary mb-3">How It Works?</h2>
-                            <h3 class="display-5 mb-7 pe-xxl-5">Everything you need on creating a business process.
-                            </h3>
-                            <div class="d-flex flex-row mb-4">
-                                <div>
-                                    <img src="img/icons/lineal/light-bulb.svg"
-                                        class="svg-inject icon-svg icon-svg-sm text-blue me-4" alt="" />
-                                </div>
-                                <div>
-                                    <h4 class="mb-1">Collect Ideas</h4>
-                                    <p class="mb-1">Nulla vitae elit libero pharetra augue dapibus.</p>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-row mb-4">
-                                <div>
-                                    <img src="img/icons/lineal/pie-chart-2.svg"
-                                        class="svg-inject icon-svg icon-svg-sm text-green me-4" alt="" />
-                                </div>
-                                <div>
-                                    <h4 class="mb-1">Data Analysis</h4>
-                                    <p class="mb-1">Vivamus sagittis lacus augue laoreet vel.</p>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-row">
-                                <div>
-                                    <img src="img/icons/lineal/design.svg"
-                                        class="svg-inject icon-svg icon-svg-sm text-yellow me-4" alt="" />
-                                </div>
-                                <div>
-                                    <h4 class="mb-1">Magic Touch</h4>
-                                    <p class="mb-0">Cras mattis consectetur purus sit amet.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/column -->
-                    </div>
-                    <!--/.row -->
-                    <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
-                        <div class="col-lg-7 order-lg-2">
-                            <figure><img class="w-auto" src="img/illustrations/i2.png"
-                                    srcset="./img/illustrations/i2@2x.png 2x" alt="" /></figure>
-                        </div>
-                        <!--/column -->
-                        <div class="col-lg-5">
-                            <h2 class="fs-15 text-uppercase text-line text-primary mb-3">Why Choose Us?</h2>
-                            <h3 class="display-5 mb-7">A few reasons why our valued customers choose us.</h3>
-                            <div class="accordion accordion-wrapper" id="accordionExample">
-                                <div class="card plain accordion-item">
-                                    <div class="card-header" id="headingOne">
-                                        <button class="accordion-button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne"> Professional Design </button>
-                                    </div>
-                                    <!--/.card-header -->
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                                                ut fermentum massa justo sit amet risus. Cras mattis consectetur purus
-                                                sit amet fermentum. Praesent commodo cursus magna, vel.</p>
-                                        </div>
-                                        <!--/.card-body -->
-                                    </div>
-                                    <!--/.accordion-collapse -->
-                                </div>
-                                <!--/.accordion-item -->
-                                <div class="card plain accordion-item">
-                                    <div class="card-header" id="headingTwo">
-                                        <button class="collapsed" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseTwo" aria-expanded="false"
-                                            aria-controls="collapseTwo"> Top-Notch Support </button>
-                                    </div>
-                                    <!--/.card-header -->
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                                                ut fermentum massa justo sit amet risus. Cras mattis consectetur purus
-                                                sit amet fermentum. Praesent commodo cursus magna, vel.</p>
-                                        </div>
-                                        <!--/.card-body -->
-                                    </div>
-                                    <!--/.accordion-collapse -->
-                                </div>
-                                <!--/.accordion-item -->
-                                <div class="card plain accordion-item">
-                                    <div class="card-header" id="headingThree">
-                                        <button class="collapsed" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseThree" aria-expanded="false"
-                                            aria-controls="collapseThree"> Header and Slider Options </button>
-                                    </div>
-                                    <!--/.card-header -->
-                                    <div id="collapseThree" class="accordion-collapse collapse"
-                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                                                ut fermentum massa justo sit amet risus. Cras mattis consectetur purus
-                                                sit amet fermentum. Praesent commodo cursus magna, vel.</p>
-                                        </div>
-                                        <!--/.card-body -->
-                                    </div>
-                                    <!--/.accordion-collapse -->
-                                </div>
-                                <!--/.accordion-item -->
-                            </div>
-                            <!--/.accordion -->
-                        </div>
-                        <!--/column -->
-                    </div>
-                    <!--/.row -->
-                </div>
-                <!-- /.container -->
-            </div>
-            <!-- /.wrapper -->
-        </section>
-        <!-- /section -->
-        <section id="about">
-            <div class="wrapper bg-light">
-                <div class="container py-14 py-md-17">
-                    <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
-                        <div class="col-lg-4">
-                            <h2 class="fs-15 text-uppercase text-line text-primary text-center mb-3">Meet the Team</h2>
-                            <h3 class="display-5 mb-5">Save your time and money by choosing our professional team.</h3>
-                            <p>Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur
-                                ac, vestibulum at eros tempus porttitor.</p>
-                            <a href="#" class="btn btn-primary rounded-pill mt-3">See All Members</a>
-                        </div>
-                        <!--/column -->
-                        <div class="col-lg-8">
-                            <div class="swiper-container text-center mb-6" data-margin="30" data-dots="true"
-                                data-items-xl="3" data-items-md="2" data-items-xs="1">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <img class="rounded-circle w-20 mx-auto mb-4" src="img/avatars/t1.jpg"
-                                                srcset="./img/avatars/t1@2x.jpg 2x" alt="" />
-                                            <h4 class="mb-1">Cory Zamora</h4>
-                                            <div class="meta mb-2">Marketing Specialist</div>
-                                            <p class="mb-2">Etiam porta sem magna malesuada mollis.</p>
-                                            <nav class="nav social justify-content-center text-center mb-0">
-                                                <a href="#"><i class="uil uil-twitter"></i></a>
-                                                <a href="#"><i class="uil uil-slack"></i></a>
-                                                <a href="#"><i class="uil uil-linkedin"></i></a>
-                                            </nav>
-                                            <!-- /.social -->
-                                        </div>
-                                        <!--/.swiper-slide -->
-                                        <div class="swiper-slide">
-                                            <img class="rounded-circle w-20 mx-auto mb-4" src="img/avatars/t2.jpg"
-                                                srcset="./img/avatars/t2@2x.jpg 2x" alt="" />
-                                            <h4 class="mb-1">Coriss Ambady</h4>
-                                            <div class="meta mb-2">Financial Analyst</div>
-                                            <p class="mb-2">Aenean eu leo quam. Pellentesque ornare lacinia.</p>
-                                            <nav class="nav social justify-content-center text-center mb-0">
-                                                <a href="#"><i class="uil uil-youtube"></i></a>
-                                                <a href="#"><i class="uil uil-facebook-f"></i></a>
-                                                <a href="#"><i class="uil uil-dribbble"></i></a>
-                                            </nav>
-                                            <!-- /.social -->
-                                        </div>
-                                        <!--/.swiper-slide -->
-                                        <div class="swiper-slide">
-                                            <img class="rounded-circle w-20 mx-auto mb-4" src="img/avatars/t3.jpg"
-                                                srcset="./img/avatars/t3@2x.jpg 2x" alt="" />
-                                            <h4 class="mb-1">Nikolas Brooten</h4>
-                                            <div class="meta mb-2">Sales Manager</div>
-                                            <p class="mb-2">Donec ornare elit quam porta gravida at eget.</p>
-                                            <nav class="nav social justify-content-center text-center mb-0">
-                                                <a href="#"><i class="uil uil-linkedin"></i></a>
-                                                <a href="#"><i class="uil uil-tumblr-square"></i></a>
-                                                <a href="#"><i class="uil uil-facebook-f"></i></a>
-                                            </nav>
-                                            <!-- /.social -->
-                                        </div>
-                                        <!--/.swiper-slide -->
-                                        <div class="swiper-slide">
-                                            <img class="rounded-circle w-20 mx-auto mb-4" src="img/avatars/t4.jpg"
-                                                srcset="./img/avatars/t4@2x.jpg 2x" alt="" />
-                                            <h4 class="mb-1">Jackie Sanders</h4>
-                                            <div class="meta mb-2">Investment Planner</div>
-                                            <p class="mb-2">Nullam risus eget urna mollis ornare vel eu leo.</p>
-                                            <nav class="nav social justify-content-center text-center mb-0">
-                                                <a href="#"><i class="uil uil-twitter"></i></a>
-                                                <a href="#"><i class="uil uil-facebook-f"></i></a>
-                                                <a href="#"><i class="uil uil-dribbble"></i></a>
-                                            </nav>
-                                            <!-- /.social -->
-                                        </div>
-                                        <!--/.swiper-slide -->
-                                        <div class="swiper-slide">
-                                            <img class="rounded-circle w-20 mx-auto mb-4" src="img/avatars/t5.jpg"
-                                                srcset="./img/avatars/t5@2x.jpg 2x" alt="" />
-                                            <h4 class="mb-1">Tina Geller</h4>
-                                            <div class="meta mb-2">Assistant Buyer</div>
-                                            <p class="mb-2">Vivamus sagittis lacus vel augue laoreet rutrum.</p>
-                                            <nav class="nav social justify-content-center text-center mb-0">
-                                                <a href="#"><i class="uil uil-facebook-f"></i></a>
-                                                <a href="#"><i class="uil uil-slack"></i></a>
-                                                <a href="#"><i class="uil uil-dribbble"></i></a>
-                                            </nav>
-                                            <!-- /.social -->
-                                        </div>
-                                        <!--/.swiper-slide -->
-                                    </div>
-                                    <!--/.swiper-wrapper -->
-                                </div>
-                                <!-- /.swiper -->
-                            </div>
-                            <!-- /.swiper-container -->
-                        </div>
-                        <!--/column -->
-                    </div>
-                    <!--/.row -->
-                </div>
-                <!-- /.container -->
-            </div>
-            <!-- /.wrapper -->
-        </section>
-        <!-- /section -->
-        <section id="testimonials">
-            <div class="wrapper bg-gray">
-                <div class="container py-14 py-md-17">
-                    <div class="row gx-lg-8 gx-xl-12 gy-6 mb-15 align-items-center">
-                        <div class="col-lg-7 order-lg-2">
-                            <figure><img class="w-auto" src="img/illustrations/i4.png"
-                                    srcset="./img/illustrations/i4@2x.png 2x" alt="" /></figure>
-                        </div>
-                        <!--/column -->
-                        <div class="col-lg-5 mt-lg-12">
-                            <div class="swiper-container dots-closer mb-6" data-margin="30" data-dots="true">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <blockquote class="icon icon-top fs-lg text-center">
-                                                <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                                                    auctor. Vestibulum ligula porta felis euismod semper. Cras justo
-                                                    odio consectetur.”</p>
-                                                <div class="blockquote-details justify-content-center text-center">
-                                                    <div class="info ps-0">
-                                                        <h5 class="mb-1">Coriss Ambady</h5>
-                                                        <p class="mb-0">Financial Analyst</p>
-                                                    </div>
-                                                </div>
-                                            </blockquote>
-                                        </div>
-                                        <!--/.swiper-slide -->
-                                        <div class="swiper-slide">
-                                            <blockquote class="icon icon-top fs-lg text-center">
-                                                <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                                                    auctor. Vestibulum ligula porta felis euismod semper. Cras justo
-                                                    odio consectetur.”</p>
-                                                <div class="blockquote-details justify-content-center text-center">
-                                                    <div class="info ps-0">
-                                                        <h5 class="mb-1">Cory Zamora</h5>
-                                                        <p class="mb-0">Marketing Specialist</p>
-                                                    </div>
-                                                </div>
-                                            </blockquote>
-                                        </div>
-                                        <!--/.swiper-slide -->
-                                        <div class="swiper-slide">
-                                            <blockquote class="icon icon-top fs-lg text-center">
-                                                <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                                                    auctor. Vestibulum ligula porta felis euismod semper. Cras justo
-                                                    odio consectetur.”</p>
-                                                <div class="blockquote-details justify-content-center text-center">
-                                                    <div class="info ps-0">
-                                                        <h5 class="mb-1">Nikolas Brooten</h5>
-                                                        <p class="mb-0">Sales Manager</p>
-                                                    </div>
-                                                </div>
-                                            </blockquote>
-                                        </div>
-                                        <!--/.swiper-slide -->
-                                    </div>
-                                    <!--/.swiper-wrapper -->
-                                </div>
-                                <!-- /.swiper -->
-                            </div>
-                            <!-- /.swiper-container -->
-                        </div>
-                        <!--/column -->
-                    </div>
-                    <!--/.row -->
-                    <div class="px-lg-5">
-                        <div class="container pt-15 pt-md-17">
-                            <h2 class="fs-16 text-uppercase text-muted mb-8 text-center">Trusted by over 5000 clients
-                            </h2>
-                            <div class="swiper-container clients" data-margin="30" data-dots="false"
-                                data-loop="true" data-autoplay="true" data-autoplaytime="1" data-drag="false"
-                                data-speed="5000" data-items-xxl="7" data-items-xl="6" data-items-lg="5"
-                                data-items-md="4" data-items-sm="3" data-items-xs="3">
-                                <div class="swiper pe-none">
-                                    <div class="swiper-wrapper ticker">
-                                        <div class="swiper-slide px-5"><img src="img/brands/c1.png" alt="" />
-                                        </div>
-                                        <div class="swiper-slide px-5"><img src="img/brands/c2.png" alt="" />
-                                        </div>
-                                        <div class="swiper-slide px-5"><img src="img/brands/c3.png" alt="" />
-                                        </div>
-                                        <div class="swiper-slide px-5"><img src="img/brands/c4.png" alt="" />
-                                        </div>
-                                        <div class="swiper-slide px-5"><img src="img/brands/c5.png" alt="" />
-                                        </div>
-                                        <div class="swiper-slide px-5"><img src="img/brands/c6.png" alt="" />
-                                        </div>
-                                        <div class="swiper-slide px-5"><img src="img/brands/c7.png" alt="" />
-                                        </div>
-                                        <div class="swiper-slide px-5"><img src="img/brands/c8.png" alt="" />
-                                        </div>
-                                        <div class="swiper-slide px-5"><img src="img/brands/c9.png" alt="" />
-                                        </div>
-                                        <div class="swiper-slide px-5"><img src="img/brands/c10.png"
-                                                alt="" /></div>
-                                        <div class="swiper-slide px-5"><img src="img/brands/c11.png"
-                                                alt="" /></div>
-                                    </div>
-                                    <!--/.swiper-wrapper -->
-                                </div>
-                                <!-- /.swiper -->
-                            </div>
-                        </div>
-                        <!--/.row -->
-                    </div>
-                    <!-- /div -->
-                </div>
-                <!-- /.container -->
-            </div>
-            <!-- /.wrapper -->
-        </section>
-        <!-- /section -->
-        <section id="contact">
-            <div class="wrapper bg-light">
-                <div class="container py-14 py-md-17">
-                    <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
-                        <div class="col-lg-7">
-                            <figure><img class="w-auto" src="img/illustrations/i5.png"
-                                    srcset="img/illustrations/i5@2x.png 2x" alt="" /></figure>
-                        </div>
-                        <!--/column -->
-                        <div class="col-lg-5">
-                            <h2 class="fs-15 text-uppercase text-line text-primary text-center mb-3">Get In Touch</h2>
-                            <h3 class="display-5 mb-7">Got any questions? Don't hesitate to get in touch.</h3>
-                            <div class="d-flex flex-row">
-                                <div>
-                                    <div class="icon text-primary fs-28 me-4 mt-n1"> <i
-                                            class="uil uil-location-pin-alt"></i> </div>
-                                </div>
-                                <div>
-                                    <h5 class="mb-1">Address</h5>
-                                    <address>Moonshine St. 14/05 Light City, London</address>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-row">
-                                <div>
-                                    <div class="icon text-primary fs-28 me-4 mt-n1"> <i
-                                            class="uil uil-phone-volume"></i> </div>
-                                </div>
-                                <div>
-                                    <h5 class="mb-1">Phone</h5>
-                                    <p>00 (123) 456 78 90</p>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-row">
-                                <div>
-                                    <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="uil uil-envelope"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h5 class="mb-1">E-mail</h5>
-                                    <p class="mb-0"><a
-                                            href="cdn-cgi/l/email-protection.html#9ceffdf2f8fef3e4dcf9f1fdf5f0b2fff3f1"
-                                            class="link-body"><span class="__cf_email__"
-                                                data-cfemail="6b180a050f0904132b0e060a020745080406">[email&#160;protected]</span></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/column -->
-                    </div>
-                    <!--/.row -->
-                </div>
-                <!-- /.container -->
-            </div>
-            <!-- /.wrapper -->
-        </section>
-        <!-- /section -->
-        <section class="wrapper bg-light">
-            <div class="container py-16 py-md-18">
-                <!--/.card -->
-                <!-- /.row -->
-                <div class="row text-center mb-7">
-                    <div class="col-lg-10 col-xl-9 col-xxl-8 mx-auto">
-                        <h2 class="fs-16 text-uppercase text-muted mb-3">Join Our Community</h2>
-                        <h3 class="display-2 ls-sm">We are <span
-                                class="underline-3 style-1 primary"><em>trusted</em></span> by over 50000+ clients.
-                            Join them now and grow your business.</h3>
-                    </div>
-                    <!-- /column -->
-                </div>
-                <!-- /.row -->
-                <div class="row mb-8">
-                    <div class="col-md-10 col-lg-9 col-xl-7 mx-auto">
-                        <div class="row align-items-center counter-wrapper gy-4 gy-md-0">
-                            <div class="col-md-4 text-center">
-                                <h3 class="counter counter-lg text-primary">1000+</h3>
-                                <p>Completed Projects</p>
-                            </div>
-                            <!--/column -->
-                            <div class="col-md-4 text-center">
-                                <h3 class="counter counter-lg text-primary">50K+</h3>
-                                <p>Happy Customers</p>
-                            </div>
-                            <!--/column -->
-                            <div class="col-md-4 text-center">
-                                <h3 class="counter counter-lg text-primary">4x</h3>
-                                <p>Revenue Growth</p>
-                            </div>
-                            <!--/column -->
-                        </div>
-                        <!--/.row -->
-                    </div>
-                    <!-- /column -->
-                </div>
-                <!-- /.row -->
-                <div class="row position-relative" style="z-index: 1">
-                    <div class="col-lg-10 col-xl-9 mx-auto mt-11 mb-sm-n20 mb-md-n22">
-                        <figure><img class="img-fluid" src="img/illustrations/i32.png"
-                                srcset="img/illustrations/i32@2x.png 2x" alt=""></figure>
-                    </div>
-                    <!-- /column -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container -->
-            <div class="overflow-hidden">
-                <div class="divider text-soft-primary mx-n2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70">
-                        <path fill="currentColor" d="M1440,70H0V45.16a5762.49,5762.49,0,0,1,1440,0Z" />
-                    </svg>
-                </div>
-            </div>
-        </section>
-        <!-- /section -->
-    </div>
-    <!-- /.content-wrapper -->
-    <footer class="bg-soft-primary">
-        <div class="container pt-17 pt-md-19 pb-14 pb-md-16">
-            <div class="row gy-6 gy-lg-0">
-                <div class="col-md-6 col-lg-3">
-                    <div class="widget">
-                        <img class="mb-4" src="{{ asset('img/pku/logo_admin.png') }}" alt="" />
-                        <p class="mb-4">©
-                            <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-                            <script>
-                                document.write(new Date().getUTCFullYear());
-                            </script> EST. <br class="d-none d-lg-block" />All rights reserved.
-                        </p>
-                        <nav class="nav social ">
-                            <a href="https://x.com/rspkusukoharjo" target="_blank"><i class="uil uil-twitter" style="font-size: 25px;color:black"></i></a>
-                            <a href="https://www.facebook.com/rspkusukoharjo" target="_blank"><i class="uil uil-facebook-f" style="font-size: 25px"></i></a>
-                            <a href="https://www.instagram.com/rspkusukoharjo" target="_blank"><i class="uil uil-instagram" style="font-size: 25px"></i></a>
-                            <a href="https://www.youtube.com/channel/UC7KDgt-THy4y9tdso4YbDSw" target="_blank" class="ms-1"><i class="uil uil-youtube" style="font-size: 25px"></i></a>
-                            <a href="https://www.tiktok.com/@rspkusukoharjo" target="_blank" class="ms-1" style="margin-top:5px"><i class="fi fi-brands-tik-tok" style="color: black"></i></a>
-                        </nav>
-                        <!-- /.social -->
-                    </div>
-                    <!-- /.widget -->
-                </div>
-                <!-- /column -->
-                <div class="col-md-6 col-lg-6">
-                    <div class="widget">
-                        <h4 class="widget-title mb-3">Kunjungi Kami</h4>
-                        <address class="pe-xl-15 pe-xxl-17">Jl. Mayor Sunaryo No. 37 Sukoharjo, JT (57512)</address>
-                        <strong>Telp:</strong> <a href="tel:0271593979"> 0271 593 979</a>&nbsp;<strong>(24 Jam)</strong><br>
-                        <strong>Email:</strong> <a href="mailto:pku.sukoharjo@gmail.com"> pku.sukoharjo@gmail.com</a><br>
-                        <strong>Informasi:</strong> <a href="https://wa.me/6281227203899" target="_blank"> +62 812-2720-3899</a>&nbsp;<strong>(WA)</strong>
-                    </div>
-                    <!-- /.widget -->
-                </div>
-                <!-- /column -->
-                {{-- <div class="col-md-4 col-lg-3">
-                    <div class="widget">
-                        <h4 class="widget-title  mb-3">Learn More</h4>
-                        <ul class="list-unstyled text-reset mb-0">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Our Story</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <!-- /.widget -->
-                </div> --}}
-                <!-- /column -->
-                <div class="col-md-12 col-lg-3">
-                    <div class="widget">
-                        <h4 class="widget-title  mb-3">Our Newsletter</h4>
-                        <p class="mb-5">Subscribe to our newsletter to get our news & deals delivered to you.</p>
-                        <div class="newsletter-wrapper">
-                            <!-- Begin Mailchimp Signup Form -->
-                            <div id="mc_embed_signup2">
-                                <form
-                                    action="https://elemisfreebies.us20.list-manage.com/subscribe/post?u=aa4947f70a475ce162057838d&amp;id=b49ef47a9a"
-                                    method="post" id="mc-embedded-subscribe-form2" name="mc-embedded-subscribe-form"
-                                    class="validate " target="_blank" novalidate>
-                                    <div id="mc_embed_signup_scroll2">
-                                        <div class="mc-field-group input-group form-floating">
-                                            <input type="email" value="" name="EMAIL"
-                                                class="required email form-control" placeholder="Email Address"
-                                                id="mce-EMAIL2">
-                                            <label for="mce-EMAIL2">Email Address</label>
-                                            <input type="submit" value="Join" name="subscribe"
-                                                id="mc-embedded-subscribe2" class="btn btn-primary ">
-                                        </div>
-                                        <div id="mce-responses2" class="clear">
-                                            <div class="response" id="mce-error-response2" style="display:none">
-                                            </div>
-                                            <div class="response" id="mce-success-response2" style="display:none">
-                                            </div>
-                                        </div>
-                                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input
-                                                type="text" name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc"
-                                                tabindex="-1" value=""></div>
-                                        <div class="clear"></div>
-                                    </div>
-                                </form>
-                            </div>
-                            <!--End mc_embed_signup-->
-                        </div>
-                        <!-- /.newsletter-wrapper -->
-                    </div>
-                    <!-- /.widget -->
-                </div>
-                <!-- /column -->
+                <!--/column -->
             </div>
             <!--/.row -->
         </div>
         <!-- /.container -->
-    </footer>
-    <div class="progress-wrap">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-        </svg>
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-gray position-relative min-vh-60 d-lg-flex align-items-center">
+        <div class="col-lg-6 position-lg-absolute top-0 start-0 image-wrapper bg-image bg-cover h-100"
+            data-image-src="img/photos/bg38.jpg">
+            <div class="divider text-gray divider-v-end d-none d-lg-block">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 1200">
+                    <g />
+                    <g>
+                        <g>
+                            <polygon fill="currentColor" points="48 0 0 0 48 1200 54 1200 54 0 48 0" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <!--/column -->
+        <div class="container">
+            <div class="row gx-0">
+                <div class="col-lg-6 ms-auto">
+                    <div class="pt-13 pb-15 pb-md-17 py-lg-16 ps-lg-15 pe-xxl-16">
+                        <h2 class="fs-15 text-uppercase text-muted mb-3">How It Works?</h2>
+                        <h3 class="display-3 ls-sm mb-7">Here are the 3 working steps on success.</h3>
+                        <div class="d-flex flex-row mb-5">
+                            <div>
+                                <img src="img/icons/lineal/light-bulb.svg"
+                                    class="svg-inject icon-svg icon-svg-md text-blue me-5 mt-1" alt="" />
+                            </div>
+                            <div>
+                                <h4 class="fs-20 ls-sm">Collect Ideas</h4>
+                                <p class="mb-0">Nulla vitae elit libero pharetra augue dapibus. Praesent commodo
+                                    cursus.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row mb-5">
+                            <div>
+                                <img src="img/icons/lineal/pie-chart-2.svg"
+                                    class="svg-inject icon-svg icon-svg-md text-green me-5 mt-1" alt="" />
+                            </div>
+                            <div>
+                                <h4 class="fs-20 ls-sm">Data Analysis</h4>
+                                <p class="mb-0">Vivamus sagittis lacus vel augue laoreet. Etiam porta sem
+                                    malesuada magna.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div>
+                                <img src="img/icons/lineal/design.svg"
+                                    class="svg-inject icon-svg icon-svg-md text-yellow me-5 mt-1" alt="" />
+                            </div>
+                            <div>
+                                <h4 class="fs-20 ls-sm">Magic Touch</h4>
+                                <p class="mb-0">Cras mattis consectetur purus sit amet. Aenean lacinia bibendum
+                                    nulla sed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/column -->
+            </div>
+            <!--/.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-white">
+        <div class="container py-15 py-md-17">
+            <div class="row text-center">
+                <div class="col-lg-10 col-xl-7 col-xxl-6 mx-auto">
+                    <h2 class="fs-15 text-uppercase text-muted mb-3">Case Studies</h2>
+                    <h3 class="display-3 ls-sm mb-10">Our awesome projects with creative ideas and great design.
+                    </h3>
+                </div>
+                <!-- /column -->
+            </div>
+            <!-- /.row -->
+            <div class="swiper-container blog grid-view mb-10" data-margin="30" data-dots="true" data-items-xl="3"
+                data-items-md="2" data-items-xs="1">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <article>
+                                <figure class="overlay overlay-1 hover-scale rounded mb-6"><a href="#"> <img
+                                            src="img/photos/b4.jpg" alt="" /></a>
+                                    <figcaption>
+                                        <h5 class="from-top mb-0">Read More</h5>
+                                    </figcaption>
+                                </figure>
+                                <div class="post-header">
+                                    <h2 class="post-title h3 ls-sm mb-3"><a class="link-dark"
+                                            href="blog-post.html">Ligula tristique quis risus</a></h2>
+                                </div>
+                                <!-- /.post-header -->
+                                <div class="post-footer">
+                                    <ul class="post-meta">
+                                        <li class="post-date"><i class="uil uil-calendar-alt"></i><span>14 Apr
+                                                2022</span></li>
+                                        <li class="post-comments"><a href="#"><i
+                                                    class="uil uil-file-alt fs-15"></i>Coding</a></li>
+                                    </ul>
+                                    <!-- /.post-meta -->
+                                </div>
+                                <!-- /.post-footer -->
+                            </article>
+                            <!-- /article -->
+                        </div>
+                        <!--/.swiper-slide -->
+                        <div class="swiper-slide">
+                            <article>
+                                <figure class="overlay overlay-1 hover-scale rounded mb-6"><a href="#"> <img
+                                            src="img/photos/b5.jpg" alt="" /></a>
+                                    <figcaption>
+                                        <h5 class="from-top mb-0">Read More</h5>
+                                    </figcaption>
+                                </figure>
+                                <div class="post-header">
+                                    <h2 class="post-title h3 ls-sm mb-3"><a class="link-dark"
+                                            href="blog-post.html">Nullam id dolor elit id nibh</a></h2>
+                                </div>
+                                <!-- /.post-header -->
+                                <div class="post-footer">
+                                    <ul class="post-meta">
+                                        <li class="post-date"><i class="uil uil-calendar-alt"></i><span>29 Mar
+                                                2022</span></li>
+                                        <li class="post-comments"><a href="#"><i
+                                                    class="uil uil-file-alt fs-15"></i>Workspace</a></li>
+                                    </ul>
+                                    <!-- /.post-meta -->
+                                </div>
+                                <!-- /.post-footer -->
+                            </article>
+                            <!-- /article -->
+                        </div>
+                        <!--/.swiper-slide -->
+                        <div class="swiper-slide">
+                            <article>
+                                <figure class="overlay overlay-1 hover-scale rounded mb-6"><a href="#"> <img
+                                            src="img/photos/b6.jpg" alt="" /></a>
+                                    <figcaption>
+                                        <h5 class="from-top mb-0">Read More</h5>
+                                    </figcaption>
+                                </figure>
+                                <div class="post-header">
+                                    <h2 class="post-title h3 ls-sm mb-3"><a class="link-dark"
+                                            href="blog-post.html">Ultricies fusce porta elit</a></h2>
+                                </div>
+                                <!-- /.post-header -->
+                                <div class="post-footer">
+                                    <ul class="post-meta">
+                                        <li class="post-date"><i class="uil uil-calendar-alt"></i><span>26 Feb
+                                                2022</span></li>
+                                        <li class="post-comments"><a href="#"><i
+                                                    class="uil uil-file-alt fs-15"></i>Meeting</a></li>
+                                    </ul>
+                                    <!-- /.post-meta -->
+                                </div>
+                                <!-- /.post-footer -->
+                            </article>
+                            <!-- /article -->
+                        </div>
+                        <!--/.swiper-slide -->
+                        <div class="swiper-slide">
+                            <article>
+                                <figure class="overlay overlay-1 hover-scale rounded mb-6"><a href="#"> <img
+                                            src="img/photos/b7.jpg" alt="" /></a>
+                                    <figcaption>
+                                        <h5 class="from-top mb-0">Read More</h5>
+                                    </figcaption>
+                                </figure>
+                                <div class="post-header">
+                                    <h2 class="post-title h3 ls-sm mb-3"><a class="link-dark" href="blog-post.html">Morbi
+                                            leo risus porta eget</a></h2>
+                                </div>
+                                <div class="post-footer">
+                                    <ul class="post-meta">
+                                        <li class="post-date"><i class="uil uil-calendar-alt"></i><span>7 Jan
+                                                2022</span></li>
+                                        <li class="post-comments"><a href="#"><i
+                                                    class="uil uil-file-alt fs-15"></i>Business Tips</a></li>
+                                    </ul>
+                                    <!-- /.post-meta -->
+                                </div>
+                                <!-- /.post-footer -->
+                            </article>
+                            <!-- /article -->
+                        </div>
+                        <!--/.swiper-slide -->
+                    </div>
+                    <!--/.swiper-wrapper -->
+                </div>
+                <!-- /.swiper -->
+            </div>
+            <!-- /.swiper-container -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-gray position-relative min-vh-60 d-lg-flex align-items-center">
+        <div class="col-lg-6 position-lg-absolute top-0 end-0 image-wrapper bg-image bg-cover h-100"
+            data-image-src="img/photos/bg39.jpg">
+            <div class="divider text-gray divider-v-start d-none d-lg-block">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 1200">
+                    <g />
+                    <g>
+                        <g>
+                            <polygon fill="currentColor" points="6 0 0 0 0 1200 6 1200 54 0 6 0" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <!--/column -->
+        <div class="container">
+            <div class="row gx-0">
+                <div class="col-lg-6">
+                    <div class="pt-13 pb-15 pb-md-17 py-lg-16 pe-lg-15">
+                        <h2 class="fs-16 text-uppercase text-muted mb-3">Our Solutions</h2>
+                        <h3 class="display-3 ls-sm mb-5">Just sit & relax while we take care of your business
+                            needs.</h3>
+                        <p class="mb-6">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent
+                            commodo cursus. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent
+                            commodo cursus magna.</p>
+                        <div class="row align-items-center counter-wrapper gy-6">
+                            <div class="col-md-6">
+                                <h3 class="counter counter-lg mb-1">99.7%</h3>
+                                <h6 class="fs-17 ls-sm mb-1">Customer Satisfaction</h6>
+                                <span class="ratings five"></span>
+                            </div>
+                            <!--/column -->
+                            <div class="col-md-6">
+                                <h3 class="counter counter-lg mb-1">4x</h3>
+                                <h6 class="fs-17 ls-sm mb-1">New Visitors</h6>
+                                <span class="ratings five"></span>
+                            </div>
+                            <!--/column -->
+                        </div>
+                        <!--/.row -->
+                    </div>
+                </div>
+                <!--/column -->
+            </div>
+            <!--/.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-white">
+        <div class="container py-15 py-md-17">
+            <div class="row gy-10 gy-sm-13 gx-md-8 gx-xl-12 align-items-center mb-10 mb-md-12">
+                <div class="col-lg-6">
+                    <div class="row gx-md-5 gy-5">
+                        <div class="col-md-6">
+                            <figure class="rounded"><img src="img/photos/g14.jpg"
+                                    srcset="./img/photos/g14@2x.jpg 2x" alt=""></figure>
+                        </div>
+                        <!--/column -->
+                        <div class="col-md-6 align-self-end">
+                            <figure class="rounded"><img src="img/photos/g15.jpg"
+                                    srcset="./img/photos/g15@2x.jpg 2x" alt=""></figure>
+                        </div>
+                        <!--/column -->
+                        <div class="col-12">
+                            <figure class="rounded mx-md-5"><img src="img/photos/g16.jpg"
+                                    srcset="./img/photos/g16@2x.jpg 2x" alt=""></figure>
+                        </div>
+                        <!--/column -->
+                    </div>
+                    <!--/.row -->
+                </div>
+                <!--/column -->
+                <div class="col-lg-6">
+                    <h2 class="fs-15 text-uppercase text-muted mb-3">Who Are We?</h2>
+                    <h3 class="display-3 ls-sm mb-5">Company that believes in the power of creative strategy.</h3>
+                    <p class="mb-6">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                        ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo
+                        cursus magna, vel scelerisque nisl consectetur et. Cum sociis natoque penatibus et magnis
+                        dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed.</p>
+                    <div class="row gy-3 gx-xl-8">
+                        <div class="col-xl-6">
+                            <ul class="icon-list bullet-primary mb-0">
+                                <li><span><i class="uil uil-check"></i></span><span>Aenean eu leo quam ornare
+                                        curabitur blandit tempus.</span></li>
+                                <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Nullam quis
+                                        risus eget urna mollis ornare donec elit.</span></li>
+                            </ul>
+                        </div>
+                        <!--/column -->
+                        <div class="col-xl-6">
+                            <ul class="icon-list bullet-primary mb-0">
+                                <li><span><i class="uil uil-check"></i></span><span>Etiam porta sem malesuada magna
+                                        mollis euismod.</span></li>
+                                <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Fermentum massa
+                                        vivamus faucibus amet euismod.</span></li>
+                            </ul>
+                        </div>
+                        <!--/column -->
+                    </div>
+                    <!--/.row -->
+                </div>
+                <!--/column -->
+            </div>
+            <!--/.row -->
+            <div class="row gx-lg-8 gx-xl-12 gy-6 mb-15 mb-md-18">
+                <div class="col-lg-4">
+                    <div class="d-flex flex-row">
+                        <div>
+                            <img src="img/icons/lineal/target.svg"
+                                class="svg-inject icon-svg icon-svg-md text-blue me-5" alt="" />
+                        </div>
+                        <div>
+                            <h4 class="fs-20 ls-sm">Our Vision</h4>
+                            <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
+                                gravida at eget. Fusce dapibus tellus.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/column -->
+                <div class="col-lg-4">
+                    <div class="d-flex flex-row">
+                        <div>
+                            <img src="img/icons/lineal/award-2.svg"
+                                class="svg-inject icon-svg icon-svg-md text-green me-5" alt="" />
+                        </div>
+                        <div>
+                            <h4 class="fs-20 ls-sm">Our Mission</h4>
+                            <p class="mb-2">Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue
+                                laoreet. Sed posuere consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/column -->
+                <div class="col-lg-4">
+                    <div class="d-flex flex-row">
+                        <div>
+                            <img src="img/icons/lineal/loyalty.svg"
+                                class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="" />
+                        </div>
+                        <div>
+                            <h4 class="fs-20 ls-sm">Our Values</h4>
+                            <p class="mb-2">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent
+                                commodo cursus magna scelerisque.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/column -->
+            </div>
+            <!--/.row -->
+            <div class="row position-relative mb-15 mb-md-17">
+                <figure class="rounded position-absolute d-none d-lg-block"
+                    style="top: 50%; right:0; width: 45%; height: auto; transform: translateY(-50%); z-index:2">
+                    <img src="img/photos/tei1.jpg" srcset="./img/photos/tei1@2x.jpg 2x" alt="">
+                </figure>
+                <div class="col-lg-9 text-center">
+                    <div class="card bg-gray">
+                        <div class="card-body p-md-10 py-xxl-16">
+                            <div class="row gx-0">
+                                <div class="col-lg-8 ps-xl-10">
+                                    <span class="ratings five fs-20 mb-3"></span>
+                                    <blockquote class="border-0 fs-lg mb-0">
+                                        <p>“Donec id elit non mi porta gravida at eget metus. Vivamus mollis est non
+                                            commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec
+                                            elit. Duis mollis porta est non commodo luctus.”</p>
+                                        <div class="blockquote-details justify-content-center text-center">
+                                            <div class="info p-0">
+                                                <h4 class="ls-sm mb-1">Coriss Ambady</h4>
+                                                <p class="mb-0">Financial Analyst</p>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                                <!-- /column -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!--/.card-body -->
+                    </div>
+                    <!--/.card -->
+                </div>
+                <!-- /column -->
+            </div>
+            <!-- /.row -->
+            <div class="row text-center">
+                <div class="col-md-10 col-lg-8 col-xl-9 col-xxl-8 mx-auto">
+                    <h2 class="fs-15 text-uppercase text-muted mb-3">Our Pricing</h2>
+                    <h3 class="display-3 ls-sm mb-10 px-xl-15">We offer great prices and quality service for your
+                        business.</h3>
+                </div>
+                <!-- /column -->
+            </div>
+            <!-- /.row -->
+            <div class="pricing-wrapper mb-10 mb-md-14">
+                <div class="row gx-0 gy-6">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="pricing card shadow-none">
+                            <div class="card-body">
+                                <h4 class="card-title ls-sm">Basic Plan</h4>
+                                <div class="prices text-dark">
+                                    <div class="price justify-content-start"><span class="price-currency">$</span><span
+                                            class="price-value">9</span>
+                                        <span class="price-duration">mo</span>
+                                    </div>
+                                </div>
+                                <!--/.prices -->
+                                <ul class="icon-list bullet-green mt-7 mb-8">
+                                    <li><i class="uil uil-check"></i><span><strong>1</strong> Project </span></li>
+                                    <li><i class="uil uil-check"></i><span><strong>100K</strong> API Access </span>
+                                    </li>
+                                    <li><i class="uil uil-check"></i><span><strong>100MB</strong> Storage </span>
+                                    </li>
+                                    <li><i class="uil uil-times text-red"></i><span> Weekly
+                                            <strong>Reports</strong> </span></li>
+                                    <li><i class="uil uil-times text-red"></i><span> 7/24
+                                            <strong>Support</strong></span></li>
+                                </ul>
+                                <a href="#" class="btn btn-soft-primary rounded">Choose Plan</a>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.pricing -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="pricing card shadow-none">
+                            <div class="card-body">
+                                <h4 class="card-title ls-sm">Premium Plan</h4>
+                                <div class="prices text-dark">
+                                    <div class="price justify-content-start"><span class="price-currency">$</span><span
+                                            class="price-value">19</span>
+                                        <span class="price-duration">mo</span>
+                                    </div>
+                                </div>
+                                <!--/.prices -->
+                                <ul class="icon-list bullet-green mt-7 mb-8">
+                                    <li><i class="uil uil-check"></i><span><strong>5</strong> Projects </span></li>
+                                    <li><i class="uil uil-check"></i><span><strong>100K</strong> API Access </span>
+                                    </li>
+                                    <li><i class="uil uil-check"></i><span><strong>200MB</strong> Storage </span>
+                                    </li>
+                                    <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong></span>
+                                    </li>
+                                    <li><i class="uil uil-times text-red"></i><span> 7/24
+                                            <strong>Support</strong></span></li>
+                                </ul>
+                                <a href="#" class="btn btn-soft-primary rounded">Choose Plan</a>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.pricing -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="pricing card bg-gray">
+                            <div class="card-body">
+                                <h4 class="card-title ls-sm">Corporate Plan</h4>
+                                <div class="prices text-dark">
+                                    <div class="price justify-content-start"><span class="price-currency">$</span><span
+                                            class="price-value">29</span>
+                                        <span class="price-duration">mo</span>
+                                    </div>
+                                </div>
+                                <!--/.prices -->
+                                <ul class="icon-list bullet-green mt-7 mb-8">
+                                    <li><i class="uil uil-check"></i><span><strong>20</strong> Projects </span>
+                                    </li>
+                                    <li><i class="uil uil-check"></i><span><strong>300K</strong> API Access </span>
+                                    </li>
+                                    <li><i class="uil uil-check"></i><span><strong>500MB</strong> Storage </span>
+                                    </li>
+                                    <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong></span>
+                                    </li>
+                                    <li><i class="uil uil-check"></i><span> 7/24 <strong>Support</strong></span>
+                                    </li>
+                                </ul>
+                                <a href="#" class="btn btn-primary rounded">Choose Plan</a>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.pricing -->
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="pricing card shadow-none">
+                            <div class="card-body">
+                                <h4 class="card-title ls-sm">Community Plan</h4>
+                                <div class="prices text-dark">
+                                    <div class="price justify-content-start"><span class="price-currency">$</span><span
+                                            class="price-value">49</span>
+                                        <span class="price-duration">mo</span>
+                                    </div>
+                                </div>
+                                <!--/.prices -->
+                                <ul class="icon-list bullet-green mt-7 mb-8">
+                                    <li><i class="uil uil-check"></i><span><strong>90</strong> Projects </span>
+                                    </li>
+                                    <li><i class="uil uil-check"></i><span><strong>900K</strong> API Access </span>
+                                    </li>
+                                    <li><i class="uil uil-check"></i><span><strong>900MB</strong> Storage </span>
+                                    </li>
+                                    <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong> </span>
+                                    </li>
+                                    <li><i class="uil uil-check"></i><span> 7/24 <strong>Support</strong></span>
+                                    </li>
+                                </ul>
+                                <a href="#" class="btn btn-soft-primary rounded">Choose Plan</a>
+                            </div>
+                            <!--/.card-body -->
+                        </div>
+                        <!--/.pricing -->
+                    </div>
+                </div>
+                <!--/.row -->
+            </div>
+            <!--/.pricing-wrapper -->
+            <div class="row">
+                <div class="col-xl-11 mx-auto">
+                    <div class="row gx-md-8 gx-xl-12 gy-10 px-lg-5">
+                        <div class="col-lg-6">
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <img src="img/icons/lineal/check-list.svg"
+                                        class="svg-inject icon-svg icon-svg-sm text-blue me-5 mt-1" alt="" />
+                                </div>
+                                <div>
+                                    <h4 class="fs-20 ls-sm">Can I cancel my subscription?</h4>
+                                    <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+                                        malesuada magna mollis euismod.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /column -->
+                        <div class="col-lg-6">
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <img src="img/icons/lineal/wallet.svg"
+                                        class="svg-inject icon-svg icon-svg-sm text-yellow me-5 mt-1" alt="" />
+                                </div>
+                                <div>
+                                    <h4 class="fs-20 ls-sm">Which payment methods do you accept?</h4>
+                                    <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+                                        malesuada magna mollis euismod.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /column -->
+                        <div class="col-lg-6">
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <img src="img/icons/lineal/insurance.svg"
+                                        class="svg-inject icon-svg icon-svg-sm text-pink me-5 mt-1" alt="" />
+                                </div>
+                                <div>
+                                    <h4 class="fs-20 ls-sm">How can I manage my Account?</h4>
+                                    <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+                                        malesuada magna mollis euismod.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /column -->
+                        <div class="col-lg-6">
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <img src="img/icons/lineal/padlock.svg"
+                                        class="svg-inject icon-svg icon-svg-sm text-green me-5 mt-1" alt="" />
+                                </div>
+                                <div>
+                                    <h4 class="fs-20 ls-sm">Is my credit card information secure?</h4>
+                                    <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+                                        malesuada magna mollis euismod.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /column -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /column -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /section -->
     </div>
-    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/theme.js"></script>
-</body>
-
-</html>
+@endsection
