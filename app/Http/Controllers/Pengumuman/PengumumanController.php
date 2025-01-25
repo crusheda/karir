@@ -9,6 +9,6 @@ class PengumumanController extends Controller
 {
     public function index()
     {
-        return view('pages.pengumuman.index');
+        return view('pages.rekrutmen.pengumuman.index');
     }
 }

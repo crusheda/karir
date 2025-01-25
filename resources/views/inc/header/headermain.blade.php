@@ -13,17 +13,9 @@
                         aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('portal.index') ? 'active' : '' }}" href="{{ route('portal.index') }}">Beranda</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="#" data-bs-toggle="dropdown">Informasi</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="{{ route('pengumuman.index') }}">Pengumuman</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('rekrutmen.index') ? 'active' : '' }}" href="{{ route('rekrutmen.index') }}">Rekrutmen</a></li>
-                    </ul>
-                    <!-- /.navbar-nav -->
+
+                    @include('inc.navbar')
+
                     <div class="offcanvas-footer d-lg-none">
                         <div>
                             <a href="https://maps.app.goo.gl/dAXzJ6FPecvjkiXv7" class="link-inverse"><span class="">Jl. Mayor Sunaryo No. 37 Sukoharjo, JT (57512)</span></a><br />
@@ -42,14 +34,14 @@
                 <!-- /.offcanvas-body -->
             </div>
             <div class="navbar-other ms-lg-4">
-              <ul class="navbar-nav flex-row align-items-center ms-auto">
-                <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"><i class="uil uil-info-circle"></i></a></li>
-                <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="uil uil-search"></i></a></li>
-                <li class="nav-item d-lg-none">
-                  <button class="hamburger offcanvas-nav-btn"><span></span></button>
-                </li>
-              </ul>
-              <!-- /.navbar-nav -->
+                <ul class="navbar-nav flex-row align-items-center ms-auto">
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"><i class="uil uil-info-circle"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="uil uil-search"></i></a></li>
+                    <li class="nav-item d-lg-none">
+                        <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                    </li>
+                </ul>
+                <!-- /.navbar-nav -->
             </div>
         </div>
         <!-- /.container -->

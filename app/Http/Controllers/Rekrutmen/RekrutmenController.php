@@ -25,6 +25,6 @@ class RekrutmenController extends Controller
             'alamat' => $alamat,
         ];
 
-        return view('pages.rekrutmen.index')->with('list', $data);
+        return view('pages.rekrutmen.registrasi.index')->with('list', $data);
     }
 }

@@ -14,15 +14,7 @@
                         aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('portal.index') ? 'active' : '' }}" href="{{ route('portal.index') }}">Beranda</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="#" data-bs-toggle="dropdown">Informasi</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="{{ route('pengumuman.index') }}">Pengumuman</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('rekrutmen.index') ? 'active' : '' }}" href="{{ route('rekrutmen.index') }}">Rekrutmen</a></li>
+                    @include('inc.navbar')
                             {{-- <ul class="dropdown-menu">
                                 <li class="dropdown dropdown-submenu dropend"><a
                                         class="dropdown-item dropdown-toggle" href="#"
@@ -420,7 +412,6 @@
                             </ul>
                             <!--/.dropdown-menu -->
                         </li> --}}
-                    </ul>
                     <!-- /.navbar-nav -->
                     <div class="offcanvas-footer d-lg-none">
                         <div>

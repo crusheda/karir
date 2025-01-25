@@ -19,8 +19,8 @@ use App\Http\Controllers\Pengumuman\PengumumanController;
 // });
 
 Route::get('/', [PortalController::class, 'index'])->name('portal.index');
-Route::get('/rekrutmen', [RekrutmenController::class, 'index'])->name('rekrutmen.index');
-Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
+Route::get('/rekrutmen/registrasi', [RekrutmenController::class, 'index'])->name('rekrutmen.index');
+Route::get('/rekrutmen/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('home');

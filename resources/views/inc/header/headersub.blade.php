@@ -14,17 +14,9 @@
                         aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('portal.index') ? 'active' : '' }}" href="{{ route('portal.index') }}">Beranda</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="#" data-bs-toggle="dropdown">Informasi</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="{{ route('pengumuman.index') }}">Pengumuman</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('rekrutmen.index') ? 'active' : '' }}" href="{{ route('rekrutmen.index') }}">Rekrutmen</a></li>
-                    </ul>
-                    <!-- /.navbar-nav -->
+
+                    @include('inc.navbar')
+
                     <div class="offcanvas-footer d-lg-none">
                         <div>
                             <a href="https://maps.app.goo.gl/dAXzJ6FPecvjkiXv7" class="link-inverse"><span class="">Jl. Mayor Sunaryo No. 37 Sukoharjo, JT (57512)</span></a><br />
@@ -55,7 +47,9 @@
                         </ul>
                     </li> --}}
                     <li class="nav-item d-none d-md-block">
-                        <a href="{{ route('rekrutmen.index') }}" class="btn btn-sm btn-primary rounded-pill"><i class="uil uil-users-alt me-2"></i> Rekrutmen Pegawai</a>
+                        <a href="tel:0271593979" class="btn btn-danger text-white btn-sm"><i class="fas fa-phone text-warning me-2"></i>IGD 24 JAM</a>
+                        {{-- <a href="{{ route('rekrutmen.index') }}" class="btn btn-sm btn-primary rounded-pill"><i class="uil uil-users-alt me-2"></i> Rekrutmen Pegawai</a> --}}
+                        {{-- <a href="{{ route('rekrutmen.index') }}" class="btn btn-sm btn-primary rounded-pill"><i class="uil uil-users-alt me-2"></i> Rekrutmen Pegawai</a> --}}
                     </li>
                     <li class="nav-item d-lg-none">
                         <button class="hamburger offcanvas-nav-btn"><span></span></button>

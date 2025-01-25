@@ -1,19 +1,19 @@
 @extends('layouts.main')
 
 @section('content')
-    <section class="wrapper image-wrapper bg-cover bg-image bg-xs-none bg-gray" data-image-src="img/pku/gedung/bg-gedung-very-small.png">
+    <section class="wrapper image-wrapper bg-cover bg-image bg-xs-none bg-gray" data-image-src="{{ asset('img/pku/gedung/bg-gedung-very-small.png') }}">
         <div class="container pt-17 pb-15 py-sm-17 py-xxl-20">
             <div class="row">
-                <div class="col-sm-6 col-xxl-5 text-center text-sm-start" data-cues="slideInDown" data-group="page-title" data-interval="-200" data-delay="500">
+                <div class="col-sm-9 col-xxl-5 text-center text-sm-start" data-cues="slideInDown" data-group="page-title" data-interval="-200" data-delay="500">
                     <h6 class="display-1 fs-30 mb-4 mt-0 mt-lg-5 ls-xs pe-xl-5 pe-xxl-0"><span class="underline-3 style-3 yellow">Portal Resmi</span></h6>
                     <h2 class="display-1 fs-56 mb-4 mt-0 mt-lg-5 ls-xs pe-xl-5 pe-xxl-0">Rumah Sakit PKU Muhammadiyah Sukoharjo</h2>
                     <p class="lead fs-23 lh-sm mb-7 pe-lg-5 pe-xl-5 pe-xxl-0">Amanah, Santun, Ramah, Ikhlas (ASRI)</p>
                     <div>
-                        <a href="#" class="btn btn-lg btn-dark rounded me-2"><i class="fas fa-user me-1"></i> Reservasi Online</a>
-                        <a href="#" class="btn btn-lg btn-success text-white rounded"><i class="fas fa-calendar me-1"></i> Jadwal Dokter</a>
+                        <a href="#" class="btn btn-lg btn-dark rounded me-2 mb-3"><i class="fas fa-user me-2"></i> Reservasi Online</a>
+                        <a href="#" class="btn btn-lg btn-success text-white rounded mb-3"><i class="fas fa-calendar me-2"></i> Jadwal Dokter</a>
                     </div>
-                    <div style="display: flex; align-items: center" class="mt-4">
-                        <a style=”text-align:justify;” href="javascript:void(0)" class="me-3">Radio : </a>
+                    <div style="display: flex; align-items: center" class="mt-2">
+                        <a style=”text-align:justify;” href="javascript:void(0)" class="text-dark me-3">Radio : </a>
                         <audio class="" controls>
                             <source src="https://b3.stri.my.id:4320/radio" type="audio/mpeg">
                         </audio>
@@ -25,14 +25,49 @@
         </div>
         <!-- /.container -->
     </section>
-    <!-- /section -->
+
     <section class="wrapper bg-light">
+        <div class="px-lg-5">
+            <div class=" pt-5 pb-3">
+                {{-- <h2 class="fs-16 text-uppercase text-muted mb-8 text-center">Mitra Kami</h2> --}}
+                <div class="swiper-container clients" data-margin="30" data-dots="false"
+                    data-loop="true" data-autoplay="true" data-autoplaytime="1" data-drag="false"
+                    data-speed="5000" data-items-xxl="10" data-items-xl="9" data-items-lg="8"
+                    data-items-md="5" data-items-sm="4" data-items-xs="3">
+                    <div class="swiper pe-none">
+                        <div class="swiper-wrapper ticker">
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/bpjskes.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/bpjsnaker.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/admedika.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/alodokter.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/arah.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/bjs.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/iforte.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/indihome.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/jr.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/lazismu.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/mdmc.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/pmi.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/pos.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/suryamedika.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/telkom.jpg') }}" style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/turbonet.jpg') }}" style="width:100px" alt="" /></div>
+                        </div>
+                        <!--/.swiper-wrapper -->
+                    </div>
+                    <!-- /.swiper -->
+                </div>
+            </div>
+            <!--/.row -->
+        </div>
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-gray">
         <div class="container py-15 py-md-17">
             <div class="row text-center">
                 <div class="col-md-10 col-lg-9 col-xxl-8 mx-auto">
-                    <h2 class="fs-15 text-uppercase text-muted mb-3">What We Do?</h2>
-                    <h3 class="display-3 ls-sm mb-9 px-xl-11">The service we offer is specifically designed to meet
-                        your needs.</h3>
+                    <h2 class="fs-15 text-uppercase text-muted mb-3">LEBIH DEKAT</h2>
+                    <h3 class="display-3 ls-sm mb-9 px-xl-11">Tentang Kami</h3>
                 </div>
                 <!-- /column -->
             </div>
@@ -45,7 +80,7 @@
                                 class="svg-inject icon-svg icon-svg-md text-blue me-5 mt-1" alt="" />
                         </div>
                         <div>
-                            <h4 class="fs-20 ls-sm">24/7 Support</h4>
+                            <h4 class="fs-20 ls-sm">Pelayanan IGD 24 Jam</h4>
                             <p class="mb-0">Duis mollis gravida commodo id luctus erat porttitor ligula, eget
                                 lacinia odio sem aget elit nullam quis risus eget.</p>
                         </div>
@@ -59,9 +94,8 @@
                                 class="svg-inject icon-svg icon-svg-md text-yellow me-5 mt-1" alt="" />
                         </div>
                         <div>
-                            <h4 class="fs-20 ls-sm">Secure Payments</h4>
-                            <p class="mb-0">Duis mollis gravida commodo id luctus erat porttitor ligula, eget
-                                lacinia odio sem aget elit nullam quis risus eget.</p>
+                            <h4 class="fs-20 ls-sm">Fasilitas Lengkap</h4>
+                            <p class="mb-0">Kami mempunyai komitmen untuk pelayanan yang lengkap dan ramah pada setiap pengunjung dengan tetap mengutamakan kaidah islami.</p>
                         </div>
                     </div>
                 </div>
@@ -73,9 +107,8 @@
                                 class="svg-inject icon-svg icon-svg-md text-orange me-5" alt="" />
                         </div>
                         <div>
-                            <h4 class="fs-20 ls-sm">Daily Updates</h4>
-                            <p class="mb-0">Duis mollis gravida commodo id luctus erat porttitor ligula, eget
-                                lacinia odio sem aget elit nullam quis risus eget.</p>
+                            <h4 class="fs-20 ls-sm">Pelayanan Paripurna</h4>
+                            <p class="mb-0">Kami terus berinovasi dan mengembangkan diri untuk terus memberikan layanan yang paripurna bagi pasien.</p>
                         </div>
                     </div>
                 </div>
@@ -87,9 +120,8 @@
                                 class="svg-inject icon-svg icon-svg-md text-pink me-5" alt="" />
                         </div>
                         <div>
-                            <h4 class="fs-20 ls-sm">Market Research</h4>
-                            <p class="mb-0">Duis mollis gravida commodo id luctus erat porttitor ligula, eget
-                                lacinia odio sem aget elit nullam quis risus eget.</p>
+                            <h4 class="fs-20 ls-sm">Tenaga Medis Profesional</h4>
+                            <p class="mb-0">Kami mempunyai dokter dan tenaga medis yang profesional sehingga memberikan pelayanan kesehatan yang terbaik.</p>
                         </div>
                     </div>
                 </div>
@@ -101,9 +133,8 @@
                                 class="svg-inject icon-svg icon-svg-md text-green me-5 mt-1" alt="" />
                         </div>
                         <div>
-                            <h4 class="fs-20 ls-sm">Social Engagement</h4>
-                            <p class="mb-0">Duis mollis gravida commodo id luctus erat porttitor ligula, eget
-                                lacinia odio sem aget elit nullam quis risus eget.</p>
+                            <h4 class="fs-20 ls-sm">Teknologi Modern</h4>
+                            <p class="mb-0">Kami memberikan peralatan yang modern dan terbaru sehingga mampu meningkatkan diagnosa penyakit yang akurat dan penanganan yang tepat.</p>
                         </div>
                     </div>
                 </div>
@@ -342,24 +373,20 @@
             <div class="row gx-0">
                 <div class="col-lg-6">
                     <div class="pt-13 pb-15 pb-md-17 py-lg-16 pe-lg-15">
-                        <h2 class="fs-16 text-uppercase text-muted mb-3">Our Solutions</h2>
-                        <h3 class="display-3 ls-sm mb-5">Just sit & relax while we take care of your business
-                            needs.</h3>
-                        <p class="mb-6">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-                            ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent
-                            commodo cursus. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent
-                            commodo cursus magna.</p>
+                        <h2 class="fs-16 text-uppercase text-muted mb-3">INDIKATOR MUTU</h2>
+                        <h3 class="display-3 ls-sm mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit</h3>
+                        <p class="mb-6">Rumah Sakit PKU Muhammadiyah Sukoharjo terus berbenah diri untuk mengembangkan kualitas Manajemen Rumah Sakit, melaksanakan tugas dan fungsi rumah sakit secara profesional.</p>
                         <div class="row align-items-center counter-wrapper gy-6">
                             <div class="col-md-6">
-                                <h3 class="counter counter-lg mb-1">99.7%</h3>
-                                <h6 class="fs-17 ls-sm mb-1">Customer Satisfaction</h6>
+                                <h3 class="counter counter-lg mb-1">98.7%</h3>
+                                <h6 class="fs-17 ls-sm mb-1">Kepuasan Pelanggan</h6>
                                 <span class="ratings five"></span>
                             </div>
                             <!--/column -->
                             <div class="col-md-6">
-                                <h3 class="counter counter-lg mb-1">4x</h3>
-                                <h6 class="fs-17 ls-sm mb-1">New Visitors</h6>
-                                <span class="ratings five"></span>
+                                <h3 class="counter counter-lg mb-1">± 15xxx</h3>
+                                <h6 class="fs-17 ls-sm mb-1">Total Pengunjung</h6>
+                                <h6 class="fs-13 ls-sm mb-1">Per Bulan (RJ,RI,RD)</h6>
                             </div>
                             <!--/column -->
                         </div>
@@ -714,4 +741,10 @@
     </section>
     <!-- /section -->
     </div>
+
+    <script>
+        $(document).ready(function() {
+            // $('#mitra').prop('hidden',false);
+        })
+    </script>
 @endsection

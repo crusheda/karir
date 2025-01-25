@@ -14,7 +14,7 @@
                         {{-- <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> --}}
                         <script>
                             document.write(new Date().getUTCFullYear());
-                        </script> EST. <br class="d-none d-lg-block" />All rights reserved.
+                        </script> DEV. <br class="d-none d-lg-block" />All rights reserved.
                     </p>
                     <nav class="nav social social-muted">
                         <a href="https://x.com/rspkusukoharjo" target="_blank"><i class="uil uil-twitter" style="font-size: 25px;color:black"></i></a>
