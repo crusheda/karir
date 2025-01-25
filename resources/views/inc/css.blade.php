@@ -10,13 +10,14 @@
 <link rel="shortcut icon" href="{{ asset('img/pku/pku_ico.png') }}">
 <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/colors/navy.css') }}">
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
 <!-- [phosphor Icons] https://phosphoricons.com/ -->
 <link rel="stylesheet" href="{{ asset('fonts/phosphor/duotone/style.css') }}">
 <!-- [Tabler Icons] https://tablericons.com -->
 <link rel="stylesheet" href="{{ asset('fonts/tabler-icons.min.css') }}">
 <!-- [Feather Icons] https://feathericons.com -->
-<link rel="stylesheet" href="{{ asset('fonts/feather.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('fonts/feather.css') }}"> --}}
 <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
 <link rel="stylesheet" href="{{ asset('fonts/fontawesome.css') }}">
 <!-- [Material Icons] https://fonts.google.com/icons -->
