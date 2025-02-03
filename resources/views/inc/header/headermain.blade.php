@@ -3,7 +3,8 @@
         <div class="container flex-lg-row flex-nowrap align-items-center">
             <div class="navbar-brand w-100">
                 <a href="{{ route('portal.index') }}">
-                    <img src="{{ asset('img/pku/logo_admin.png') }}" alt="logo" class="img-fluid" style="height: 1rem;width: auto;margin-top: -10px;">
+                    {{-- <img src="{{ asset('img/pku/logo_admin.png') }}" alt="logo" class="img-fluid" style="height: 1rem;width: auto;margin-top: -10px;"> --}}
+                    <img src="{{ asset('img/pku/logo-1-sm-green.png') }}" alt="logo" class="img-fluid" style="height: 2.2rem;width: auto;">
                 </a>
             </div>
             <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
@@ -35,7 +36,8 @@
             </div>
             <div class="navbar-other ms-lg-4">
                 <ul class="navbar-nav flex-row align-items-center ms-auto">
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"><i class="uil uil-info-circle"></i></a></li>
+                    {{-- <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"><i class="uil uil-info-circle"></i></a></li> --}}
+                    <li class="nav-item"><a class="nav-link"><i class="uil uil-info-circle"></i></a></li>
                     <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="uil uil-search"></i></a></li>
                     <li class="nav-item d-lg-none">
                         <button class="hamburger offcanvas-nav-btn"><span></span></button>
@@ -96,12 +98,11 @@
     <!-- /.offcanvas -->
     <div class="offcanvas offcanvas-top bg-light" id="offcanvas-search" data-bs-scroll="true">
         <div class="container d-flex flex-row py-6">
-            <form class="search-form w-100">
+            {{-- <form class="search-form w-100"> --}}
                 <input id="search-form" type="text" class="form-control"
                     placeholder="Tuliskan sesuatu ...">
-            </form>
-            <!-- /.search-form -->
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            {{-- </form> --}}
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" disabled></button>
         </div>
         <!-- /.container -->
     </div>

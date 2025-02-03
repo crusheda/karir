@@ -50,7 +50,7 @@
             <div class="col-md-12 col-lg-3">
                 <div class="widget">
                     <h4 class="widget-title text-white mb-3">Lebih dekat dengan Kami</h4>
-                    <p class="mb-5">Kirimkan email Anda untuk mendapatkan berita terkini Rumah Sakit</p>
+                    <p class="mb-5">Tetap sehat dan bahagia bersama Rumah Sakit PKU Muhammadiyah Sukoharjo</p>
                     <div class="newsletter-wrapper">
                         <!-- Begin Mailchimp Signup Form -->
                         <div id="mc_embed_signup2">
