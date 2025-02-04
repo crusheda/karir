@@ -8,6 +8,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PortalController;
+use App\Http\Controllers\Tentang\ProfilController;
 use App\Http\Controllers\Rekrutmen\RekrutmenController;
 use App\Http\Controllers\Pengumuman\PengumumanController;
 
@@ -19,6 +20,7 @@ use App\Http\Controllers\Pengumuman\PengumumanController;
 // });
 
 Route::get('/', [PortalController::class, 'index'])->name('portal.index');
+Route::get('/tentang/profil', [ProfilController::class, 'index'])->name('tentang.profil.index');
 Route::get('/rekrutmen/registrasi', [RekrutmenController::class, 'index'])->name('rekrutmen.index');
 Route::get('/rekrutmen/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
 
