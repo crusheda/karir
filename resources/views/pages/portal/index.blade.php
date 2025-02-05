@@ -21,7 +21,7 @@
                         <a href="https://simgos.rspkusukoharjo.com:1111/apps/RegOnline/" target="_blank"
                             class="btn btn-lg btn-dark rounded me-2 mb-3"><i class="fas fa-user me-2"></i> Reservasi
                             Online</a>
-                        <a href="#" class="btn btn-lg btn-success text-white rounded mb-3"><i
+                        <a href="javascript:void(0);" class="btn btn-lg btn-success text-white rounded mb-3"><i
                                 class="fas fa-calendar me-2"></i> Jadwal Dokter</a>
                     </div>
                     <div style="display: flex; align-items: center" class="mt-2">
@@ -52,26 +52,28 @@
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/bpjsnaker.jpg') }}"
                                     style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/taspen.png') }}"
+                                    style="" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/admedika.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/alodokter.jpg') }}"
                                     style="width:100px" alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/arah.jpg') }}" style="width:100px"
-                                    alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/bjs.jpg') }}" style="width:100px"
-                                    alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/arah.jpg') }}"
+                                    style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/bjs.jpg') }}"
+                                    style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/iforte.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/indihome.jpg') }}"
                                     style="width:100px" alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/jr.jpg') }}" style="width:100px"
-                                    alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/jr.jpg') }}"
+                                    style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/lazismu.jpg') }}"
                                     style="width:100px" alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/mdmc.jpg') }}" style="width:100px"
-                                    alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/pmi.jpg') }}" style="width:100px"
-                                    alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/mdmc.jpg') }}"
+                                    style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/pmi.jpg') }}"
+                                    style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/pos.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/suryamedika.jpg') }}"
