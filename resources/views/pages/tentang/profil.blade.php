@@ -39,13 +39,11 @@
                 <div class="col-lg-6">
                     <img src="/img/icons/lineal/megaphone.svg" class="svg-inject icon-svg icon-svg-md mb-4"
                         alt="" />
-                    <h2 class="display-4 mb-3">Who Are We?</h2>
-                    <p class="lead fs-lg">We are a digital and branding company that believes in the power of creative
-                        strategy and along with great design.</p>
-                    <p class="mb-6">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel
-                        scelerisque nisl consectetur et.</p>
-                    <div class="row gy-3 gx-xl-8">
+                    <h2 class="display-5 mb-3">RS PKU Muhammadiyah Sukoharjo?</h2>
+                    <p class="lead fs-lg">Rumah Sakit Milik Pimpinan Daerah Muhammadiyah (<span class="underline-3 style-3 orange"><b>PDM</b></span>) Kabupaten Sukoharjo</p>
+                    <p class="mb-3">Yang bertugas menyelenggarakan pelayanan kesehatan dengan upaya penyembuhan, pemulihan, peningkatan, pencegahan, dan pelayanan rujukan.</p>
+                    <p class="mb-5">Rumah Sakit PKU Muhammadiyah Sukoharjo merupakan pelayanan publik yang senantiasa melakukan pemasaran atas peran, fungsi dan manajemen Rumah Sakit secara profesional.</p>
+                    {{-- <div class="row gy-3 gx-xl-8">
                         <div class="col-xl-6">
                             <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
                                 <li><span><i class="uil uil-check"></i></span><span>Aenean eu leo quam ornare curabitur
@@ -64,7 +62,7 @@
                             </ul>
                         </div>
                         <!--/column -->
-                    </div>
+                    </div> --}}
                     <!--/.row -->
                 </div>
                 <!--/column -->
@@ -73,7 +71,7 @@
             <div class="row mb-5">
                 <div class="col-md-10 col-xl-8 col-xxl-7 mx-auto text-center">
                     <img src="/img/icons/lineal/list.svg" class="svg-inject icon-svg icon-svg-md mb-4" alt="" />
-                    <h2 class="display-4 mb-4 px-lg-14">Here are 3 working steps to organize our business projects.</h2>
+                    <h2 class="display-4 mb-4 px-lg-14">Sekilas tentang Kami.</h2>
                 </div>
                 <!-- /column -->
             </div>
@@ -84,67 +82,129 @@
                         <div class="card-body p-6">
                             <div class="d-flex flex-row">
                                 <div>
-                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
-                                            class="number">01</span></span>
+                                    <img src="/img/illustrations/ni4.png" class="w-7 me-5" alt="" />
+                                    {{-- <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
+                                            class="number">“22</span></span> --}}
                                 </div>
                                 <div>
-                                    <h4 class="mb-1">Collect Ideas</h4>
-                                    <p class="mb-0">Nulla vitae elit libero pharetra augue dapibus.</p>
+                                    <h4 class="mb-1">Perizinan RS (10 Agustus 2022)</h4>
+                                    <p class="mb-0">mendapatkan Perizinan Berusaha Berbasis Risiko oleh Sistem OSS (Online
+                                        Single Submission) dan Penetapan Rumah Sakit Umum Kelas C Kedua dengan Nomor Izin
+                                        <mark>91201142810850002</mark> sebagai Perpanjangan Izin Rumah Sakit Umum kelas C</p>
                                 </div>
                             </div>
                         </div>
                         <!--/.card-body -->
                     </div>
-                    <!--/.card -->
                     <div class="card ms-lg-13 mt-6">
                         <div class="card-body p-6">
                             <div class="d-flex flex-row">
                                 <div>
-                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
-                                            class="number">02</span></span>
+                                    <img src="/img/illustrations/ni3.png" class="w-7 me-5" alt="" />
                                 </div>
                                 <div>
-                                    <h4 class="mb-1">Data Analysis</h4>
-                                    <p class="mb-0">Vivamus sagittis lacus vel augue laoreet.</p>
+                                    <h4 class="mb-1">Akreditasi RS (27 Maret 2023)</h4>
+                                    <p class="mb-0">telah terakreditasi dengan tingkat kelulusan Paripurna Bintang Lima oleh
+                                        Lembaga Akreditasi Rumah Sakit Indonesia (LARSI) dengan Nomor <mark>LARSI/SERTIFIKAT/138/03/2023</mark>
+                                        berlaku dari sampai 27 Maret 2023 sampai 25 Maret 2027</p>
                                 </div>
                             </div>
                         </div>
                         <!--/.card-body -->
                     </div>
-                    <!--/.card -->
-                    <div class="card mx-lg-6 mt-6">
+                    {{-- <div class="card mx-lg-6 mt-6">
                         <div class="card-body p-6">
                             <div class="d-flex flex-row">
                                 <div>
                                     <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
-                                            class="number">03</span></span>
+                                            class="number"></span></span>
                                 </div>
                                 <div>
-                                    <h4 class="mb-1">Finalize Product</h4>
-                                    <p class="mb-0">Cras mattis consectetur purus sit amet.</p>
+                                    <h4 class="mb-1"></h4>
+                                    <p class="mb-0"></p>
                                 </div>
                             </div>
                         </div>
                         <!--/.card-body -->
-                    </div>
+                    </div> --}}
                     <!--/.card -->
                 </div>
                 <!--/column -->
                 <div class="col-lg-6">
-                    <h2 class="display-6 mb-3">How It Works?</h2>
-                    <p class="lead fs-lg pe-lg-5">Find out everything you need to know and more about how we create our
-                        business process models.</p>
-                    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem
-                        malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis
-                        risus eget urna mollis ornare.</p>
-                    <p class="mb-6">Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta
-                        felis euismod semper. Aenean lacinia bibendum nulla sed consectetur. Sed posuere consectetur est at
-                        lobortis. Vestibulum id ligula porta felis.</p>
-                    <a href="#" class="btn btn-primary rounded-pill mb-0">Learn More</a>
+                    <h2 class="display-6 mb-3"><span class="underline-3 style-2 yellow">Gambaran Umum</span></h2>
+                    <p class="lead fs-lg pe-lg-5">Rumah Sakit PKU Muhammadiyah Sukoharjo berada pada 110.815 0 BT,-7.69788450 LU, dengan kondisi topografi dataran yang landau ± 3060 M2.</p>
+                    <p><span class="dropcap text-dark">R</span>umah Sakit PKU Muhammadiyah Sukoharjo yang terletak di daerah pemukiman padat penduduk tidak terlepas dari salah satu fungsinya
+                        yaitu menyelenggarakan pelayanan pengobatan dan pemulihan kesehatan sesuai dengan standar pelayanan Rumah Sakit.</p>
+                    <p>Rumah Sakit PKU Muhammadiyah Sukoharjo adalah salah satu Rumah Sakit swasta milik Persyarikatan Muhammadiyah yang ikut berperan dalam pelayanan kesehatan di Sukoharjo dan
+                        berada di bawah naungan Pimpinan Daerah Muhammadiyah Kabupaten Sukoharjo. Berdasarkan klasifikasi Rumah Sakit, Rumah Sakit PKU Muhammadiyah Sukoharjo merupakan rumah sakit tipe C</p>
+                    <p>Rumah sakit ini memiliki berbagai dokter spesialis yang siap melayani pasien. Untuk informasi jadwal praktik dokter, Anda dapat mengunjungi situs resmi rumah sakit atau
+                        menghubungi langsung melalui kontak yang tersedia.</p>
+                    <p class="mb-6"></p>
+                    <a href="javascript:void(0);" class="btn btn-primary rounded-pill mb-0">Jadwal Dokter Spesialis</a>
                 </div>
                 <!--/column -->
             </div>
             <!--/.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <section class="wrapper bg-gray angled upper-end lower-end">
+        <div class="container py-15 py-md-17">
+            <div class="row d-flex align-items-start gy-10">
+                <div class="col-lg-5 position-lg-sticky" style="top: 8rem;">
+                    <h2 class="fs-16 text-uppercase text-muted mb-3">Sejarah?</h2>
+                    <h3 class="display-2 ls-xs mb-5">Tahun 2025 adalah tahun yang <span class="underline-3 style-2 yellow">Istimewa</span>.</h3>
+                    <p>Insyaallah pada pertengahan tahun 2025 akan berdiri dan diresmikan gedung baru (4 Lantai) pada bagian utara Rumah Sakit yang diperuntukkan sebagai Bangsal dengan standar
+                        <figure class="rounded"><img src="/img/photos/about3.jpg" class="float-end imgshadow" srcset="/img/photos/about3.jpg 2x" style="width: 200px;" alt=""></figure>
+                        <span class="underline-3 style-2 sky">KRIS</span> (Kelas Rawat Inap Standar) BPJS, yakni sistem kelas perawatan baru dalam program Jaminan Kesehatan Nasional (JKN) yang menggantikan kelas 1, 2, dan 3 di rumah sakit.</p>
+                    <p class="mb-7"><span class="underline-3 style-2 sky">KRIS BPJS</span> bertujuan untuk memberikan standar fasilitas yang sama bagi semua peserta BPJS Kesehatan, tanpa membedakan kelas berdasarkan iuran.</p>
+                    {{-- <a href="#" class="btn btn-primary"></a> --}}
+                </div>
+                <!-- /column -->
+                <div class="col-lg-6 ms-auto">
+                    <div class="card mb-6">
+                        <div class="card-body d-flex flex-row">
+                            <div>
+                                <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“1.</span></span>
+                            </div>
+                            <div>
+                                <h3 class="fs-21 ls-xs mb-2">Tahun 1992</h3>
+                                <p class="mb-0">Tahun 1992 mendapat wakaf tanah dari keluarga ibu Hj. Sunarto Batik Putri Pantes seluas 1100 meter persegi.</p>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <div class="card mb-6">
+                        <div class="card-body d-flex flex-row">
+                            <div>
+                                <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“2.</span></span>
+                            </div>
+                            <div>
+                                <h3 class="fs-21 ls-xs mb-2">Tahun 1993</h3>
+                                <p class="mb-0">PDM Sukoharjo mendapat bantuan dari Hj. Khodijah Al Kubro (Emirat Arab) untuk membangun Rumah Bersalin PKU Muhammadiyah Sukoharjo.</p>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <div class="card">
+                        <div class="card-body d-flex flex-row">
+                            <div>
+                                <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“20.</span></span>
+                            </div>
+                            <div>
+                                <h3 class="fs-21 ls-xs mb-2"></h3>
+                                <p class="mb-0">.</p>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /column -->
+            </div>
+            <!-- /.row -->
         </div>
         <!-- /.container -->
     </section>
@@ -166,43 +226,8 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <blockquote class="icon fs-lg">
-                                        <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                                            Vestibulum ligula porta felis euismod semper. Cras justo odio consectetur nulla
-                                            dapibus curabitur blandit.”</p>
-                                        <div class="blockquote-details">
-                                            <div class="info ps-0">
-                                                <h5 class="mb-1">Coriss Ambady</h5>
-                                                <p class="mb-0">Financial Analyst</p>
-                                            </div>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                                <!--/.swiper-slide -->
-                                <div class="swiper-slide">
-                                    <blockquote class="icon fs-lg">
-                                        <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                                            Vestibulum ligula porta felis euismod semper. Cras justo odio consectetur
-                                            adipiscing dapibus curabitur blandit.”</p>
-                                        <div class="blockquote-details">
-                                            <div class="info ps-0">
-                                                <h5 class="mb-1">Cory Zamora</h5>
-                                                <p class="mb-0">Marketing Specialist</p>
-                                            </div>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                                <!--/.swiper-slide -->
-                                <div class="swiper-slide">
-                                    <blockquote class="icon fs-lg">
-                                        <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                                            Vestibulum ligula porta felis euismod semper. Cras justo odio consectetur
-                                            adipiscing dapibus curabitur blandit.”</p>
-                                        <div class="blockquote-details">
-                                            <div class="info ps-0">
-                                                <h5 class="mb-1">Nikolas Brooten</h5>
-                                                <p class="mb-0">Sales Manager</p>
-                                            </div>
-                                        </div>
+                                        <p><center>“Kesembuhan Datangnya dari Allah, Kepuasan Anda adalah tanggungjawab kami.”</center></p>
+                                        <h5 class="mb-1"><center>Motto Rumah Sakit</center></h5>
                                     </blockquote>
                                 </div>
                                 <!--/.swiper-slide -->
@@ -336,29 +361,29 @@
                         <div class="col-md-3">
                             <img src="/img/icons/lineal/check.svg"
                                 class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
-                            <h3 class="counter">7518</h3>
-                            <p>Completed Projects</p>
+                            <h3 class="counter">xx</h3>
+                            <p>Jumlah Tempat Tidur</p>
                         </div>
                         <!--/column -->
                         <div class="col-md-3">
                             <img src="/img/icons/lineal/user.svg"
                                 class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
-                            <h3 class="counter">3472</h3>
-                            <p>Satisfied Customers</p>
+                            <h3 class="counter">xx</h3>
+                            <p>Jumlah Dokter Umum</p>
                         </div>
                         <!--/column -->
                         <div class="col-md-3">
                             <img src="/img/icons/lineal/briefcase-2.svg"
                                 class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
-                            <h3 class="counter">2184</h3>
-                            <p>Expert Employees</p>
+                            <h3 class="counter">xx</h3>
+                            <p>Jumlah Dokter Spesialis</p>
                         </div>
                         <!--/column -->
                         <div class="col-md-3">
                             <img src="/img/icons/lineal/award-2.svg"
                                 class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
-                            <h3 class="counter">4523</h3>
-                            <p>Awards Won</p>
+                            <h3 class="counter">xx</h3>
+                            <p>Jumlah Karyawan</p>
                         </div>
                         <!--/column -->
                     </div>
@@ -372,37 +397,19 @@
     </section>
     <!-- /section -->
     <section class="wrapper bg-light angled upper-end lower-end">
-        <div class="container pt-18 pb-14 pt-md-19 pb-md-16">
-            <div class="row gx-md-8 gx-xl-12 gy-10 align-items-center">
+        <div class="container pt-10 pb-10 pt-md-10 pb-md-16">
+            <center><img src="/img/icons/lineal/telemarketer.svg" class="svg-inject icon-svg icon-svg-md mb-4"
+                alt="" />
+            <h2 class="display-4 mb-8"><span class="rotator-fade text-warning">Visi,Misi,Tata Nilai,Tujuan</span> Rumah Sakit</h2></center>
+            <div class="row gx-md-8 gx-xl-12 gy-10">
                 <div class="col-md-8 col-lg-6 offset-lg-0 col-xl-5 offset-xl-1 position-relative">
-                    <div class="shape bg-dot primary rellax w-17 h-21" data-rellax-speed="1"
-                        style="top: -2rem; left: -1.4rem;"></div>
-                    <figure class="rounded"><img src="/img/photos/about4.jpg"
-                            srcset="/img/photos/about4@2x.jpg 2x" alt=""></figure>
-                </div>
-                <!--/column -->
-                <div class="col-lg-6">
-                    <img src="/img/icons/lineal/telemarketer.svg" class="svg-inject icon-svg icon-svg-md mb-4"
-                        alt="" />
-                    <h2 class="display-4 mb-8">Convinced yet? Let's make something great together.</h2>
                     <div class="d-flex flex-row">
                         <div>
-                            <div class="icon text-primary fs-28 me-6 mt-n1"> <i class="uil uil-location-pin-alt"></i>
-                            </div>
+                            <div class="icon text-primary fs-28 me-6 mt-n1"> <i class="uil uil-location-pin-alt"></i></div>
                         </div>
                         <div>
-                            <h5 class="mb-1">Address</h5>
-                            <address>Moonshine St. 14/05 Light City, <br class="d-none d-md-block" />London, United Kingdom
-                            </address>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row">
-                        <div>
-                            <div class="icon text-primary fs-28 me-6 mt-n1"> <i class="uil uil-phone-volume"></i> </div>
-                        </div>
-                        <div>
-                            <h5 class="mb-1">Phone</h5>
-                            <p>00 (123) 456 78 90</p>
+                            <h5 class="mb-1">Visi</h5>
+                            <address>Menjadi Rumah Sakit pilihan yang Islami dengan pelayanan cepat dan ramah.</address>
                         </div>
                     </div>
                     <div class="d-flex flex-row">
@@ -410,12 +417,45 @@
                             <div class="icon text-primary fs-28 me-6 mt-n1"> <i class="uil uil-envelope"></i> </div>
                         </div>
                         <div>
-                            <h5 class="mb-1">E-mail</h5>
-                            <p class="mb-0"><a
-                                    href="cdn-cgi/l/email-protection.html#bccfddd2d8ded3c4fcd9d1ddd5d092dfd3d1"
-                                    class="link-body"><span class="__cf_email__"
-                                        data-cfemail="a4d7c5cac0c6cbdce4c1c9c5cdc88ac7cbc9">[email&#160;protected]</span></a>
+                            <h5 class="mb-1">Tujuan</h5>
+                            <p class="mb-0">
+                                <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                                    <li><span><i class="uil uil-check"></i></span><span>Terwujudnya tata kelola rumah sakit yang islami</span></li>
+                                    <li><span><i class="uil uil-check"></i></span><span>Terwujudnya peningkatan mutu pelayanan rumah sakit</span></li>
+                                    <li><span><i class="uil uil-check"></i></span><span>Terwujudnya kualitas SDM yang professional, berakhlak mulia, dan sejahtera</span></li>
+                                    <li><span><i class="uil uil-check"></i></span><span>Terwujudnya budaya kerja yang produktif dan kondusif</span></li>
+                                    <li><span><i class="uil uil-check"></i></span><span>Terwujudnya ketersediaan sarana prasarana yang handal</span></li>
+                                </ul>
                             </p>
+                        </div>
+                    </div>
+                </div>
+                <!--/column -->
+                <div class="col-lg-6">
+                    <div class="d-flex flex-row">
+                        <div>
+                            <div class="icon text-primary fs-28 me-6 mt-n1"> <i class="uil uil-location-pin-alt"></i></div>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Tata Nilai</h5>
+                            <p>Amanah, Santun, Ramah, Ikhlas (<span class="underline-3 style-2 fuchsia">ASRI</span>)</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <div>
+                            <div class="icon text-primary fs-28 me-6 mt-n1"> <i class="uil uil-phone-volume"></i> </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Misi</h5>
+                            <address class="mb-0">
+                                <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                                    <li><span><i class="uil uil-check"></i></span><span>Menyelenggarakan Rumah Sakit yang bernuansa Islami</span></li>
+                                    <li><span><i class="uil uil-check"></i></span><span>Menyelenggarakan pelayanan kesehatan yang bermutu dan dikelola secara berkesinambungan</span></li>
+                                    <li><span><i class="uil uil-check"></i></span><span>Mewujudkan SDM yang professional, berakhlak mulia, dan sejahtera</span></li>
+                                    <li><span><i class="uil uil-check"></i></span><span>Mewujudkan budaya kerja yang produktif dan kondusif</span></li>
+                                    <li><span><i class="uil uil-check"></i></span><span>Mewujudkan Sarana Prasarana yang handal</span></li>
+                                </ul>
+                            </address>
                         </div>
                     </div>
                 </div>
