@@ -14,7 +14,7 @@
             <!-- /.row -->
         </div>
         <!-- /.container -->
-        <figure class="position-absoute" style="bottom: 0; left: 0; z-index: 2;"><img src="/img/pku/gedung/bgsub.png"
+        <figure class="position-absoute" style="bottom: 0; left: 0; z-index: 2;"><img src="{{ asset('//img/pku/gedung/bgsub.png') }}"
                 alt="" /></figure>
     </section>
     <!-- /section -->
@@ -26,11 +26,11 @@
                         style="top: 2rem; left: 5.5rem"></div>
                     <div class="overlap-grid overlap-grid-2">
                         <div class="item">
-                            <figure class="rounded shadow"><img src="/img/pku/gedung/baru_1.png" srcset="/img/pku/gedung/baru_1.png 2x"
+                            <figure class="rounded shadow"><img src="{{ asset('//img/pku/gedung/baru_11.png') }}" srcset="{{ asset('//img/pku/gedung/baru_11.png') }} 2x"
                                     alt=""></figure>
                         </div>
                         <div class="item">
-                            <figure class="rounded shadow"><img src="/img/pku/gedung/baru_2.png" srcset="/img/pku/gedung/baru_2.png 2x"
+                            <figure class="rounded shadow"><img src="{{ asset('//img/pku/gedung/baru_21.png') }}" srcset="{{ asset('//img/pku/gedung/baru_21.png') }} 2x"
                                     alt=""></figure>
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                     <h2 class="fs-16 text-uppercase text-muted mb-3">Sejarah?</h2>
                     <h3 class="display-2 ls-xs mb-5">Tahun 2025 adalah tahun yang <span class="underline-3 style-2 yellow">Istimewa</span>.</h3>
                     <p>Insyaallah pada pertengahan tahun 2025 akan berdiri dan diresmikan gedung baru (4 Lantai) pada bagian utara Rumah Sakit yang diperuntukkan sebagai Bangsal dengan standar
-                        <figure class="rounded"><img src="/img/photos/about3.jpg" class="float-end imgshadow" srcset="/img/photos/about3.jpg 2x" style="width: 200px;" alt=""></figure>
+                        <figure class="rounded"><img src="{{ asset('/img/pku/gedung/baru_3_cropped1.png') }}" class="float-end imgshadow" srcset="{{ asset('/img/pku/gedung/baru_3_cropped1.png') }} 2x" style="width: 250px;" alt=""></figure>
                         <span class="underline-3 style-2 sky">KRIS</span> (Kelas Rawat Inap Standar) BPJS, yakni sistem kelas perawatan baru dalam program Jaminan Kesehatan Nasional (JKN) yang menggantikan kelas 1, 2, dan 3 di rumah sakit.</p>
                     <p class="mb-7"><span class="underline-3 style-2 sky">KRIS BPJS</span> bertujuan untuk memberikan standar fasilitas yang sama bagi semua peserta BPJS Kesehatan, tanpa membedakan kelas berdasarkan iuran.</p>
                     {{-- <a href="#" class="btn btn-primary"></a> --}}

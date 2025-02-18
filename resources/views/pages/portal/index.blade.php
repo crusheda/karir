@@ -562,7 +562,7 @@
                 </div>
                 <!--/column -->
                 <div class="col-lg-6">
-                    <h2 class="fs-15 text-uppercase text-muted mb-3">Sinkronisasi</h2>
+                    <h2 class="fs-15 text-uppercase text-muted mb-3">Inovasi</h2>
                     <h3 class="display-4 mb-5">Kami selalu Hadir untuk Kesehatan Tubuh Anda.</h3>
                     <p class="mb-5">Dapatkan pelayanan kesehatan terbaik di RS PKU Muhammadiyah Sukoharjo tanpa biaya
                         tambahan! Kami melayani dengan sepenuh hati melalui program BPJS, memastikan Anda dan keluarga
@@ -1058,21 +1058,8 @@
         </div>
         <!-- /.container -->
     </section>
-    {{-- <div class='sk-ww-google-reviews sk-view-sample' data-embed-id='25518679'></div>
-    <script src='{{ asset('js/widget.js') }}' defer></script> --}}
+    {{-- <div class='sk-ww-google-reviews sk-view-sample' data-embed-id='25518679'></div> --}}
 
-    <section class="wrapper bg-white">
-        <div class="container py-5 py-md-2">
-            <div class="row gy-10 gy-sm-13 gx-md-8 gx-xl-12 align-items-center mb-10 mb-md-12">
-                {{-- ELFSIGHT --}}
-                <script src="{{ asset('js/elfsight.js') }}" async></script>
-                <div class="elfsight-app-35fcffef-1033-4836-976e-60f7ab739206" data-elfsight-app-lazy></div>
-                {{-- <iframe src='https://widgets.sociablekit.com/google-reviews/iframe/25518679' frameborder='0' width='100%' height='500'></iframe> --}}
-            </div>
-        </div>
-    </section>
-    <!-- /section -->
-    </div>
     <script>
         $(document).ready(function() {
             var popup_btn = $('.popup-btn');
