@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Pengumuman;
+namespace App\Http\Controllers\Rekrutmen;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

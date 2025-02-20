@@ -150,7 +150,7 @@
     </section>
 
     <section class="wrapper bg-gray angled upper-end lower-end">
-        <div class="container py-15 py-md-17">
+        <div class="container py-15 py-md-13">
             <div class="row d-flex align-items-start gy-10">
                 <div class="col-lg-5 position-lg-sticky" style="top: 8rem;">
                     <h2 class="fs-16 text-uppercase text-muted mb-3">Sejarah?</h2>
@@ -209,8 +209,8 @@
         <!-- /.container -->
     </section>
 
-    <section class="wrapper bg-soft-primary">
-        <div class="container pt-16 pb-14 pb-md-0">
+    <section class="wrapper bg-gray">
+        <div class="container pt-13 pb-14 pb-md-0">
             <div class="row gx-lg-8 gx-xl-0 align-items-center">
                 <div class="col-md-5 col-lg-5 col-xl-4 offset-xl-1 d-none d-md-flex position-relative align-self-end">
                     <div class="shape rounded-circle bg-pale-primary rellax w-21 h-21 d-md-none d-lg-block"
@@ -396,7 +396,7 @@
         <!-- /.container -->
     </section>
     <!-- /section -->
-    <section class="wrapper bg-light angled upper-end lower-end">
+    <section class="wrapper bg-gray angled upper-end lower-end">
         <div class="container pt-10 pb-10 pt-md-10 pb-md-16">
             <center><img src="/img/icons/lineal/telemarketer.svg" class="svg-inject icon-svg icon-svg-md mb-4"
                 alt="" />

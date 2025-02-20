@@ -1,8 +1,7 @@
 @extends('layouts.sub')
 
 @section('content')
-<div class="wrapper image-wrapper bg-image bg-overlay bg-overlay-light-600 text-white"
-    data-image-src="{{ asset('img/photos/bg18.png') }}">
+<div class="wrapper image-wrapper bg-image bg-overlay bg-overlay-light-600 text-white" data-image-src="{{ asset('img/photos/bg18.png') }}">
     <div class="container pt-17 pb-20 pt-md-19 pb-md-21 text-center">
         <div class="row">
             <div class="col-lg-8 mx-auto">
@@ -131,10 +130,10 @@
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label fs-13" for="flexCheckDefault"> Anda sudah mengerti persyaratan rekrutmen dan ingin melanjutkan registrasi data yang telah diisi dengan sebenar-benarnya </label>
                         </div>
-                        <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2"><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
+                        <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2" disabled><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
                         </form>
                         <!-- /form -->
-                        <p class="mb-0">Sudah registrasi? <a href="{{ route('pengumuman.index') }}" class="hover">Lihat Pengumuman</a></p>
+                        <p class="mb-0">Sudah registrasi? <a href="{{ route('hasil.index') }}" class="hover">Lihat Hasil Seleksi</a></p>
                         {{-- <div class="divider-icon my-4"></div>
                         <nav class="nav social justify-content-center text-center">
                             <a href="#" class="btn btn-circle btn-sm btn-google"><i

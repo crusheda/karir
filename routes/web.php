@@ -9,8 +9,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PortalController;
 use App\Http\Controllers\Tentang\ProfilController;
-use App\Http\Controllers\Rekrutmen\RekrutmenController;
-use App\Http\Controllers\Pengumuman\PengumumanController;
+use App\Http\Controllers\Rekrutmen\PengumumanController;
+use App\Http\Controllers\Rekrutmen\RegistrasiController;
+use App\Http\Controllers\Rekrutmen\HasilController;
 
 // STARTING CREATIONS
 // Auth::routes(['register' => false]); // SEMENTARA OFF DULU UNTUK LOGIN ADMIN
@@ -20,9 +21,14 @@ use App\Http\Controllers\Pengumuman\PengumumanController;
 // });
 
 Route::get('/', [PortalController::class, 'index'])->name('portal.index');
+
+// TENTANG
 Route::get('/tentang/profil', [ProfilController::class, 'index'])->name('tentang.profil.index');
-Route::get('/rekrutmen/registrasi', [RekrutmenController::class, 'index'])->name('rekrutmen.index');
+
+// REKRUTMEN
 Route::get('/rekrutmen/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
+Route::get('/rekrutmen/registrasi', [RegistrasiController::class, 'index'])->name('registrasi.index');
+Route::get('/rekrutmen/hasil', [HasilController::class, 'index'])->name('hasil.index');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
