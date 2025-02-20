@@ -14,7 +14,7 @@
             <!-- /.row -->
         </div>
         <!-- /.container -->
-        <figure class="position-absoute" style="bottom: 0; left: 0; z-index: 2;"><img src="{{ asset('//img/pku/gedung/bgsub.png') }}"
+        <figure class="position-absoute" style="bottom: 0; left: 0; z-index: 2;"><img src="{{ asset('/img/pku/gedung/bgsub.png') }}"
                 alt="" /></figure>
     </section>
     <!-- /section -->
@@ -26,11 +26,11 @@
                         style="top: 2rem; left: 5.5rem"></div>
                     <div class="overlap-grid overlap-grid-2">
                         <div class="item">
-                            <figure class="rounded shadow"><img src="{{ asset('//img/pku/gedung/baru_11.png') }}" srcset="{{ asset('//img/pku/gedung/baru_11.png') }} 2x"
+                            <figure class="rounded shadow"><img src="{{ asset('/img/pku/gedung/baru_11.png') }}" srcset="{{ asset('/img/pku/gedung/baru_11.png') }} 2x"
                                     alt=""></figure>
                         </div>
                         <div class="item">
-                            <figure class="rounded shadow"><img src="{{ asset('//img/pku/gedung/baru_21.png') }}" srcset="{{ asset('//img/pku/gedung/baru_21.png') }} 2x"
+                            <figure class="rounded shadow"><img src="{{ asset('/img/pku/gedung/baru_21.png') }}" srcset="{{ asset('/img/pku/gedung/baru_21.png') }} 2x"
                                     alt=""></figure>
                         </div>
                     </div>
