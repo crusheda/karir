@@ -12,6 +12,7 @@ use App\Http\Controllers\Tentang\ProfilController;
 use App\Http\Controllers\Rekrutmen\PengumumanController;
 use App\Http\Controllers\Rekrutmen\RegistrasiController;
 use App\Http\Controllers\Rekrutmen\HasilController;
+use App\Http\Controllers\Publik\JadwalSpesialisController;
 
 // STARTING CREATIONS
 // Auth::routes(['register' => false]); // SEMENTARA OFF DULU UNTUK LOGIN ADMIN
@@ -32,6 +33,10 @@ Route::get('/rekrutmen/hasil', [HasilController::class, 'index'])->name('hasil.i
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+// PUBLIK
+    // JADWAL
+    Route::get('/publik/jadwal', [JadwalSpesialisController::class, 'index'])->name('jadwal.index');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);

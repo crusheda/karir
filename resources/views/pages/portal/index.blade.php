@@ -12,7 +12,7 @@
                     <h2 class="display-1 fs-56 mb-4 mt-0 mt-lg-5 ls-xs pe-xl-5 pe-xxl-0">Rumah Sakit PKU Muhammadiyah
                         Sukoharjo</h2>
                     <p class="lead fs-23 lh-sm mb-7 pe-lg-5 pe-xl-5 pe-xxl-0">(<b style="color:#45c4a0">ASRI</b>) <span
-                            class="typer text-primary" data-delay="100" data-words="Amanah.,Santun.,Ramah.,Ikhlas.">
+                            class="typer text-black" data-delay="100" data-words="Amanah.,Santun.,Ramah.,Ikhlas.">
                         </span>
                         <span class="cursor" style="color:#45c4a0" data-owner="typer"></span>
                     </p>

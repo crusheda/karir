@@ -8,9 +8,10 @@
 <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/pku/pku_ico.png') }}">
 <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('img/pku/pku_ico.png') }}">
 <link rel="shortcut icon" href="{{ asset('img/pku/pku_ico.png') }}">
+<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-<link rel="stylesheet" href="{{ asset('css/colors/navy.css') }}">
+<link rel="stylesheet" href="{{ asset('css/colors/fuchsia.css') }}">
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
 <!-- [phosphor Icons] https://phosphoricons.com/ -->
 <link rel="stylesheet" href="{{ asset('fonts/phosphor/duotone/style.css') }}">
@@ -25,6 +26,7 @@
 <!-- Image Gallery CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
 <!-- Vendor CSS -->
+{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet"> --}}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
