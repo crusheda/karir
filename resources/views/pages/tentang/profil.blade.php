@@ -1,7 +1,31 @@
 @extends('layouts.sub')
 
 @section('content')
-    <section class="wrapper bg-gray">
+
+    <section class="br-fix overflow-hidden">
+        <div class="wrapper image-wrapper bg-cover bg-image" data-image-src="{{ asset('/img/pku/gedung/bgsub.png') }}">
+            <div class="container pt-15 pt-lg-18 text-center" style="padding-bottom: 25rem !important;">
+                <div class="row">
+                    <div class="col-xl-6 mx-auto">
+                        <h1 class="display-1 mb-2">Profil <span class="underline-3 style-3 green">Rumah Sakit</span></h1>
+                        <h2 class="display-3 mb-3">PKU Muhammadiyah Sukoharjo</h2>
+                        <p class="lead fs-md mb-0">JL. Mayor Sunaryo No.37 Gawanan, Sukoharjo</p>
+                    </div>
+                    <!-- /column -->
+                </div>
+            <!-- /.row -->
+            </div>
+            <!-- /.container -->
+            <div class="overflow-hidden">
+                <div class="divider text-white mx-n2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100"><path fill="currentColor" d="M1260,1.65c-60-5.07-119.82,2.47-179.83,10.13s-120,11.48-180,9.57-120-7.66-180-6.42c-60,1.63-120,11.21-180,16a1129.52,1129.52,0,0,1-180,0c-60-4.78-120-14.36-180-19.14S60,7,30,7H0v93H1440V30.89C1380.07,23.2,1319.93,6.15,1260,1.65Z"/></svg>
+                </div>
+            </div>
+            <!-- /.overflow-hidden -->
+        </div>
+        <!-- /.wrapper -->
+    </section>
+    {{-- <section class="wrapper bg-gray">
         <div class="container pt-15 pt-md-17 text-center">
             <div class="row">
                 <div class="col-xl-6 mx-auto">
@@ -14,13 +38,12 @@
             <!-- /.row -->
         </div>
         <!-- /.container -->
-        <figure class="position-absoute" style="bottom: 0; left: 0; z-index: 2;"><img src="{{ asset('/img/pku/gedung/bgsub.png') }}"
-                alt="" /></figure>
-    </section>
+        <figure class="position-absoute" style="bottom: 0; left: 0; z-index: 2;"><img src="{{ asset('/img/pku/gedung/bgsub.png') }}" alt="" /></figure>
+    </section> --}}
     <!-- /section -->
-    <section class="wrapper bg-light angled upper-end lower-end">
-        <div class="container py-14 py-md-16">
-            <div class="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
+    <section class="wrapper bg-light angled upper">
+        <div class="container py-10 py-md-10 mb-5">
+            <div class="row gx-lg-8 gx-xl-12 gy-10 mb-12 mb-md-16 align-items-center">
                 <div class="col-lg-6 position-relative order-lg-2">
                     <div class="shape bg-dot primary rellax w-16 h-20" data-rellax-speed="1"
                         style="top: 2rem; left: 5.5rem"></div>
@@ -76,7 +99,7 @@
                 <!-- /column -->
             </div>
             <!-- /.row -->
-            <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+            <div class="row gx-lg-8 gx-xl-12 gy-10 mb-4 align-items-center">
                 <div class="col-lg-6 order-lg-2">
                     <div class="card me-lg-6">
                         <div class="card-body p-6">
@@ -157,7 +180,7 @@
                     <h3 class="display-2 ls-xs mb-5">Tahun 2025 adalah tahun yang <span class="underline-3 style-2 yellow">Istimewa</span>.</h3>
                     <p>Insyaallah pada pertengahan tahun 2025 akan berdiri dan diresmikan gedung baru (4 Lantai) pada bagian utara Rumah Sakit yang diperuntukkan sebagai Bangsal dengan standar
                         <figure class="rounded"><img src="{{ asset('/img/pku/gedung/baru_3_cropped1.png') }}" class="float-end imgshadow" srcset="{{ asset('/img/pku/gedung/baru_3_cropped1.png') }} 2x" style="width: 250px;" alt=""></figure>
-                        <span class="underline-3 style-2 sky">KRIS</span> (Kelas Rawat Inap Standar) BPJS, yakni sistem kelas perawatan baru dalam program Jaminan Kesehatan Nasional (JKN) yang menggantikan kelas 1, 2, dan 3 di rumah sakit.</p>
+                        <span class="underline-3 style-2 sky"><span class="dropcap text-dark">KRIS</span></span> (Kelas Rawat Inap Standar) BPJS, yakni sistem kelas perawatan baru dalam program Jaminan Kesehatan Nasional (JKN) yang menggantikan kelas 1, 2, dan 3 di rumah sakit.</p>
                     <p class="mb-7"><span class="underline-3 style-2 sky">KRIS BPJS</span> bertujuan untuk memberikan standar fasilitas yang sama bagi semua peserta BPJS Kesehatan, tanpa membedakan kelas berdasarkan iuran.</p>
                     {{-- <a href="#" class="btn btn-primary"></a> --}}
                 </div>
@@ -188,7 +211,241 @@
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-                    <div class="card">
+                    <div class="card mb-6">
+                        <div class="card-body d-flex flex-row">
+                            <div>
+                                <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“3.</span></span>
+                            </div>
+                            <div>
+                                <h3 class="fs-21 ls-xs mb-2">Tahun 1995</h3>
+                                <p class="mb-0">Diresmikan bangunan Rumah Bersalin PKU Muhammadiyah Sukoharjo oleh Bupati Sukoharjo (Bp. Ir. Tedjo Suminto) pada 4 Desember 1995.</p>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <div class="card mb-6">
+                        <div class="card-body d-flex flex-row">
+                            <div>
+                                <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“4.</span></span>
+                            </div>
+                            <div>
+                                <h3 class="fs-21 ls-xs mb-2">Tahun 2009</h3>
+                                <p class="mb-0">Berubah status menjadi Klinik Rawat Inap Pelayanan Medik Dasar PKU Muhammadiyah Sukoharjo dengan
+                                    SK DINKES Kabupaten Sukoharjo Nomor : <mark>0/KRIPMD/III2009</mark>.</p>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <h5 class="text-center" id="btn-show-sejarah" onclick="showSejarah()"><a href="javascript:void(0);">Tampilkan lebih banyak</a></h5>
+                    <div id="show-sejarah" data-cues="fadeIn" hidden>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“5.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2010</h3>
+                                    <p class="mb-0">Pimpinan Daerah Muhammadiyah Sukoharjo membentuk panitia pembangunan Rumah Sakit PKU Muhammadiyah Sukoharjo.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“6.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2011</h3>
+                                    <p class="mb-0">Membeli tanah disebelah barat yang dimiliki saat ini menjadi 3.210 m2 dilanjutkan pembangunan Gedung 4 (Empat)
+                                        lantai kapasitas 100 tempat tidur, 2 ruang Operasi, IGD, ruang Laboratorium, Radiologi, beserta peralatan dan sarana penunjangnya (20 Maret 2011).</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“7.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2011</h3>
+                                    <p class="mb-0">Mendapatkan Surat Izin Operasional Sementara Rumah Sakit pada 18 November 20211 dengan Nomor : <mark>445/9855/XI/2011</mark>.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“8.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2014</h3>
+                                    <p class="mb-0">Mendapatkan SK Dinas Kesehatan Sukoharjo Nomor : <mark>445/769/I/2014</mark> tentang izin mendirikan Rumah Sakit
+                                        Umum PKU Muhammadiyah di Jl. Mayor Sunaryo No.37 Sukoharjo (18 Januari 2014).</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“9.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2016</h3>
+                                    <p class="mb-0">Mendapatkan Surat Izin Operasional dan Penetapan Rumah Sakit Umum Kelas C dari Dinas Kesehatan Kabupaten Sukoharjo
+                                        dengan SK Nomor : <mark>445/7936/VI/2016</mark> pada tanggal 14 Juni 2016.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“10.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2017</h3>
+                                    <p class="mb-0">Mendapatkan Izin Pembuangan Air Limbah / IPLC oleh DPM PTSP Kab. Sukoharjo dengan Nomor : <mark>503/654/I/IPLC/003/XI/2017</mark> pada tanggal 7 November 2017.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“11.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2017</h3>
+                                    <p class="mb-0">Air Bawah Tanah oleh DPMPTSP Nomor : <mark>503/10057/TAHUN 2017</mark> pada 13 November 2017.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“12.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2018</h3>
+                                    <p class="mb-0">Mendapatkan Izin Penyimpanan Sementara Limbah B3 oleh DPM PTSP Kab. Sukoharjo dengan Nomor : <mark>503/654.1/001/LB3/I/2018</mark> pada tanggal 9 Januari 2018.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“13.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2019</h3>
+                                    <p class="mb-0">Mendapatkan Izin Pemanfaatan Tenaga Nuklir oleh Badan Pengawas Tenaga Nuklir / BAPETAN dengan Nomor : <mark>061349.010.11.170619</mark>
+                                        pada tanggal 17 Juni 2019.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“14.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2020</h3>
+                                    <p class="mb-0">Mendapatkan Sertifikat Laik Fungsi oleh Dinas Pekerjaan Umum dan Penataan Ruang Kab.Sukoharjo dengan Nomor : <mark>045.2/7321/XII/2020</mark>
+                                        pada tanggal 2 Desember 2020.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“15.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2021</h3>
+                                    <p class="mb-0">Mendapatkan Sertifikat Laik Operasi Instalasi Listrik oleh Dinas Tenaga Kerja dan Transmigrasi Jateng dengan Nomor : <mark>876/PRT/XII/2021</mark>
+                                        pada tanggal 23 Desember 2021.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“16.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2021</h3>
+                                    <p class="mb-0">Mendapatkan Izin Proteksi Alarm Fire oleh Dinas Tenaga Kerja dan Transmigrasi Jateng dengan Nomor : <mark>936/SPK/XII/2021</mark>
+                                        pada tanggal 25 Desember 2021.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“17.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2022</h3>
+                                    <p class="mb-0">Mendapatkan Izin Lift oleh Dinas Tenaga Kerja dan Transmigrasi Jateng dengan Nomor : <mark>2674/E/II/2022</mark> pada tanggal 4 Februari 2022.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“18.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2021-2022</h3>
+                                    <p class="mb-0">Mendapatkan Izin Operasi Genset Merk Perkins dan Maxtron oleh Dinas Tenaga Kerja dan Transmigrasi Jateng<br>
+                                        <ul class="icon-list bullet-primary">
+                                            <li><span><i class="uil uil-arrow-right"></i></span><span>Perkins (Seri X14K475419) Nomor : <mark>878/PRT/I/2022</mark> (23/12/2021)</span></li>
+                                            <li><span><i class="uil uil-arrow-right"></i></span><span>Maxtron (Seri 201205038) Nomor : <mark>1248/PRT/I/2022</mark> (03/01/2022)</span></li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“19.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2022</h3>
+                                    <p class="mb-0">Pemeriksaan dan Pengujian Instalasi Penyalur Petir oleh Dinas Tenaga Kerja dan Transmigrasi Jateng dengan Nomor : <mark>1470/IPP/I/2022</mark>
+                                        pada tanggal 8 Januari 2022.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <div class="card mb-6">
+                            <div class="card-body d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“20.</span></span>
+                                </div>
+                                <div>
+                                    <h3 class="fs-21 ls-xs mb-2">Tahun 2022</h3>
+                                    <p class="mb-0">Perjanjinan Pengangkutan dan Pengelolaan Limbah B3 bersama PT.Arah Environmental Indonesia dengan Nomor : <mark>009/PRJ/DIR/III.6.AU/PKUSKH/2022</mark>
+                                        pada tanggal 2 Februari 2022.</p>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                    {{-- <div class="card mb-6">
                         <div class="card-body d-flex flex-row">
                             <div>
                                 <span class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span class="number">“20.</span></span>
@@ -199,8 +456,7 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
+                    </div> --}}
                 </div>
                 <!-- /column -->
             </div>
@@ -213,8 +469,8 @@
         <div class="container pt-13 pb-14 pb-md-0">
             <div class="row gx-lg-8 gx-xl-0 align-items-center">
                 <div class="col-md-5 col-lg-5 col-xl-4 offset-xl-1 d-none d-md-flex position-relative align-self-end">
-                    <div class="shape rounded-circle bg-pale-primary rellax w-21 h-21 d-md-none d-lg-block"
-                        data-rellax-speed="1" style="top: 7rem; left: 1rem"></div>
+                    {{-- <div class="shape rounded-circle bg-pale-primary rellax w-21 h-21 d-md-none d-lg-block"
+                        data-rellax-speed="1" style="top: 7rem; left: 1rem"></div> --}}
                     <figure><img src="/img/pejabat/dr.indarto_cropped.png" srcset="/img/pejabat/dr.indarto_cropped.png 2x" alt="">
                     </figure>
                 </div>
@@ -466,4 +722,10 @@
         <!-- /.container -->
     </section>
     <!-- /section -->
+    <script>
+        function showSejarah() {
+            $('#btn-show-sejarah').prop('hidden',true);
+            $('#show-sejarah').prop('hidden',false);
+        }
+    </script>
 @endsection

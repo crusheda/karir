@@ -46,9 +46,8 @@
                         <div class="card-body">
                             <img src="{{ asset('/img/icons/solid/target.svg') }}"
                                 class="svg-inject icon-svg icon-svg-sm solid-mono text-purple mb-3" alt="" />
-                            <h4>Career Growth</h4>
-                            <p class="mb-0">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                gravida at eget metus cras justo.</p>
+                            <h4>Kualifikasi dan Kompetensi</h4>
+                            <p class="mb-0">Pendidikan, pengalaman kerja, dan sertifikasi yang relevan.</p>
                         </div>
                         <!--/.card-body -->
                     </div>
@@ -60,9 +59,8 @@
                         <div class="card-body">
                             <img src="{{ asset('/img/icons/solid/videocall.svg') }}"
                                 class="svg-inject icon-svg icon-svg-sm solid-mono text-pink mb-3" alt="" />
-                            <h4>Work From Anywhere</h4>
-                            <p class="mb-0">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                gravida at eget metus cras justo.</p>
+                            <h4>Kemampuan Teknis dan Profesional</h4>
+                            <p class="mb-0">Keahlian spesifik sesuai dengan bidang pekerjaan dan dilakukan secara profesional.</p>
                         </div>
                         <!--/.card-body -->
                     </div>
@@ -72,11 +70,10 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card lift">
                         <div class="card-body">
-                            <img src="{{ asset('/img/icons/solid/wallet.svg') }}"
+                            <img src="{{ asset('/img/icons/solid/bulb.svg') }}"
                                 class="svg-inject icon-svg icon-svg-sm solid-mono text-blue mb-3" alt="" />
-                            <h4>Smart Salary</h4>
-                            <p class="mb-0">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                gravida at eget metus cras justo.</p>
+                            <h4>Soft Skills dan Kepribadian</h4>
+                            <p class="mb-0">Komunikasi, kerja sama tim, kepemimpinan, dan pemecahan masalah.</p>
                         </div>
                         <!--/.card-body -->
                     </div>
@@ -86,11 +83,10 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card lift">
                         <div class="card-body">
-                            <img src="{{ asset('/img/icons/solid/alarm.svg') }}"
+                            <img src="{{ asset('/img/icons/solid/deal.svg') }}"
                                 class="svg-inject icon-svg icon-svg-sm solid-mono text-aqua mb-3" alt="" />
-                            <h4>Flexible Hours</h4>
-                            <p class="mb-0">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta
-                                gravida at eget metus cras justo.</p>
+                            <h4>Kesesuaian dengan Budaya Perusahaan</h4>
+                            <p class="mb-0">Nilai, visi, serta kemampuan beradaptasi dengan lingkungan kerja.</p>
                         </div>
                         <!--/.card-body -->
                     </div>
@@ -99,72 +95,8 @@
                 <!--/column -->
             </div>
             <!--/.row -->
-            <div class="row gy-10 gy-sm-13 gx-md-8 gx-xl-12 align-items-center mt-12">
-                <div class="col-lg-6">
-                    <div class="row gx-md-5 gy-5">
-                        <div class="col-12">
-                            <figure class="rounded mx-md-5"><img src="{{ asset('/img/photos/g8.jpg') }}"
-                                    srcset="{{ asset('/img/photos/g8.jpg') }} 2x" alt=""></figure>
-                        </div>
-                        <!--/column -->
-                        <div class="col-md-6">
-                            <figure class="rounded"><img src="{{ asset('/img/photos/g9.jpg') }}"
-                                    srcset="{{ asset('/img/photos/g9.jpg') }} 2x" alt=""></figure>
-                        </div>
-                        <!--/column -->
-                        <div class="col-md-6">
-                            <figure class="rounded"><img src="{{ asset('/img/photos/g10.jpg') }}"
-                                    srcset="{{ asset('/img/photos/g10.jpg') }} 2x" alt=""></figure>
-                        </div>
-                        <!--/column -->
-                    </div>
-                    <!--/.row -->
-                </div>
-                <!--/column -->
-                <div class="col-lg-6">
-                    <h2 class="fs-16 text-uppercase text-muted mb-3 mt-md-n5">What Makes Us Different?</h2>
-                    <h3 class="display-3 mb-5">We bring solutions to make life easier for our customers.</h3>
-                    <p class="mb-6">Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et
-                        magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
-                        augue. Etiam porta sem malesuada magna mollis euismod. Cras justo odio, dapibus ac facilisis
-                        in, egestas eget quam. Maecenas sed.</p>
-                    <div class="row gy-8">
-                        <div class="col-md-6">
-                            <div class="d-flex flex-row">
-                                <div>
-                                    <img src="{{ asset('/img/icons/solid/share.svg') }}"
-                                        class="svg-inject icon-svg icon-svg-xs solid-mono text-orange me-4"
-                                        alt="" />
-                                </div>
-                                <div>
-                                    <h4 class="mb-1">Our Mission</h4>
-                                    <p class="mb-0">Curabitur blandit lacus porttitor ridiculus mus.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/column -->
-                        <div class="col-md-6">
-                            <div class="d-flex flex-row">
-                                <div>
-                                    <img src="{{ asset('/img/icons/solid/partnership.svg') }}"
-                                        class="svg-inject icon-svg icon-svg-xs solid-mono text-fuchsia me-4"
-                                        alt="" />
-                                </div>
-                                <div>
-                                    <h4 class="mb-1">Our Values</h4>
-                                    <p class="mb-0">Curabitur blandit lacus porttitor ridiculus mus.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/column -->
-                    </div>
-                    <!--/.row -->
-                </div>
-                <!--/column -->
-            </div>
-            <!--/.row -->
-            <hr class="my-14 my-md-17" />
-            <div class="row text-center">
+            {{-- <hr class="my-14 my-md-17" /> --}}
+            <div class="row text-center my-10 pt-10">
                 <div class="col-xl-10 mx-auto">
                     <h2 class="fs-15 text-uppercase text-muted mb-3">Tentukan Posisi Pekerjaan</h2>
                     <h3 class="display-4 mb-10 px-xxl-15">Daftar lowongan kerja kami saat ini.</h3>

@@ -17,9 +17,9 @@
                         <h6 class="dropdown-header">Informasi</h6>
                         <ul class="list-unstyled cc-2 pb-lg-1">
                             <li><a class="dropdown-item {{ request()->routeIs('jadwal.index') ? 'active' : '' }}" href="{{ route('jadwal.index') }}">Jadwal Dokter Spesialis</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Pendaftaran Online</s></a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Alur Pelayanan</s></a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Fasilitas Umum</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Pendaftaran Online</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Alur Pelayanan</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Fasilitas Umum</s></a></li>
                         </ul>
                         {{-- <h6 class="dropdown-header mt-lg-6">Tools</h6>
                         <ul class="list-unstyled cc-2">
@@ -37,15 +37,15 @@
                     <div class="col-lg-8">
                         <h6 class="dropdown-header">Pelayanan</h6>
                         <ul class="list-unstyled cc-3">
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Rawat Darurat</s></a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Rawat Jalan</s></a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Rawat Inap</s></a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Rawat Intensif</s></a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Rehabilitasi Medik</s></a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Instalasi Bedah Sentral</s></a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Radiology</s></a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Laboratorium</s></a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><s>Farmasi</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Rawat Darurat</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Rawat Jalan</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Rawat Inap</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Rawat Intensif</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Rehabilitasi Medik</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Instalasi Bedah Sentral</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Radiology</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Laboratorium</s></a></li>
+                            <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Farmasi</s></a></li>
                         </ul>
                     </div>
                     <!--/column -->
@@ -61,9 +61,9 @@
         <ul class="dropdown-menu">
             {{-- <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="{{ route('pengumuman.index') }}">Pengumuman</a></li>
             <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('rekrutmen.index') ? 'active' : '' }}" href="{{ route('rekrutmen.index') }}">Registrasi</a></li> --}}
-            <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="javascript:void(0);"><s>Pengumuman</s></a></li>
-            <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('registrasi.index') ? 'active' : '' }}" href="javascript:void(0);"><s>Registrasi</s></a></li>
-            <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('hasil.index') ? 'active' : '' }}" href="javascript:void(0);"><s>Hasil Seleksi</s></a></li>
+            <li class="nav-item"><a class="dropdown-item text-muted {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="javascript:void(0);"><s>Pengumuman</s></a></li>
+            <li class="nav-item"><a class="dropdown-item text-muted {{ request()->routeIs('registrasi.index') ? 'active' : '' }}" href="javascript:void(0);"><s>Registrasi</s></a></li>
+            <li class="nav-item"><a class="dropdown-item text-muted {{ request()->routeIs('hasil.index') ? 'active' : '' }}" href="javascript:void(0);"><s>Hasil Seleksi</s></a></li>
         </ul>
     </li>
     {{-- <li class="nav-item"><a class="nav-link {{ request()->routeIs('rekrutmen.index') ? 'active' : '' }}" href="{{ route('rekrutmen.index') }}">Rekrutmen</a></li> --}}
