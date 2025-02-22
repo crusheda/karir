@@ -108,42 +108,12 @@
                 <div class="col-xl-10 mx-auto">
                     <form class="filter-form mb-10">
                         <div class="row">
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-12 mb-3">
                                 <div class="form-select-wrapper">
-                                    <select class="form-select" aria-label="">
-                                        <option selected>Position</option>
+                                    <select class="form-select" id="pendidikan">
+                                        <option selected>Pilih Jenjang Pendidikan</option>
                                         <option value="position1">Business</option>
                                         <option value="position2">Design</option>
-                                        <option value="position3">Development</option>
-                                        <option value="position4">Engineering</option>
-                                        <option value="position5">Finance</option>
-                                        <option value="position6">Marketing</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="form-select-wrapper">
-                                    <select class="form-select" aria-label="">
-                                        <option selected>Type</option>
-                                        <option value="type1">Full-time</option>
-                                        <option value="type3">Part-time</option>
-                                        <option value="type4">Remote</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="form-select-wrapper">
-                                    <select class="form-select" aria-label="">
-                                        <option selected>Location</option>
-                                        <option value="location1">Chicago, US</option>
-                                        <option value="location3">Michigan, US</option>
-                                        <option value="location2">New York, US</option>
-                                        <option value="location4">Los Angles, US</option>
-                                        <option value="location5">Moscow, Russia</option>
-                                        <option value="location6">Sydney, Australia</option>
-                                        <option value="location7">Birmingham, UK</option>
-                                        <option value="location8">Manchester, UK</option>
-                                        <option value="location9">Beijing, China</option>
                                     </select>
                                 </div>
                             </div>
