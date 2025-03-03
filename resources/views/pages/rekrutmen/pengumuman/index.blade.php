@@ -106,7 +106,7 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-xl-10 mx-auto">
-                    <form class="filter-form mb-10">
+                    {{-- <form class="filter-form mb-10">
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <div class="form-select-wrapper">
@@ -118,9 +118,9 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </form> --}}
                     <div class="job-list mb-10">
-                        <h3 class="mb-4">Daftar Lowongan</h3>
+                        {{-- <h3 class="mb-4">Daftar Lowongan</h3> --}}
                         <a href="#" class="card mb-4 lift">
                             <div class="card-body p-5">
                                 <span class="row justify-content-between align-items-center">
