@@ -11,7 +11,8 @@
 <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-<link rel="stylesheet" href="{{ asset('css/colors/fuchsia.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('css/colors/fuchsia.css') }}"> --}}
+<link rel="stylesheet" href="{{ asset('css/colors/green.css') }}">
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
 <!-- [phosphor Icons] https://phosphoricons.com/ -->
 <link rel="stylesheet" href="{{ asset('fonts/phosphor/duotone/style.css') }}">

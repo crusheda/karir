@@ -54,12 +54,16 @@
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/taspen.png') }}"
                                     style="" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/brilife.jpg') }}"
+                                    style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/admedika.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/alodokter.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/arah.jpg') }}"
                                     style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/kkp.jpg') }}"
+                                    style="width:90px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/bjs.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/iforte.jpg') }}"
@@ -82,6 +86,8 @@
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/turbonet.jpg') }}"
                                     style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/tirtamakmur.jpg') }}"
+                                    style="width:80px" alt="" /></div>
                         </div>
                         <!--/.swiper-wrapper -->
                     </div>
