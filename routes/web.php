@@ -13,6 +13,7 @@ use App\Http\Controllers\Rekrutmen\PengumumanController;
 use App\Http\Controllers\Rekrutmen\RegistrasiController;
 use App\Http\Controllers\Rekrutmen\HasilController;
 use App\Http\Controllers\Publik\JadwalSpesialisController;
+use App\Http\Controllers\Admin\DashboardController;
 
 // STARTING CREATIONS
 // Auth::routes(['register' => false]); // SEMENTARA OFF DULU UNTUK LOGIN ADMIN
@@ -31,15 +32,22 @@ Route::get('/rekrutmen/pengumuman', [PengumumanController::class, 'index'])->nam
 Route::get('/rekrutmen/registrasi', [RegistrasiController::class, 'index'])->name('registrasi.index');
 Route::get('/rekrutmen/hasil', [HasilController::class, 'index'])->name('hasil.index');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 // PUBLIK
     // JADWAL
     Route::get('/publik/jadwal', [JadwalSpesialisController::class, 'index'])->name('jadwal.index');
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::resource('roles', RoleController::class);
-    Route::resource('users', UserController::class);
-    Route::resource('products', ProductController::class);
+    // SYSTEM
+    // Route::resource('roles', RoleController::class);
+    // Route::resource('users', UserController::class);
+    // Route::resource('products', ProductController::class);
+
+    // DASHBOARD
+    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+});
+
+
+// FALLBACK ROUTE
+Route::fallback(function () {
+    return response()->view('pages.errors.custom-404', [], 404);
 });

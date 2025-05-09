@@ -1,73 +1,68 @@
-@extends('layouts.app')
+@extends('layouts.sub')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
+<section class="wrapper image-wrapper bg-image bg-overlay bg-overlay-light-600" data-image-src="{{ asset('img/photos/bg18.png') }}">
+    <div class="container pt-17 pb-20 pt-md-19 pb-md-21 text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-1 mb-3">Sign In</h1>
+                <nav class="d-inline-block" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Sign In</li>
+                    </ol>
+                </nav>
+                <!-- /nav -->
+            </div>
+            <!-- /column -->
+        </div>
+        <!-- /.row -->
+    </div>
+</section>
+<section class="wrapper bg-light">
+    <div class="container pb-14 pb-md-16">
+        <div class="row">
+            <div class="col-lg-7 col-xl-6 col-xxl-5 mx-auto mt-n20">
+                <div class="card">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
+                        <div class="card-body p-11 text-center">
+                            <p class="lead mb-4 text-center"><small>Masukkan Username dan Password Anda</small></p>
+                            <form class="text-start mb-3">
+                                <div class="form-floating mb-4">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <label for="name">Username</label>
+                                </div>
+                                @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                                <div class="form-floating password-field mb-4">
+                                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required autocomplete="current-password">
+                                    <span class="password-toggle"><i class="uil uil-eye"></i></span>
+                                    <label for="password">Password</label>
+                                </div>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                                <button class="btn btn-primary rounded-pill btn-login" type="submit"><i class="uil uil-signin me-1"></i> Masuk</button>
+                            </form>
+                            <!-- /form -->
+                            {{-- <p class="mb-1"><a href="#" class="hover">Lupa Password?</a></p> --}}
+                            <!--/.social -->
                         </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
+                        <!--/.card-body -->
                     </form>
                 </div>
+                <!--/.card -->
             </div>
+            <!-- /column -->
         </div>
+        <!-- /.row -->
     </div>
-</div>
+    <!-- /.container -->
+</section>
 @endsection

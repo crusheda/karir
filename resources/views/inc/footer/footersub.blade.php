@@ -4,7 +4,7 @@
             <div class="col-md-4 col-lg-3">
                 <div class="widget">
                     <img class="mb-4" src="{{ asset('img/pku/logo_admin_white.png') }}" alt="" />
-                    <p class="mb-4">©
+                    <p class="mb-4">Web ©
                         {{-- <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> --}}
                         <script>
                             document.write(new Date().getUTCFullYear());
