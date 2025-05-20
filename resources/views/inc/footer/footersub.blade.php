@@ -28,7 +28,7 @@
                     <address class="pe-xl-15 pe-xxl-17">Jl. Mayor Sunaryo No. 37 Sukoharjo, JT (57512)</address>
                     <strong>Telp:</strong> <a href="tel:0271593979"> 0271 593 979</a>&nbsp;<strong>(24 Jam)</strong><br>
                     <strong>Email:</strong> <a href="mailto:pku.sukoharjo@gmail.com"> pku.sukoharjo@gmail.com</a><br>
-                    <strong>Informasi:</strong> <a href="https://wa.me/6281227203899" target="_blank"> +62 812-2720-3899</a>&nbsp;<strong>(WA)</strong>
+                    <strong>Informasi:</strong> <a href="https://wa.me/6285150763480" target="_blank"> +62 851-5076-3480</a>&nbsp;<strong>(WA)</strong>
                 </div>
                 <!-- /.widget -->
             </div>
