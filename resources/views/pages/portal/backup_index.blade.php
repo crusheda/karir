@@ -1,3 +1,15 @@
+{{-- <a href="https://simgos.rspkusukoharjo.com:1111/apps/RegOnline/" target="_blank"
+    class="btn btn-lg btn-dark rounded me-2 mb-3"><i class="fas fa-user me-2"></i> Reservasi
+    Online</a>
+<a href="https://simgos.rspkusukoharjo.com:1111/apps/RegOnline/" target="_blank"
+    class="btn btn-lg btn-dark rounded me-2 mb-3"><i class="fas fa-user me-2"></i> Reservasi
+    Online</a>
+<a href="https://simgos.rspkusukoharjo.com:1111/apps/RegOnline/" target="_blank"
+    class="btn btn-lg btn-dark rounded me-2 mb-3"><i class="fas fa-user me-2"></i> Reservasi
+    Online</a>
+ --}}
+
+
 <!DOCTYPE html>
 <html lang="en">
 

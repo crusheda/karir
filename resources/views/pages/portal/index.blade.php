@@ -18,9 +18,6 @@
                     </p>
 
                     <div>
-                        <a href="https://simgos.rspkusukoharjo.com:1111/apps/RegOnline/" target="_blank"
-                            class="btn btn-lg btn-dark rounded me-2 mb-3"><i class="fas fa-user me-2"></i> Reservasi
-                            Online</a>
                         <a href="{{ route('jadwal.index') }}" class="btn btn-lg btn-success text-white rounded mb-3"><i
                                 class="fas fa-calendar me-2"></i> Jadwal Dokter</a>
                     </div>

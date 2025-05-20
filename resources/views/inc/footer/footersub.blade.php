@@ -4,11 +4,11 @@
             <div class="col-md-4 col-lg-3">
                 <div class="widget">
                     <img class="mb-4" src="{{ asset('img/pku/logo_admin_white.png') }}" alt="" />
-                    <p class="mb-4">Web ©
+                    <p class="mb-4">Web © EST
                         {{-- <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> --}}
                         <script>
                             document.write(new Date().getUTCFullYear());
-                        </script> EST. <br class="d-none d-lg-block" />All rights reserved.
+                        </script> . <br class="d-none d-lg-block" />All rights reserved.
                     </p>
                     <nav class="nav social social-white">
                         <a href="https://x.com/rspkusukoharjo" target="_blank"><i class="uil uil-twitter" style="font-size: 25px;color:black"></i></a>
