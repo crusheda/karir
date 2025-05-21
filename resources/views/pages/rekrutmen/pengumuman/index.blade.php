@@ -111,16 +111,15 @@
                             <div class="col-md-12 mb-3">
                                 <div class="form-select-wrapper">
                                     <select class="form-select" id="pendidikan">
-                                        <option selected>Pilih Jenjang Pendidikan</option>
-                                        <option value="position1">Business</option>
-                                        <option value="position2">Design</option>
+                                        <option selected>Pilih Status Rekrutmen</option>
+                                        <option value="position1">Dibuka</option>
+                                        <option value="position2">Ditutup</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </form> --}}
                     <div class="job-list mb-10">
-                        {{-- <h3 class="mb-4">Daftar Lowongan</h3> --}}
                         <a href="#" class="card mb-4 lift">
                             <div class="card-body p-5">
                                 <span class="row justify-content-between align-items-center">
