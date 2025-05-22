@@ -9,7 +9,7 @@
                         <h1 class="display-1 mb-5">Jadwal Dokter Spesialis</h1>
                         <nav class="d-inline-block" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('portal.index') }}"><i class="uil uil-home-alt"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('portal.index') }}" class="text-primary"><i class="uil uil-home-alt"></i></a></li>
                                 <li class="breadcrumb-item" aria-current="page">Publik</li>
                                 <li class="breadcrumb-item active" aria-current="page">Jadwal Dokter Spesialis</li>
                             </ol>

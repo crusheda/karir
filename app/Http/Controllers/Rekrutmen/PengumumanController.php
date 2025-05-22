@@ -33,10 +33,24 @@ class PengumumanController extends Controller
             $item->jenjang_pendidikan = $jenjangs;
         }
 
+        // print_r($show);
+        // die();
+
         $data = [
             'show' => $show,
         ];
 
         return view('pages.rekrutmen.pengumuman.index')->with('list', $data);
+    }
+
+    function detail($token)
+    {
+        $show = pengumuman::where('token',$token)->first();
+
+        $data = [
+            'show' => $show,
+        ];
+
+        return view('pages.rekrutmen.pengumuman.detail')->with('list', $data);
     }
 }

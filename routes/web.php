@@ -29,6 +29,7 @@ Route::get('/tentang/profil', [ProfilController::class, 'index'])->name('tentang
 
 // REKRUTMEN
 Route::get('/rekrutmen/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
+Route::get('/rekrutmen/pengumuman/{token}', [PengumumanController::class, 'detail'])->name('pengumuman.detail');
 Route::get('/rekrutmen/registrasi', [RegistrasiController::class, 'index'])->name('registrasi.index');
 Route::get('/rekrutmen/hasil', [HasilController::class, 'index'])->name('hasil.index');
 
