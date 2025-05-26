@@ -28,109 +28,139 @@
             <div class="col-lg-3 col-xl-6 col-xxl-12 mx-auto mt-n20">
                 <div class="card">
                     <div class="card-body p-11 text-center">
+
+                        @include('inc.message')
+
                         <h2 class="mb-3 text-start">Registrasi Peserta Rekrutmen</h2>
                         <p class="lead mb-6 text-start">Calon Pelamar diwajibkan melakukan registrasi sebagai syarat mengajukan lowongan</p>
-                        <form class="text-start mb-3" novalidate>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-floating mb-4">
-                                    <input type="email" class="form-control" placeholder="Tuliskan Email Aktif Anda" id="email" autofocus required>
-                                    <label for="email">Email Aktif</label>
+                        <form class="text-start mb-3" enctype="multipart/form-data" method="POST" action="{{ route('registrasi.daftar') }}" novalidate>
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-secondary">
+                                        <h6>Tata Cara Pengisian</h6>
+                                        <i class="uil uil-arrow-right align-middle me-1"></i> Isian wajib bertanda <b class="text-danger">*</b> tidak boleh dikosongi
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-4">
+                                        <select class="form-select mb-4" aria-label="Pilihan Lowongan Kerja" name="id_pengumuman" required>
+                                            <option value="" disabled selected hidden>Pilih Lowongan Kerja</option>
+                                            @if ($list['pengumuman'])
+                                                @foreach ($list['pengumuman'] as $item)
+                                                    <option value="{{ $item->id }}">
+                                                        {{ $item->nama }} ({{ $item->jumlah_pendaftar.' / '.$item->kuota }})
+                                                    </option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+                                        <label for="id_pengumuman">Lowongan Kerja (Jumlah Pendaftar / Total Kuota) <b class="text-danger">*</b></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-4">
+                                        <input type="email" class="form-control" placeholder="Tuliskan Email Aktif Anda" name="email" autofocus required>
+                                        <label for="email">Email Aktif <b class="text-danger">*</b></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-4">
+                                        <input type="text" class="form-control" placeholder="Tuliskan Nama Lengkap Sesuai KTP" name="nama" required>
+                                        <label for="nama">Nama Lengkap (Sesuai KTP) <b class="text-danger">*</b></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-floating mb-4">
+                                        <select class="form-select mb-4" aria-label="Tempat Lahir Anda" name="tl" required>
+                                            <option value="" disabled selected hidden>Pilih Kota</option>
+                                            @if ($list['alamat'])
+                                                @foreach ($list['alamat'] as $item)
+                                                    <option value="{{ $item->nama_kabkota }}">{{ $item->nama_kabkota }}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+                                        <label for="tl">Tempat Kelahiran <b class="text-danger">*</b></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-floating mb-4">
+                                        <input type="date" class="form-control" placeholder="YYYY/MM/DD" name="ttl" required>
+                                        <label for="ttl">Tanggal Lahir <b class="text-danger">*</b></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-4">
+                                        <input type="text" class="form-control" placeholder="e.g. D3 Keperawatan" name="pt" required>
+                                        <label for="pt">Pendidikan Terakhir <b class="text-danger">*</b></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-4">
+                                        <input type="text" class="form-control" placeholder="e.g. 08xxxxxx" name="hp" required>
+                                        <label for="hp">No. Handphone Aktif <b class="text-danger">*</b></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-4">
+                                        <input type="text" class="form-control" placeholder="Tuliskan Sosmed Anda (IG/TT/FB/dll)" name="sm" required>
+                                        <label for="sm">Sosial Media (IG/FB/dll) <b class="text-danger">*</b></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-1">
+                                        <textarea class="form-control" placeholder="Tuliskan Alamat Lengkap Anda" name="alamat" style="height: 90px" required></textarea>
+                                        <label for="alamat">Alamat Lengkap <b class="text-danger">*</b></label>
+                                    </div>
+                                </div>
+                                <div class="divider-icon my-4"><i class="uil uil-file-upload-alt"></i></div>
+                                <div class="col-md-12">
+                                    <div class="alert alert-secondary">
+                                        <h6>Keterangan Upload File</h6>
+                                        Batas maksimal file upload <b>1 mb</b>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="mb-1">Ijazah Terakhir (<b>PDF</b>) <b class="text-danger">*</b></label>
+                                    <div class="form-floating mb-4">
+                                        <input type="file" class="form-control" name="up-ijazah" accept=".pdf" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="mb-1">Transkip Nilai (<b>PDF</b>) <b class="text-danger">*</b></label>
+                                    <div class="form-floating mb-4">
+                                        <input type="file" class="form-control" name="up-transkip" accept=".pdf" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="mb-1">Surat Lamaran (<b>PDF</b>) <b class="text-danger">*</b></label>
+                                    <div class="form-floating mb-4">
+                                        <input type="file" class="form-control" name="up-lamaran" accept=".pdf" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="mb-1">Curriculum Vitae (<b>PDF</b>) <b class="text-danger">*</b></label>
+                                    <div class="form-floating mb-4">
+                                        <input type="file" class="form-control" name="up-cv" accept=".pdf" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="mb-1">Pas Photo (<b>JPG/PNG</b>) <b class="text-danger">*</b></label>
+                                    <div class="form-floating mb-4">
+                                        <input type="file" class="form-control" name="up-foto" accept=".jpg,.jpeg,.png" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="mb-1">Sertifikat Pelatihan (<b>PDF</b>)</label>
+                                    <div class="form-floating mb-4">
+                                        <input type="file" class="form-control" name="up-sertif" accept=".pdf">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" placeholder="Tuliskan Nama Lengkap Sesuai KTP" id="nama" required>
-                                    <label for="nama">Nama Lengkap (Sesuai KTP)</label>
-                                </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" value="" name="konfirmasi" id="flexCheckDefault" required>
+                                <label class="form-check-label fs-13" for="flexCheckDefault"> Anda sudah mengerti persyaratan rekrutmen dan ingin melanjutkan registrasi data yang telah diisi dengan sebenar-benarnya </label>
                             </div>
-                            <div class="col-md-3">
-                                <select class="form-select mb-4" aria-label="Tempat Lahir Anda" id="tl" required>
-                                    <option selected>Pilih Kota Lahir</option>
-                                    @if ($list['alamat'])
-                                        @foreach ($list['alamat'] as $item)
-                                            <option value="{{ $item->nama_kabkota }}">{{ $item->nama_kabkota }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-floating mb-4">
-                                    <input type="date" class="form-control" placeholder="YYYY/MM/DD" id="ttl" required>
-                                    <label for="ttl">Tanggal Lahir</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" placeholder="e.g. D3 Keperawatan" id="pt" required>
-                                    <label for="pt">Pendidikan Terakhir</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" placeholder="e.g. 08xxxxxx" id="hp" required>
-                                    <label for="hp">No. Handphone Aktif</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-4">
-                                    <input type="text" class="form-control" placeholder="Tuliskan Sosmed Anda (IG/TT/FB/dll)" id="sm" required>
-                                    <label for="sm">Sosial Media (IG/FB/dll)</label>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-floating mb-1">
-                                    <textarea id="alamat" class="form-control" placeholder="Tuliskan Alamat Lengkap Anda" style="height: 90px" required></textarea>
-                                    <label for="alamat">Alamat Lengkap</label>
-                                </div>
-                            </div>
-                            <div class="divider-icon my-4"></div>
-                            <div class="alert alert-secondary">
-                                <h6>Keterangan</h6>
-                                Batas maksimal file upload <b>1 mb</b>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="mb-1">Ijazah Terakhir</label>
-                                <div class="form-floating mb-4">
-                                    <input type="file" class="form-control" id="up-ijazah" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="mb-1">Transkip Nilai</label>
-                                <div class="form-floating mb-4">
-                                    <input type="file" class="form-control" id="up-transkip" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="mb-1">Surat Lamaran</label>
-                                <div class="form-floating mb-4">
-                                    <input type="file" class="form-control" id="up-lamaran" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="mb-1">Curriculum Vitae</label>
-                                <div class="form-floating mb-4">
-                                    <input type="file" class="form-control" id="up-cv" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="mb-1">Pas Photo</label>
-                                <div class="form-floating mb-4">
-                                    <input type="file" class="form-control" id="up-foto" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="mb-1">Sertifikat Pelatihan</label>
-                                <div class="form-floating mb-4">
-                                    <input type="file" class="form-control" id="up-sertif" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label fs-13" for="flexCheckDefault"> Anda sudah mengerti persyaratan rekrutmen dan ingin melanjutkan registrasi data yang telah diisi dengan sebenar-benarnya </label>
-                        </div>
-                        <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2" disabled><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
+                            <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2" id="submitBtn"><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
                         </form>
                         <!-- /form -->
                         <p class="mb-0">Sudah registrasi? <a href="{{ route('hasil.index') }}" class="hover">Lihat Hasil Seleksi</a></p>
@@ -155,4 +185,64 @@
     </div>
     <!-- /.container -->
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Untuk semua input/textarea/select yang punya required
+    const fields = document.querySelectorAll('[required]');
+
+    fields.forEach(function(field) {
+        field.addEventListener('input', function () {
+            if (field.classList.contains('is-invalid') && field.value.trim() !== '') {
+                field.classList.remove('is-invalid');
+            }
+        });
+
+        // Khusus untuk <select>, pakai 'change' event
+        if (field.tagName === 'SELECT') {
+            field.addEventListener('change', function () {
+                if (field.classList.contains('is-invalid') && field.value !== '') {
+                    field.classList.remove('is-invalid');
+                }
+            });
+        }
+    });
+});
+
+document.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Cegah submit langsung
+    let valid = true;
+
+    // Ambil semua input yang wajib diisi
+    const requiredFields = this.querySelectorAll('[required]');
+
+    requiredFields.forEach(function(field) {
+        // Bersihkan error sebelumnya
+        field.classList.remove('is-invalid');
+
+        // Cek jika checkbox
+        if (field.type === 'checkbox') {
+            if (!field.checked) {
+                valid = false;
+                field.classList.add('is-invalid');
+            }
+        }
+        // Cek field biasa (text, email, select, dll)
+        else if (!field.value.trim()) {
+            valid = false;
+            field.classList.add('is-invalid');
+        }
+    });
+
+    if (valid) {
+        // Disable tombol agar tidak bisa diklik ganda
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Mengirim...';
+
+        // Submit form setelah validasi manual berhasil
+        e.target.submit();
+    }
+});
+</script>
 @endsection

@@ -24,18 +24,6 @@ class PengumumanController extends Controller
     {
         $show = pengumuman::orderBy('mulai','ASC')->get();
 
-        foreach ($show as $item) {
-            $kualifikasi_ids = json_decode($item->kualifikasi, true); // Decode JSON to array
-
-            // Ambil nama dan kategori dari tabel referensi_jenjang_pendidikan
-            $jenjangs = ref_pendidikan::whereIn('id', $kualifikasi_ids)->get(['nama', 'kategori']);
-
-            $item->jenjang_pendidikan = $jenjangs;
-        }
-
-        // print_r($show);
-        // die();
-
         $data = [
             'show' => $show,
         ];
@@ -47,8 +35,36 @@ class PengumumanController extends Controller
     {
         $show = pengumuman::where('token',$token)->first();
 
+        // MENGAMBIL DATA KUALIFIKASI
+            $kualifikasi_ids = json_decode($show->kualifikasi, true); // Decode JSON to array
+
+            // Ambil nama dan kategori dari tabel referensi_jenjang_pendidikan
+            $jenjangs = ref_pendidikan::whereIn('id', $kualifikasi_ids)->get(['nama', 'kategori']);
+            $show->jenjang_pendidikan = $jenjangs;
+
+        // MENGHITUNG KUOTA TERSISA
+            if ($show->kuota) {
+                // Hitung jumlah peserta yang sudah mendaftar untuk pengumuman ini
+                $jumlah_pendaftar = registrasi::where('id_pengumuman', $show->id)->count();
+
+                // Hitung sisa kuota
+                $sisa_kuota = $show->kuota - $jumlah_pendaftar;
+                $show->sisa_kuota = $sisa_kuota;
+            } else {
+                $show->sisa_kuota = null;
+            }
+
+        $buka = Carbon::parse($show->mulai);
+        $tutup = Carbon::parse($show->selesai);
+        $dibuka = $buka->isoFormat('dddd, D MMMM Y');
+        $ditutup = $tutup->isoFormat('dddd, D MMMM Y').' ('.$tutup->diffForHumans().')';
+
+        // dd($show);
+
         $data = [
             'show' => $show,
+            'dibuka' => $dibuka,
+            'ditutup' => $ditutup,
         ];
 
         return view('pages.rekrutmen.pengumuman.detail')->with('list', $data);

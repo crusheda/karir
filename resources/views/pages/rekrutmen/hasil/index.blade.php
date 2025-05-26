@@ -41,10 +41,10 @@
                                 <input type="date" class="form-control" placeholder="YYYY/MM/DD" id="ttl" required>
                                 <label for="ttl">Tanggal Lahir</label>
                             </div>
-                            <div class="form-floating mb-4">
+                            {{-- <div class="form-floating mb-4">
                                 <input type="text" class="form-control" placeholder="e.g. 08xxxxxx" id="hp" required>
                                 <label for="hp">No. Handphone Aktif</label>
-                            </div>
+                            </div> --}}
                             <a class="btn btn-primary rounded-pill btn-login w-100 mb-2">Lihat Hasil Pengumuman</a>
                         </form>
                         {{-- <p class="mb-1"><a href="#" class="hover">Forgot Password?</a></p>
