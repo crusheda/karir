@@ -35,6 +35,7 @@ Route::get('/rekrutmen/registrasi', [RegistrasiController::class, 'index'])->nam
 Route::post('/rekrutmen/registrasi', [RegistrasiController::class, 'daftar'])->name('registrasi.daftar');
 
 Route::get('/rekrutmen/hasil', [HasilController::class, 'index'])->name('hasil.index');
+Route::post('/rekrutmen/hasil', [HasilController::class, 'result'])->name('hasil.result');
 
 // PUBLIK
     // JADWAL

@@ -26,38 +26,28 @@
 <div class="wrapper bg-light">
     <div class="container pb-14 pb-md-16">
         <div class="row">
-            <div class="col-lg-7 col-xl-6 col-xxl-7 mx-auto mt-n20">
+            <div class="col-xxl-8 mx-auto mt-n20">
                 <div class="card">
                     <div class="card-body p-11 text-center">
-                        <h2 class="mb-3 text-start">Verifikasi Penerimaan Pegawai</h2>
+                        <h2 class="mb-3 text-start"><i class="uil uil-shield-check align-middle text-blue me-1"></i> Verifikasi</h2>
                         <p class="lead mb-6 text-start">Apabila calon pelamar sudah berhasil melakukan pengisian Registrasi pada menu Rekrutmen Pegawai,
-                            maka pengumuman dapat Anda lihat di halaman ini. Silakan melengkapi data isian wajib di bawah ini.</p>
-                        <form class="text-start mb-3">
+                            maka pengumuman hasil seleksi dapat dilihat melalui halaman ini. Silakan melengkapi data isian wajib di bawah ini.</p>
+                        <form class="text-start mb-3" enctype="multipart/form-data" method="POST" action="{{ route('hasil.result') }}" novalidate>
+                            @csrf
                             <div class="form-floating mb-4">
-                                <input type="email" class="form-control" placeholder="Email" id="loginEmail" required>
-                                <label for="loginEmail">Email</label>
+                                <input type="email" class="form-control" placeholder="Email Peserta" id="loginEmail" name="email" autofocus required>
+                                <label for="loginEmail">Email Peserta</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="date" class="form-control" placeholder="YYYY/MM/DD" id="ttl" required>
-                                <label for="ttl">Tanggal Lahir</label>
+                                <input type="date" class="form-control" placeholder="YYYY/MM/DD" id="tl" name="tl" required>
+                                <label for="tl">Tanggal Lahir</label>
                             </div>
                             {{-- <div class="form-floating mb-4">
                                 <input type="text" class="form-control" placeholder="e.g. 08xxxxxx" id="hp" required>
                                 <label for="hp">No. Handphone Aktif</label>
                             </div> --}}
-                            <a class="btn btn-primary rounded-pill btn-login w-100 mb-2">Lihat Hasil Pengumuman</a>
+                            <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2"><i class="uil uil-newspaper me-1"></i> Lihat Hasil Pengumuman</button>
                         </form>
-                        {{-- <p class="mb-1"><a href="#" class="hover">Forgot Password?</a></p>
-                        <p class="mb-0">Don't have an account? <a href="signup.html" class="hover">Sign up</a></p>
-                        <div class="divider-icon my-4">or</div>
-                        <nav class="nav social justify-content-center text-center">
-                            <a href="#" class="btn btn-circle btn-sm btn-google"><i
-                                    class="uil uil-google"></i></a>
-                            <a href="#" class="btn btn-circle btn-sm btn-facebook-f"><i
-                                    class="uil uil-facebook-f"></i></a>
-                            <a href="#" class="btn btn-circle btn-sm btn-twitter"><i
-                                    class="uil uil-twitter"></i></a>
-                        </nav> --}}
                     </div>
                     <!--/.card-body -->
                 </div>

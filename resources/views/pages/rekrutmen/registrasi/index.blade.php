@@ -54,7 +54,7 @@
                                                 @endforeach
                                             @endif
                                         </select>
-                                        <label for="id_pengumuman">Lowongan Kerja (Jumlah Pendaftar / Total Kuota) <b class="text-danger">*</b></label>
+                                        <label for="id_pengumuman">(Jumlah Pendaftar / Total Kuota) <b class="text-danger">*</b></label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

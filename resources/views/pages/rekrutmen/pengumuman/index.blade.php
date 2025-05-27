@@ -120,33 +120,34 @@
                         </div>
                     </form> --}}
                     <div class="job-list mb-10">
-                        {{-- {{ $n = 1; }} --}}
                         @php
                             $colors = ['bg-green', 'bg-yellow', 'bg-blue', 'bg-red'];
                         @endphp
-                        @foreach ($list['show'] as $i => $item)
-                            @php
-                                $bg = $colors[$i % count($colors)];
-                            @endphp
-                            <a href="/rekrutmen/pengumuman/{{ $item->token }}" class="card mb-4 lift">
-                                <div class="card-body p-5">
-                                    <span class="row justify-content-between align-items-center">
-                                        <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
-                                            <span class="avatar {{ $bg }} text-white w-9 h-9 fs-17 me-3">{{ $i+1 }}</span> {{ $item->nama }}</span>
-                                        <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center justify-content-end text-end">
-                                            <i class="uil uil-users-alt me-1"></i> Kuota (<b class="text-primary">{{ $item->kuota }}</b>&nbsp;Peserta) </span>
-                                        <span class="col-5 col-md-3 text-body d-flex align-items-center justify-content-end text-end">
-                                            <i class="uil uil-clock me-1"></i> Ditutup pada <b class="text-danger">{{ Carbon\Carbon::parse($item->selesai)->isoFormat(' D MMMM Y') }}</b></span>
-                                        <span class="d-none d-lg-block col-1 text-center text-body">
-                                            <i class="uil uil-angle-right-b"></i>
+                        @if ($list['show'])
+                            @foreach ($list['show'] as $i => $item)
+                                @php
+                                    $bg = $colors[$i % count($colors)];
+                                @endphp
+                                <a href="/rekrutmen/pengumuman/{{ $item->token }}" class="card mb-4 lift">
+                                    <div class="card-body p-5">
+                                        <span class="row justify-content-between align-items-center">
+                                            <span class="col-lg-4 mb-2 mb-md-0 d-flex align-items-center text-body">
+                                                <span class="avatar {{ $bg }} text-white fs-17 me-3" style="height: 40px;width: 40px;">{{ $i+1 }}</span> {{ $item->nama }}</span>
+                                            <span class="col-lg-3 text-body d-flex align-items-center justify-content-end text-end">
+                                                <i class="uil uil-users-alt me-1"></i> Kuota (<b class="text-primary">{{ $item->kuota?$item->kuota:'∞' }}</b>&nbsp;Peserta) </span>
+                                            <span class="col-lg-4 text-body d-flex align-items-center justify-content-end text-end">
+                                                <i class="uil uil-clock me-1"></i> Ditutup pada (<b class="text-danger">{{ Carbon\Carbon::parse($item->selesai)->isoFormat(' D MMMM Y') }}</b>)</span>
+                                            <span class="d-none d-lg-block col-lg-1 text-center text-body">
+                                                <i class="uil uil-angle-right-b"></i>
+                                            </span>
                                         </span>
-                                    </span>
-                                </div>
-                                <!-- /.card-body -->
-                            </a>
-                            {{-- {{ $n++; }} --}}
-                        @endforeach
-                        <!-- /.card -->
+                                    </div>
+                                    <!-- /.card-body -->
+                                </a>
+                            @endforeach
+                        @else
+                            <h6 class="text-center mb-0">Belum ada lowongan kerja yang dibuka.</h6>
+                        @endif
                     </div>
                 </div>
                 <!-- /column -->
