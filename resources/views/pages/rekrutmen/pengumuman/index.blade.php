@@ -123,7 +123,7 @@
                         @php
                             $colors = ['bg-green', 'bg-yellow', 'bg-blue', 'bg-red'];
                         @endphp
-                        @if ($list['show'])
+                        @if (count($list['show']) > 0)
                             @foreach ($list['show'] as $i => $item)
                                 @php
                                     $bg = $colors[$i % count($colors)];

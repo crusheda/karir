@@ -44,17 +44,24 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-floating mb-4">
-                                        <select class="form-select mb-4" aria-label="Pilihan Lowongan Kerja" name="id_pengumuman" required>
-                                            <option value="" disabled selected hidden>Pilih Lowongan Kerja</option>
-                                            @if ($list['pengumuman'])
-                                                @foreach ($list['pengumuman'] as $item)
-                                                    <option value="{{ $item->id }}">
-                                                        {{ $item->nama }} ({{ $item->jumlah_pendaftar.' / '.$item->kuota }})
-                                                    </option>
-                                                @endforeach
-                                            @endif
-                                        </select>
-                                        <label for="id_pengumuman">(Jumlah Pendaftar / Total Kuota) <b class="text-danger">*</b></label>
+                                        @if (count($list['pengumuman']) > 0)
+                                            <select class="form-select mb-4" aria-label="Pilihan Lowongan Kerja" name="id_pengumuman" required>
+                                                <option value="" disabled selected hidden>Pilih Lowongan Kerja</option>
+                                                @if (count($list['pengumuman']) > 0)
+                                                    @foreach ($list['pengumuman'] as $item)
+                                                        <option value="{{ $item->id }}">
+                                                            {{ $item->nama }} ({{ $item->jumlah_pendaftar.' / '.$item->kuota }})
+                                                        </option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                            <label for="id_pengumuman">(Jumlah Pendaftar / Total Kuota) <b class="text-danger">*</b></label>
+                                        @else
+                                            <select class="form-select mb-4" aria-label="Pilihan Lowongan Kerja" disabled>
+                                                <option value="0">Tidak ada lowongan yang dibuka</option>
+                                            </select>
+                                            <label for="id_pengumuman">(Jumlah Pendaftar / Total Kuota) <b class="text-danger">*</b></label>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6">

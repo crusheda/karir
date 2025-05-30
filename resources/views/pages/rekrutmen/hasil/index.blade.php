@@ -42,10 +42,6 @@
                                 <input type="date" class="form-control" placeholder="YYYY/MM/DD" id="tl" name="tl" required>
                                 <label for="tl">Tanggal Lahir</label>
                             </div>
-                            {{-- <div class="form-floating mb-4">
-                                <input type="text" class="form-control" placeholder="e.g. 08xxxxxx" id="hp" required>
-                                <label for="hp">No. Handphone Aktif</label>
-                            </div> --}}
                             <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2"><i class="uil uil-newspaper me-1"></i> Lihat Hasil Pengumuman</button>
                         </form>
                     </div>
