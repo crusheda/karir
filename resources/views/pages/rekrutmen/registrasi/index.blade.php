@@ -31,7 +31,7 @@
 
                         @include('inc.message')
 
-                        <h2 class="mb-3 text-start">Registrasi Peserta Rekrutmen</h2>
+                        <h2 class="mb-3 text-start">Formulir Registrasi Peserta</h2>
                         <p class="lead mb-6 text-start">Calon Pelamar diwajibkan melakukan registrasi sebagai syarat mengajukan lowongan</p>
                         <form class="text-start mb-3" enctype="multipart/form-data" method="POST" action="{{ route('registrasi.daftar') }}" novalidate>
                             @csrf
@@ -39,7 +39,11 @@
                                 <div class="col-md-12">
                                     <div class="alert alert-secondary">
                                         <h6>Tata Cara Pengisian</h6>
-                                        <i class="uil uil-arrow-right align-middle me-1"></i> Isian wajib bertanda <b class="text-danger">*</b> tidak boleh dikosongi
+                                        <i class="uil uil-arrow-right align-middle me-1"></i> Isian wajib bertanda <b class="text-danger">*</b> tidak boleh dikosongi <br>
+                                        <i class="uil uil-arrow-right align-middle me-1"></i> Setiap peserta hanya diperbolehkan mengisi formulir satu kali <br>
+                                        <i class="uil uil-arrow-right align-middle me-1"></i> Silakan memilih daftar Lowongan Kerja Aktif pada isian di bawah apabila kuota pendaftar masih tersedia <br>
+                                        <i class="uil uil-arrow-right align-middle me-1"></i> Klik tombol <b>Ajukan Lamaran</b> setelah selesai melakukan pengisian dengan lengkap <br>
+                                        <i class="uil uil-arrow-right align-middle me-1"></i> Hasil seleksi dapat dipantau secara berkala melalui halaman <b>Hasil Seleksi</b>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -49,7 +53,7 @@
                                                 <option value="" disabled selected hidden>Pilih Lowongan Kerja</option>
                                                 @if (count($list['pengumuman']) > 0)
                                                     @foreach ($list['pengumuman'] as $item)
-                                                        <option value="{{ $item->id }}">
+                                                        <option value="{{ $item->id }}" {{ old('id_pengumuman') == $item->id ? 'selected' : '' }}>
                                                             {{ $item->nama }} ({{ $item->jumlah_pendaftar.' / '.$item->kuota }})
                                                         </option>
                                                     @endforeach
@@ -66,13 +70,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-4">
-                                        <input type="email" class="form-control" placeholder="Tuliskan Email Aktif Anda" name="email" autofocus required>
+                                        <input type="email" class="form-control" placeholder="Tuliskan Email Aktif Anda" name="email" value="{{ old('email') }}" autofocus required>
                                         <label for="email">Email Aktif <b class="text-danger">*</b></label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-4">
-                                        <input type="text" class="form-control" placeholder="Tuliskan Nama Lengkap Sesuai KTP" name="nama" required>
+                                        <input type="text" class="form-control" placeholder="Tuliskan Nama Lengkap Sesuai KTP" name="nama" value="{{ old('nama') }}" required>
                                         <label for="nama">Nama Lengkap (Sesuai KTP) <b class="text-danger">*</b></label>
                                     </div>
                                 </div>
@@ -82,7 +86,7 @@
                                             <option value="" disabled selected hidden>Pilih Kota</option>
                                             @if ($list['alamat'])
                                                 @foreach ($list['alamat'] as $item)
-                                                    <option value="{{ $item->nama_kabkota }}">{{ $item->nama_kabkota }}</option>
+                                                    <option value="{{ $item->nama_kabkota }}" {{ old('tl') == $item->nama_kabkota ? 'selected' : '' }}>{{ $item->nama_kabkota }}</option>
                                                 @endforeach
                                             @endif
                                         </select>
@@ -91,31 +95,31 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-floating mb-4">
-                                        <input type="date" class="form-control" placeholder="YYYY/MM/DD" name="ttl" required>
+                                        <input type="date" class="form-control" placeholder="YYYY/MM/DD" name="ttl" value="{{ old('ttl') }}" required>
                                         <label for="ttl">Tanggal Lahir <b class="text-danger">*</b></label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-4">
-                                        <input type="text" class="form-control" placeholder="e.g. D3 Keperawatan" name="pt" required>
+                                        <input type="text" class="form-control" placeholder="e.g. D3 Keperawatan" name="pt" value="{{ old('pt') }}" required>
                                         <label for="pt">Pendidikan Terakhir <b class="text-danger">*</b></label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-4">
-                                        <input type="text" class="form-control" placeholder="e.g. 08xxxxxx" name="hp" required>
+                                        <input type="text" class="form-control" placeholder="e.g. 08xxxxxx" name="hp" value="{{ old('hp') }}" required>
                                         <label for="hp">No. Handphone Aktif <b class="text-danger">*</b></label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-4">
-                                        <input type="text" class="form-control" placeholder="Tuliskan Sosmed Anda (IG/TT/FB/dll)" name="sm" required>
+                                        <input type="text" class="form-control" placeholder="Tuliskan Sosmed Anda (IG/TT/FB/dll)" name="sm" value="{{ old('sm') }}" required>
                                         <label for="sm">Sosial Media (IG/FB/dll) <b class="text-danger">*</b></label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-floating mb-1">
-                                        <textarea class="form-control" placeholder="Tuliskan Alamat Lengkap Anda" name="alamat" style="height: 90px" required></textarea>
+                                        <textarea class="form-control" placeholder="Tuliskan Alamat Lengkap Anda" name="alamat" style="height: 90px" required>{{ old('alamat') }}</textarea>
                                         <label for="alamat">Alamat Lengkap <b class="text-danger">*</b></label>
                                     </div>
                                 </div>
@@ -167,7 +171,11 @@
                                 <input class="form-check-input" type="checkbox" value="" name="konfirmasi" id="flexCheckDefault" required>
                                 <label class="form-check-label fs-13" for="flexCheckDefault"> Anda sudah mengerti persyaratan rekrutmen dan ingin melanjutkan registrasi data yang telah diisi dengan sebenar-benarnya </label>
                             </div>
-                            <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2" id="submitBtn"><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
+                            @if (count($list['pengumuman']) > 0)
+                                <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2" id="submitBtn"><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
+                            @else
+                                <button type="submit" class="btn btn-secondary rounded-pill btn-login w-100 mb-2" disabled><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
+                            @endif
                         </form>
                         <!-- /form -->
                         <p class="mb-0">Sudah registrasi? <a href="{{ route('hasil.index') }}" class="hover">Lihat Hasil Seleksi</a></p>

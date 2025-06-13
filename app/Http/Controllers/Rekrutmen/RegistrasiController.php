@@ -77,6 +77,40 @@ class RegistrasiController extends Controller
             'up-cv' => 'required|mimes:pdf|max:1024',
             'up-foto' => 'required|mimes:jpg,jpeg,png|max:1024',
             'up-sertif' => 'mimes:pdf|max:1024',
+        ], [
+            'id_pengumuman.required' => 'Pengumuman harus dipilih.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'nama.required' => 'Nama Lengkap (Sesuai KTP) tidak boleh kosong.',
+            'tl.required' => 'Tempat lahir harus diisi.',
+            'ttl.required' => 'Tanggal lahir harus diisi.',
+            'pt.required' => 'Pendidikan Terakhir harus diisi.',
+            'hp.required' => 'No.HP harus diisi.',
+            'sm.required' => 'Sosial Media harus diisi.',
+            'alamat.required' => 'Alamat Lengkap harus diisi.',
+
+            'up-ijazah.required' => 'File ijazah wajib diunggah.',
+            'up-ijazah.mimes' => 'File ijazah harus berupa PDF.',
+            'up-ijazah.max' => 'Ukuran ijazah maksimal 1MB.',
+
+            'up-transkip.required' => 'File transkip nilai wajib diunggah.',
+            'up-transkip.mimes' => 'File transkip harus berupa PDF.',
+            'up-transkip.max' => 'Ukuran transkip maksimal 1MB.',
+
+            'up-lamaran.required' => 'File surat lamaran wajib diunggah.',
+            'up-lamaran.mimes' => 'File surat lamaran harus berupa PDF.',
+            'up-lamaran.max' => 'Ukuran surat lamaran maksimal 1MB.',
+
+            'up-cv.required' => 'CV wajib diunggah.',
+            'up-cv.mimes' => 'CV harus berupa PDF.',
+            'up-cv.max' => 'Ukuran CV maksimal 1MB.',
+
+            'up-foto.required' => 'Foto wajib diunggah.',
+            'up-foto.mimes' => 'Foto harus berupa JPG, JPEG, atau PNG.',
+            'up-foto.max' => 'Ukuran foto maksimal 1MB.',
+
+            'up-sertif.mimes' => 'File sertifikat harus berupa PDF.',
+            'up-sertif.max' => 'Ukuran sertifikat maksimal 1MB.',
         ]);
 
         $today = Carbon::today();
