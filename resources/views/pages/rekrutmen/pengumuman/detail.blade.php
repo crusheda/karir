@@ -94,13 +94,13 @@
                                     </div>
                                 </div>
                                 <h5 class="h4 mb-3">Persyaratan</h5>
-                                <p style="text-align: justify;">{{ $list['show']->persyaratan }}</p>
+                                <p style="text-align: justify;">{!! nl2br(e($list['show']->persyaratan)) !!}</p>
                                 <h5 class="h4 mb-3">Keahlian Tambahan</h5>
-                                <p style="text-align: justify;">{{ $list['show']->keahlian }}</p>
+                                <p style="text-align: justify;">{!! nl2br(e($list['show']->keahlian)) !!}</p>
                                 <h5 class="h4 mb-3">Uraian Tugas</h5>
-                                <p style="text-align: justify;">{{ $list['show']->tugas }}</p>
+                                <p style="text-align: justify;">{!! nl2br(e($list['show']->tugas)) !!}</p>
                                 <h5 class="h4 mb-3">Keterangan</h5>
-                                <p style="text-align: justify;">{{ $list['show']->keterangan }}</p>
+                                <p style="text-align: justify;">{!! nl2br(e($list['show']->keterangan)) !!}</p>
                                 <div class="d-flex justify-content-between mt-9">
                                     <!-- Tombol kiri -->
                                     <a href="{{ route('pengumuman.index') }}" class="btn btn-navy rounded-pill"><i class="uil uil-angle-left me-1"></i> Kembali</a>

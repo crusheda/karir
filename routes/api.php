@@ -5,12 +5,17 @@ use Illuminate\Support\Facades\Route;
 
 // INITIALIZE PATH CONTROLLER
 use App\Http\Controllers\Bpjs\AntreanController;
+use App\Http\Controllers\Rekrutmen\RegistrasiController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
 // --------------------------------------------  API  --------------------------------------------
+
+Route::get('rekrutmen/pengumuman/{id}', [RegistrasiController::class, 'getPengumuman']);
+
+Route::get('bpjs/bridging/test', [AntreanController::class, 'testerBpjs']);
 Route::get('bpjs/bridging/test', [AntreanController::class, 'testerBpjs']);
 
 // GET DATA BPJS

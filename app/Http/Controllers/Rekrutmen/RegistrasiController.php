@@ -38,6 +38,7 @@ class RegistrasiController extends Controller
                         ->whereDate('rp.mulai', '<=', $today)
                         ->whereDate('rp.selesai', '>=', $today)
                         ->whereNull('rp.deleted_at')
+                        ->where('rp.status',1)
                         ->groupBy('rp.id', 'rp.nama', 'rp.kuota')
                         ->get()
                         ->map(function ($item) {
@@ -114,90 +115,119 @@ class RegistrasiController extends Controller
         ]);
 
         $today = Carbon::today();
-        $cekPengumuman = pengumuman::where('id',$request->id_pengumuman)
-                        ->whereDate('rp.mulai', '<=', $today)
-                        ->whereDate('rp.selesai', '>=', $today)
-                        ->exist();
+        $pengumuman = pengumuman::where('id', $request->id_pengumuman)
+                        ->whereDate('mulai', '<=', $today)
+                        ->whereDate('selesai', '>=', $today)
+                        ->where('status', 1)
+                        ->whereNull('deleted_at')
+                        ->first();
 
-        if ($cekPengumuman) {
-            $validasi = registrasi::where('email',$request->email)
-                                    // ->where('tl',$request->tl)
-                                    // ->where('ttl',$request->ttl)
-                                    // ->where('hp',$request->hp)
-                                    ->where('status',1)
-                                    ->whereNull('deleted_at')
-                                    ->first();
+        if ($pengumuman) {
+            $tanggalLahir = Carbon::parse($request->ttl);
+            $umur = $tanggalLahir->age;
+            $umurMin = $pengumuman->umur_min;
+            $umurMax = $pengumuman->umur_max;
 
-            if (!$validasi) {
-                // INITIALIZE FILE
-                    // 1 = ijazah
-                    // 2 = transkip
-                    // 3 = lamaran
-                    // 4 = sertifikat
-                    // 5 = cv
-                    // 6 = foto
+            $cekKuota = registrasi::where('id_pengumuman',$request->id_pengumuman)->whereNull('deleted_at')->count();
+            if ($cekKuota < $pengumuman->kuota) {
+                if ($umur >= $umurMin && $umur <= $umurMax) {
+                    $validasi = registrasi::where('email',$request->email)
+                                            // ->where('tl',$request->tl)
+                                            ->where('tgl_lahir',$request->ttl)
+                                            // ->where('hp',$request->hp)
+                                            ->where('status',1)
+                                            ->whereNull('deleted_at')
+                                            ->first();
 
-                    // TITLE
-                    $title1 = $request->file('up-ijazah')->getClientOriginalName();
-                    $title2 = $request->file('up-transkip')->getClientOriginalName();
-                    $title3 = $request->file('up-lamaran')->getClientOriginalName();
-                    if ($request->file('up-sertif')) {
-                        $title4 = $request->file('up-sertif')->getClientOriginalName();
+                    if (!$validasi) {
+                        // INITIALIZE FILE
+                            // 1 = ijazah
+                            // 2 = transkip
+                            // 3 = lamaran
+                            // 4 = sertifikat
+                            // 5 = cv
+                            // 6 = foto
+
+                            // TITLE
+                            $title1 = $request->file('up-ijazah')->getClientOriginalName();
+                            $title2 = $request->file('up-transkip')->getClientOriginalName();
+                            $title3 = $request->file('up-lamaran')->getClientOriginalName();
+                            if ($request->file('up-sertif')) {
+                                $title4 = $request->file('up-sertif')->getClientOriginalName();
+                            }
+                            $title5 = $request->file('up-cv')->getClientOriginalName();
+                            $title6 = $request->file('up-foto')->getClientOriginalName();
+
+                            // PATH
+                            $path1 = $request->file('up-ijazah')->store('files/rekrutmen/'.$request->id_pengumuman.'/ijazah', 'public');
+                            $path2 = $request->file('up-transkip')->store('files/rekrutmen/'.$request->id_pengumuman.'/transkip', 'public');
+                            $path3 = $request->file('up-lamaran')->store('files/rekrutmen/'.$request->id_pengumuman.'/lamaran', 'public');
+                            if ($request->file('up-sertif')) {
+                                $path4 = $request->file('up-sertif')->store('files/rekrutmen/'.$request->id_pengumuman.'/sertifikat', 'public');
+                            }
+                            $path5 = $request->file('up-cv')->store('files/rekrutmen/'.$request->id_pengumuman.'/cv', 'public');
+                            $path6 = $request->file('up-foto')->store('files/rekrutmen/'.$request->id_pengumuman.'/foto', 'public');
+
+                        // SAVE TO DB
+                        $data = new registrasi;
+                        $data->id_pengumuman = $request->id_pengumuman;
+                        $data->email = $request->email;
+                        $data->nama = $request->nama;
+                        $data->tempat_lahir = $request->tl;
+                        $data->tgl_lahir = $request->ttl;
+                        $data->pendidikan = $request->pt;
+                        $data->hp = $request->hp;
+                        $data->sosmed = $request->sm;
+                        $data->alamat_lengkap = $request->alamat;
+                        $data->t_ijazah = $title1;
+                        $data->t_transkip = $title2;
+                        $data->t_lamaran = $title3;
+                        if ($request->file('up-sertif')) {
+                            $data->t_sertifikat = $title4;
+                        }
+                        $data->t_cv = $title5;
+                        $data->t_foto = $title6;
+                        $data->p_ijazah = $path1;
+                        $data->p_transkip = $path2;
+                        $data->p_lamaran = $path3;
+                        if ($request->file('up-sertif')) {
+                            $data->p_sertifikat = $path4;
+                        }
+                        $data->p_cv = $path5;
+                        $data->p_foto = $path6;
+                        $data->status = true;
+                        $data->save();
+
+                        return redirect()->back()->with('success', 'Data lamaran berhasil diajukan.
+                            Silakan periksa pengumuman Rekrutmen melalui website/sosial media RS Kami dan
+                            memeriksa hasil seleksi melalui halaman Hasil Seleksi Rekrutmen secara berkala.
+                            Terimakasih.');
+                    } else {
+                        return redirect()->back()->withErrors('Data Lamaran yang Anda ajukan sudah ada/masuk pada daftar peserta seleksi.
+                            Silakan periksa pengumuman Rekrutmen melalui website/sosial media RS Kami dan
+                            memeriksa hasil seleksi melalui halaman Hasil Seleksi Rekrutmen secara berkala. Terimakasih.');
                     }
-                    $title5 = $request->file('up-cv')->getClientOriginalName();
-                    $title6 = $request->file('up-foto')->getClientOriginalName();
-
-                    // PATH
-                    $path1 = $request->file('up-ijazah')->store('files/rekrutmen/'.$request->id_pengumuman.'/ijazah', 'public');
-                    $path2 = $request->file('up-transkip')->store('files/rekrutmen/'.$request->id_pengumuman.'/transkip', 'public');
-                    $path3 = $request->file('up-lamaran')->store('files/rekrutmen/'.$request->id_pengumuman.'/lamaran', 'public');
-                    if ($request->file('up-sertif')) {
-                        $path4 = $request->file('up-sertif')->store('files/rekrutmen/'.$request->id_pengumuman.'/sertifikat', 'public');
-                    }
-                    $path5 = $request->file('up-cv')->store('files/rekrutmen/'.$request->id_pengumuman.'/cv', 'public');
-                    $path6 = $request->file('up-foto')->store('files/rekrutmen/'.$request->id_pengumuman.'/foto', 'public');
-
-                // SAVE TO DB
-                $data = new registrasi;
-                $data->id_pengumuman = $request->id_pengumuman;
-                $data->email = $request->email;
-                $data->nama = $request->nama;
-                $data->tempat_lahir = $request->tl;
-                $data->tgl_lahir = $request->ttl;
-                $data->pendidikan = $request->pt;
-                $data->hp = $request->hp;
-                $data->sosmed = $request->sm;
-                $data->alamat_lengkap = $request->alamat;
-                $data->t_ijazah = $title1;
-                $data->t_transkip = $title2;
-                $data->t_lamaran = $title3;
-                if ($request->file('up-sertif')) {
-                    $data->t_sertifikat = $title4;
+                } else {
+                    return redirect()->back()->withErrors('Umur Anda tidak memenuhi syarat, mohon untuk memastikan tanggal lahir / umur sesuai dengan syarat pada Pengumuman!');
                 }
-                $data->t_cv = $title5;
-                $data->t_foto = $title6;
-                $data->p_ijazah = $path1;
-                $data->p_transkip = $path2;
-                $data->p_lamaran = $path3;
-                if ($request->file('up-sertif')) {
-                    $data->p_sertifikat = $path4;
-                }
-                $data->p_cv = $path5;
-                $data->p_foto = $path6;
-                $data->status = true;
-                $data->save();
-
-                return redirect()->back()->with('success', 'Data lamaran berhasil diajukan.
-                    Silakan periksa pengumuman Rekrutmen melalui website/sosial media RS Kami dan
-                    memeriksa hasil seleksi melalui halaman Hasil Seleksi Rekrutmen secara berkala.
-                    Terimakasih.');
             } else {
-                return redirect()->back()->withErrors('Data Lamaran yang Anda ajukan sudah ada/masuk pada daftar peserta seleksi.
-                    Silakan periksa pengumuman Rekrutmen melalui website/sosial media RS Kami dan
-                    memeriksa hasil seleksi melalui halaman Hasil Seleksi Rekrutmen secara berkala. Terimakasih.');
+                return redirect()->back()->withErrors('Kuota pendaftaran untuk Lowongan Kerja '.$pengumuman->nama.' sudah PENUH. Registrasi peserta tidak dapat dilakukan!');
             }
         } else {
             return redirect()->back()->withErrors('Mohon Maaf, Data Pengumuman yang Anda masukkan Tidak Valid / Tidak ada di Database Kami!');
         }
+    }
+
+    function getPengumuman($id)
+    {
+        $pengumuman = pengumuman::select('kuota')->where('id',$id)->where('status',1)->whereNull('deleted_at')->first();
+        $registrasi = registrasi::where('id_pengumuman',$id)->whereNull('deleted_at')->count();
+
+        $data = [
+            'pengumuman' => $pengumuman,
+            'registrasi' => $registrasi,
+        ];
+
+        return response()->json($data, 200);
     }
 }

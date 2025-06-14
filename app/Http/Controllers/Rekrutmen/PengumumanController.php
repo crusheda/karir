@@ -22,7 +22,9 @@ class PengumumanController extends Controller
 {
     public function index()
     {
-        $show = pengumuman::orderBy('mulai','ASC')->get();
+        $today = Carbon::now();
+
+        $show = pengumuman::whereDate('mulai', '<=', $today)->whereDate('selesai', '>=', $today)->where('status',1)->whereNull('deleted_at')->orderBy('mulai','ASC')->get();
 
         $data = [
             'show' => $show,
@@ -33,7 +35,7 @@ class PengumumanController extends Controller
 
     function detail($token)
     {
-        $show = pengumuman::where('token',$token)->first();
+        $show = pengumuman::where('token',$token)->where('status',1)->whereNull('deleted_at')->first();
 
         // MENGAMBIL DATA KUALIFIKASI
             $kualifikasi_ids = json_decode($show->kualifikasi, true); // Decode JSON to array
@@ -57,7 +59,8 @@ class PengumumanController extends Controller
         $buka = Carbon::parse($show->mulai);
         $tutup = Carbon::parse($show->selesai);
         $dibuka = $buka->isoFormat('dddd, D MMMM Y');
-        $ditutup = $tutup->isoFormat('dddd, D MMMM Y').' ('.$tutup->diffForHumans().')';
+        // $ditutup = $tutup->isoFormat('dddd, D MMMM Y').' ('.$tutup->diffForHumans().')';
+        $ditutup = $tutup->isoFormat('dddd, D MMMM Y');
 
         // dd($show);
 

@@ -49,7 +49,7 @@
                                 <div class="col-md-12">
                                     <div class="form-floating mb-4">
                                         @if (count($list['pengumuman']) > 0)
-                                            <select class="form-select mb-4" aria-label="Pilihan Lowongan Kerja" name="id_pengumuman" required>
+                                            <select class="form-select mb-4" aria-label="Pilihan Lowongan Kerja" name="id_pengumuman" onchange="pilihPengumuman(this.value)" required>
                                                 <option value="" disabled selected hidden>Pilih Lowongan Kerja</option>
                                                 @if (count($list['pengumuman']) > 0)
                                                     @foreach ($list['pengumuman'] as $item)
@@ -171,24 +171,10 @@
                                 <input class="form-check-input" type="checkbox" value="" name="konfirmasi" id="flexCheckDefault" required>
                                 <label class="form-check-label fs-13" for="flexCheckDefault"> Anda sudah mengerti persyaratan rekrutmen dan ingin melanjutkan registrasi data yang telah diisi dengan sebenar-benarnya </label>
                             </div>
-                            @if (count($list['pengumuman']) > 0)
-                                <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2" id="submitBtn"><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
-                            @else
-                                <button type="submit" class="btn btn-secondary rounded-pill btn-login w-100 mb-2" disabled><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
-                            @endif
+                            <button type="submit" class="btn btn-secondary rounded-pill btn-login w-100 mb-2" id="submitBtn" required disabled><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
                         </form>
                         <!-- /form -->
                         <p class="mb-0">Sudah registrasi? <a href="{{ route('hasil.index') }}" class="hover">Lihat Hasil Seleksi</a></p>
-                        {{-- <div class="divider-icon my-4"></div>
-                        <nav class="nav social justify-content-center text-center">
-                            <a href="#" class="btn btn-circle btn-sm btn-google"><i
-                                    class="uil uil-google"></i></a>
-                            <a href="#" class="btn btn-circle btn-sm btn-facebook-f"><i
-                                    class="uil uil-facebook-f"></i></a>
-                            <a href="#" class="btn btn-circle btn-sm btn-twitter"><i
-                                    class="uil uil-twitter"></i></a>
-                        </nav> --}}
-                        <!--/.social -->
                     </div>
                     <!--/.card-body -->
                 </div>
@@ -259,5 +245,71 @@ document.querySelector('form').addEventListener('submit', function (e) {
         e.target.submit();
     }
 });
+
+function pilihPengumuman(id) {
+    $.ajax({
+        url: "/api/rekrutmen/pengumuman/"+id,
+        type: 'GET',
+        dataType: 'json',
+        success: function(res) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            console.log('Kuota Lowongan Kerja = '+res.pengumuman.kuota);
+            console.log('Jumlah Pendaftar Saat Ini = '+res.registrasi);
+
+            if (res.pengumuman.kuota) {
+                if (res.registrasi < res.pengumuman.kuota) {
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Kuota Lowongan masih tersedia.'
+                    })
+                    $('#submitBtn').prop('disabled',false).removeClass('btn-secondary').addClass('btn-primary');
+                } else {
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Kuota Lowongan sudah penuh!'
+                    })
+                    $('#submitBtn').prop('disabled',true).removeClass('btn-primary').addClass('btn-secondary');
+                }
+            } else {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Kuota Pendaftaran Lowongan Kerja tidak terbatas.'
+                })
+                $('#submitBtn').prop('disabled',false).removeClass('btn-secondary').addClass('btn-primary');
+            }
+        },
+        error: function(res) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Terjadi kesalahan saat memperoleh data lowongan kerja!'
+            })
+            $('#submitBtn').prop('disabled',true).removeClass('btn-primary').addClass('btn-secondary');
+        }
+    })
+
+}
 </script>
 @endsection
