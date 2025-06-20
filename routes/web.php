@@ -37,6 +37,15 @@ Route::post('/rekrutmen/registrasi', [RegistrasiController::class, 'daftar'])->n
 Route::get('/rekrutmen/hasil', [HasilController::class, 'index'])->name('hasil.index');
 Route::post('/rekrutmen/hasil', [HasilController::class, 'result'])->name('hasil.result');
 
+// ENDPOINT
+Route::get('/rekrutmen/registrasi/{tokenId}/foto', [RegistrasiController::class, 'downloadfoto'])->name('registrasi.download.foto');
+Route::get('/rekrutmen/registrasi/{tokenId}/cv', [RegistrasiController::class, 'downloadcv'])->name('registrasi.download.cv');
+Route::get('/rekrutmen/registrasi/{tokenId}/ijazah', [RegistrasiController::class, 'downloadijazah'])->name('registrasi.download.ijazah');
+Route::get('/rekrutmen/registrasi/{tokenId}/transkip', [RegistrasiController::class, 'downloadtranskip'])->name('registrasi.download.transkip');
+Route::get('/rekrutmen/registrasi/{tokenId}/lamaran', [RegistrasiController::class, 'downloadlamaran'])->name('registrasi.download.lamaran');
+Route::get('/rekrutmen/registrasi/{tokenId}/sertifikat', [RegistrasiController::class, 'downloadsertifikat'])->name('registrasi.download.sertifikat');
+// Route::get('/rekrutmen/registrasi/{id}/getToken', function ($id) { return Crypt::encryptString($id); });
+
 // PUBLIK
     // JADWAL
     Route::get('/publik/jadwal', [JadwalSpesialisController::class, 'index'])->name('jadwal.index');

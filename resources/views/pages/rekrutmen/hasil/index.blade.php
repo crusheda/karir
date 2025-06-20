@@ -42,7 +42,7 @@
                                 <input type="date" class="form-control" placeholder="YYYY/MM/DD" id="tl" name="tl" required>
                                 <label for="tl">Tanggal Lahir</label>
                             </div>
-                            <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2"><i class="uil uil-newspaper me-1"></i> Lihat Hasil Pengumuman</button>
+                            <button type="submit" class="btn btn-secondary rounded-pill btn-login w-100 mb-2" disabled><i class="uil uil-newspaper me-1"></i> Lihat Hasil Pengumuman</button>
                         </form>
                     </div>
                     <!--/.card-body -->

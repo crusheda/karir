@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Rekrutmen;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Storage;
 use Redirect;
 use Auth;
@@ -229,5 +230,60 @@ class RegistrasiController extends Controller
         ];
 
         return response()->json($data, 200);
+    }
+
+    // DOWNLOAD LAMPIRAN
+    function downloadfoto($tokenId)
+    {
+        $id = Crypt::decryptString($tokenId);
+        $data = registrasi::where('id',$id)->whereNull('deleted_at')->first();
+        $path = storage_path('app/public/' . $data->p_foto);
+        if (!file_exists($path)) abort(404);
+        return response()->file($path);
+    }
+
+    function downloadcv($tokenId)
+    {
+        $id = Crypt::decryptString($tokenId);
+        $data = registrasi::where('id',$id)->whereNull('deleted_at')->first();
+        $path = storage_path('app/public/' . $data->p_cv);
+        if (!file_exists($path)) abort(404);
+        return response()->file($path);
+    }
+
+    function downloadijazah($tokenId)
+    {
+        $id = Crypt::decryptString($tokenId);
+        $data = registrasi::where('id',$id)->whereNull('deleted_at')->first();
+        $path = storage_path('app/public/' . $data->p_ijazah);
+        if (!file_exists($path)) abort(404);
+        return response()->file($path);
+    }
+
+    function downloadtranskip($tokenId)
+    {
+        $id = Crypt::decryptString($tokenId);
+        $data = registrasi::where('id',$id)->whereNull('deleted_at')->first();
+        $path = storage_path('app/public/' . $data->p_transkip);
+        if (!file_exists($path)) abort(404);
+        return response()->file($path);
+    }
+
+    function downloadlamaran($tokenId)
+    {
+        $id = Crypt::decryptString($tokenId);
+        $data = registrasi::where('id',$id)->whereNull('deleted_at')->first();
+        $path = storage_path('app/public/' . $data->p_lamaran);
+        if (!file_exists($path)) abort(404);
+        return response()->file($path);
+    }
+
+    function downloadsertifikat($tokenId)
+    {
+        $id = Crypt::decryptString($tokenId);
+        $data = registrasi::where('id',$id)->whereNull('deleted_at')->first();
+        $path = storage_path('app/public/' . $data->p_sertifikat);
+        if (!file_exists($path)) abort(404);
+        return response()->file($path);
     }
 }

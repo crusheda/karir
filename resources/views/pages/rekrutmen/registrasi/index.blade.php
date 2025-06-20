@@ -171,7 +171,7 @@
                                 <input class="form-check-input" type="checkbox" value="" name="konfirmasi" id="flexCheckDefault" required>
                                 <label class="form-check-label fs-13" for="flexCheckDefault"> Anda sudah mengerti persyaratan rekrutmen dan ingin melanjutkan registrasi data yang telah diisi dengan sebenar-benarnya </label>
                             </div>
-                            <button type="submit" class="btn btn-secondary rounded-pill btn-login w-100 mb-2" id="submitBtn" required disabled><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
+                            <button type="submit" class="btn btn-secondary rounded-pill btn-login w-100 mb-2" id="submitBtn" disabled><i class="uil uil-telegram-alt me-1"></i> Ajukan Lamaran</button>
                         </form>
                         <!-- /form -->
                         <p class="mb-0">Sudah registrasi? <a href="{{ route('hasil.index') }}" class="hover">Lihat Hasil Seleksi</a></p>
@@ -242,7 +242,8 @@ document.querySelector('form').addEventListener('submit', function (e) {
         btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Mengirim...';
 
         // Submit form setelah validasi manual berhasil
-        e.target.submit();
+        // e.target.submit();
+        this.submit();
     }
 });
 
