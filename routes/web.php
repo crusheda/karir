@@ -65,3 +65,4 @@ Route::group(['middleware' => ['auth']], function() {
 Route::fallback(function () {
     return response()->view('pages.errors.custom-404', [], 404);
 });
+

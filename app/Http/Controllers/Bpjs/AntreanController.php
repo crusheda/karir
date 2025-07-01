@@ -14,9 +14,9 @@ class AntreanController extends Controller
 {
     // API
     function testerBpjs() {
-        $consid = '26283';
-        $secretkey = '3kX1E6C95A';
-        $userkey = '6e5c8afbf6be0a6d9c794edad8006ad2'; //  6e5c8afbf6be0a6d9c794edad8006ad2
+        $consid = env('BPJS_CONSID');
+        $secretkey = env('BPJS_SECRETKEY');
+        $userkey = env('BPJS_USERKEY'); //  6e5c8afbf6be0a6d9c794edad8006ad2
         // $url = 'ref/poli';
         $url = 'jadwaldokter/kodepoli/INT/tanggal/2023-09-11';
 
@@ -48,9 +48,9 @@ class AntreanController extends Controller
     }
 
     function jadwalBpjs() {
-        $consid = '26283';
-        $secretkey = '3kX1E6C95A';
-        $userkey = '6e5c8afbf6be0a6d9c794edad8006ad2';
+        $consid = env('BPJS_CONSID');
+        $secretkey = env('BPJS_SECRETKEY');
+        $userkey = env('BPJS_USERKEY');
 
         $client = new Client();
         $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/jadwaldokter/kodepoli/INT/tanggal/2023-10-04', [
@@ -80,9 +80,9 @@ class AntreanController extends Controller
     }
 
     function kdbook($kd) {
-        $consid = '26283';
-        $secretkey = '3kX1E6C95A';
-        $userkey = '6e5c8afbf6be0a6d9c794edad8006ad2';
+        $consid = env('BPJS_CONSID');
+        $secretkey = env('BPJS_SECRETKEY');
+        $userkey = env('BPJS_USERKEY');
 
         $client = new Client();
         $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/antrean/pendaftaran/kodebooking/'.$kd, [
@@ -115,9 +115,9 @@ class AntreanController extends Controller
     }
 
     function sigtime() {
-        $consid = '26283';
-        $secretkey = '3kX1E6C95A';
-        $userkey = '6e5c8afbf6be0a6d9c794edad8006ad2';
+        $consid = env('BPJS_CONSID');
+        $secretkey = env('BPJS_SECRETKEY');
+        $userkey = env('BPJS_USERKEY');
 
         // Get Timestamp
         date_default_timezone_set('UTC');
@@ -145,9 +145,9 @@ class AntreanController extends Controller
     public function refPoli()
     {
         // DEFINE SECRET VAR
-        $consid = '5140';
-        $secretkey = '8wRA8A44F6';
-        $userkey = '3531661b282c4997d496bf34de35871e';
+        $consid = env('BPJS_CONSID');
+        $secretkey = env('BPJS_SECRETKEY');
+        $userkey = env('BPJS_USERKEY');
         $url = 'ref/poli';
 
         // API to BPJS
@@ -174,9 +174,9 @@ class AntreanController extends Controller
     public function refPoliTest()
     {
         // DEFINE SECRET VAR
-        $consid = '26283';
-        $secretkey = '3kX1E6C95A';
-        $userkey = '6e5c8afbf6be0a6d9c794edad8006ad2';
+        $consid = env('BPJS_CONSID');
+        $secretkey = env('BPJS_SECRETKEY');
+        $userkey = env('BPJS_USERKEY');
         $url = 'ref/poli';
 
         // API to BPJS
@@ -201,8 +201,8 @@ class AntreanController extends Controller
     }
 
     function decrypt($string) {
-        $consid = '26283';
-        $secretkey = '3kX1E6C95A';
+        $consid = env('BPJS_CONSID');
+        $secretkey = env('BPJS_SECRETKEY');
         // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
         $key = $consid.$secretkey.$this->bpjsTimestamp();
         $getDecryption = $this->stringDecrypt($key, $string);
@@ -217,9 +217,9 @@ class AntreanController extends Controller
     public function cariJadwalTest()
     {
         // DEFINE SECRET VAR
-        $consid = '26283';
-        $secretkey = '3kX1E6C95A';
-        $userkey = '6e5c8afbf6be0a6d9c794edad8006ad2';
+        $consid = env('BPJS_CONSID');
+        $secretkey = env('BPJS_SECRETKEY');
+        $userkey = env('BPJS_USERKEY');
         $url = 'jadwaldokter/kodepoli/INT/tanggal/2023-09-12';
 
         // API to BPJS
@@ -249,9 +249,9 @@ class AntreanController extends Controller
     public function cariJadwal($poli, $tgl)
     {
         // DEFINE SECRET VAR
-        $consid = '5140';
-        $secretkey = '8wRA8A44F6';
-        $userkey = '1bdfe14b566b2af6e153a9955b8b4cbe';
+        $consid = env('BPJS_CONSID');
+        $secretkey = env('BPJS_SECRETKEY');
+        $userkey = env('BPJS_USERKEY');
         $url = 'jadwaldokter/kodepoli/'.$poli.'/tanggal/'.$tgl;
 
         // API to BPJS
@@ -278,8 +278,8 @@ class AntreanController extends Controller
     // TOOLS BPJS -------------------------------------------------------------------------------------------------------------------------------
     public function antreanGet($url)
     {
-        $consid = '5140';
-        $userkey = '1bdfe14b566b2af6e153a9955b8b4cbe'; // 3531661b282c4997d496bf34de35871e
+        $consid = env('BPJS_CONSID');
+        $userkey = env('BPJS_USERKEY'); // 3531661b282c4997d496bf34de35871e
 
         $client = new Client();
         $res = $client->get('https://apijkn.bpjs-kesehatan.go.id/antreanrs/'.$url, [
@@ -296,8 +296,8 @@ class AntreanController extends Controller
 
     public function antreanGetTester($url)
     {
-        $consid = '26283';
-        $userkey = '6e5c8afbf6be0a6d9c794edad8006ad2';
+        $consid = env('BPJS_CONSID');
+        $userkey = env('BPJS_USERKEY');
 
         $client = new Client();
         $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/'.$url, [
@@ -314,8 +314,8 @@ class AntreanController extends Controller
 
     public function antreanPost($url, $kdbook)
     {
-        $consid = '5140';
-        $userkey = '3531661b282c4997d496bf34de35871e';
+        $consid = env('BPJS_CONSID');
+        $userkey = env('BPJS_USERKEY');
 
         $client = new Client();
 
@@ -337,12 +337,12 @@ class AntreanController extends Controller
 
 	public function generateSignature()
 	{
-        $consid = '5140';
-        $secretkey = '8wRA8A44F6';
-        $userkey = '1bdfe14b566b2af6e153a9955b8b4cbe';
-        // $consid = '5140';
-        // $secretkey = '8wRA8A44F6';
-        // $userkey = '3531661b282c4997d496bf34de35871e';
+        $consid = env('BPJS_CONSID');
+        $secretkey = env('BPJS_SECRETKEY');
+        $userkey = env('BPJS_USERKEY');
+        // $consid = env('BPJS_CONSID');
+        // $secretkey = env('BPJS_SECRETKEY');
+        // $userkey = env('BPJS_USERKEY');
 
         // Get Timestamp
         date_default_timezone_set('UTC');
@@ -359,9 +359,9 @@ class AntreanController extends Controller
 
 	public function generateSignatureTester()
 	{
-        $consid = '26283';
-        $secretkey = '3kX1E6C95A';
-        $userkey = '6e5c8afbf6be0a6d9c794edad8006ad2';
+        $consid = env('BPJS_CONSID');
+        $secretkey = env('BPJS_SECRETKEY');
+        $userkey = env('BPJS_USERKEY');
         // $userkey = '6e5c8afbf6be0a6d9c794edad8006ad2';
 
         // Get Timestamp
