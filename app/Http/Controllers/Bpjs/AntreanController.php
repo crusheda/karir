@@ -137,7 +137,7 @@ class AntreanController extends Controller
             'timestamp' => $tStamp,
         ];
 
-        dd($data);
+        // dd($data);
 
         return response()->json($data, 200);
     }
