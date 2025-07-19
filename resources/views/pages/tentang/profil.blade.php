@@ -551,7 +551,7 @@
                                             <img class="rounded-circle w-15 mb-4" src="/img/pejabat/ryan.png"
                                                 srcset="/img/pejabat/ryan.png 2x" alt="" />
                                             <h4 class="mb-1">dr. Ryandika Aulia Oktorizal</h4>
-                                            <div class="meta mb-2">Direktur Pelayanan Medis Dan Penunjang Medis</div>
+                                            <div class="meta mb-2">Direktur Pelayanan Dan Pengembangan</div>
                                             </nav>
                                             <!-- /.social -->
                                         </div>
@@ -569,7 +569,7 @@
                                             <img class="rounded-circle w-15 mb-4" src="/img/pejabat/resita.png"
                                                 srcset="/img/pejabat/resita.png 2x" alt="" />
                                             <h4 class="mb-1">dr. Resita Lukitawati</h4>
-                                            <div class="meta mb-2">Direktur Keuangan & Perencanaan</div>
+                                            <div class="meta mb-2">Direktur Keuangan</div>
                                             </nav>
                                             <!-- /.social -->
                                         </div>
@@ -584,10 +584,10 @@
                                 <div class="item-inner">
                                     <div class="card" style="height: 300px;max-height: 300px;">
                                         <div class="card-body">
-                                            <img class="rounded-circle w-15 mb-4" src="/img/pejabat/ervan.png"
-                                                srcset="/img/pejabat/ervan.png 2x" alt="" />
-                                            <h4 class="mb-1">Ervan Hadi, S.P., M.M </h4>
-                                            <div class="meta mb-2">Direktur Umum & Kepegawaian</div>
+                                            <img class="rounded-circle w-15 mb-4" src="/img/pejabat/eko.png"
+                                                srcset="/img/pejabat/eko.png 2x" alt="" />
+                                            <h4 class="mb-1">KRT. Eko Pujiatmoko, SE., M.Ak</h4>
+                                            <div class="meta mb-2">Direktur AIK Dan Sumber Daya</div>
                                             <!-- /.social -->
                                         </div>
                                         <!--/.card-body -->
@@ -665,7 +665,7 @@
                         </div>
                         <div>
                             <h5 class="mb-1">Visi</h5>
-                            <address>Menjadi Rumah Sakit pilihan yang Islami dengan pelayanan cepat dan ramah.</address>
+                            <address>Menjadi Rumah Sakit Bernuansa Islami, Dengan Pelayanan Cepat Dan Ramah.</address>
                         </div>
                     </div>
                     <div class="d-flex flex-row">
@@ -706,7 +706,7 @@
                             <address class="mb-0">
                                 <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
                                     <li><span><i class="uil uil-check"></i></span><span>Menyelenggarakan Rumah Sakit yang bernuansa Islami</span></li>
-                                    <li><span><i class="uil uil-check"></i></span><span>Menyelenggarakan pelayanan kesehatan yang bermutu dan dikelola secara berkesinambungan</span></li>
+                                    <li><span><i class="uil uil-check"></i></span><span>Menyelenggarakan Pelayanan Kesehatan yang bermutu dan dikelola secara berkesinambungan</span></li>
                                     <li><span><i class="uil uil-check"></i></span><span>Mewujudkan SDM yang professional, berakhlak mulia, dan sejahtera</span></li>
                                     <li><span><i class="uil uil-check"></i></span><span>Mewujudkan budaya kerja yang produktif dan kondusif</span></li>
                                     <li><span><i class="uil uil-check"></i></span><span>Mewujudkan Sarana Prasarana yang handal</span></li>
