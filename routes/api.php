@@ -11,8 +11,6 @@ use App\Http\Controllers\Rekrutmen\RegistrasiController;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-// --------------------------------------------  API  --------------------------------------------
-
 Route::get('rekrutmen/pengumuman/{id}', [RegistrasiController::class, 'getPengumuman']);
 
 // Route::get('bpjs/bridging/test', [AntreanController::class, 'testerBpjs']);
@@ -46,3 +44,8 @@ Route::get('bpjs/bridging/antrean/poli/{poli}/{tgl}', [AntreanController::class,
 // Route::get('bpjs/bridging/antrean/poli/{poli}/{tgl}', 'Bpjs\AntreanController@cariJadwal');
 // Route::get('bpjs/bridging/tester/jadwal/', 'Bpjs\AntreanController@cariJadwalTest');
 // Route::get('bpjs/bridging/tester/decrypt/{string}', 'Bpjs\AntreanController@decrypt');
+
+//-----------------------------------------------------------------    A  U  T  H  -  A  P  I    -----------------------------------------------------------------
+Route::group(['middleware' => ['web', 'auth']], function() {
+
+});
