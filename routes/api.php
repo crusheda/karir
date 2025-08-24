@@ -18,9 +18,16 @@ Route::get('rekrutmen/pengumuman/{id}', [RegistrasiController::class, 'getPengum
 // Route::get('bpjs/bridging/test', [AntreanController::class, 'testerBpjs']);
 // Route::get('bpjs/bridging/test', [AntreanController::class, 'testerBpjs']);
 
-// GET DATA BPJS
+// GET DATA BPJS VCLAIM
+// Route::get('bpjs/bridging/vclaim/getPesertaByNIK', [AntreanController::class, 'getPesertaByNIK']);
+Route::get('bpjs/peserta/{nik}/tglsep/{tgl}', [AntreanController::class, 'getPesertaByNIK']);
+Route::get('bpjs/rujukan/data/{nokartu}', [AntreanController::class, 'getRujukanByNoKartu']);
+Route::post('bpjs/rujukan/insert', [AntreanController::class, 'insertRujukan']);
+
+// GET DATA BPJS ANTREAN
 // Route::get('bpjs/bridging/jadwal', [AntreanController::class, 'jadwalBpjs']);
 Route::get('bpjs/bridging/all', [AntreanController::class, 'sigtime']);
+Route::post('bpjs/bridging/createRujukan', [AntreanController::class, 'createRujukan']);
 // Route::get('bpjs/bridging/kodebooking/{id}', [AntreanController::class, 'kdbook']);
 // Route::get('bpjs/bridging/timestamp/{id}', [AntreanController::class, 'getTimestamp']);
 

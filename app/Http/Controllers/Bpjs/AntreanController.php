@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use GuzzleHttp\Client;
 use Carbon\Carbon;
 use Illuminate\Contracts\Encryption\DecryptException;
+use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 
@@ -141,6 +142,218 @@ class AntreanController extends Controller
 
         return response()->json($data, 200);
     }
+
+    public function getPesertaByNIK($nik, $tglsep)
+    {
+        $consid    = env('BPJS_CONSID_DEV');
+        $secretkey = env('BPJS_SECRETKEY_DEV');
+        $userkey   = env('BPJS_USERKEY_DEV');
+        $timestamp = $this->bpjsTimestamp();
+
+        $url    = 'https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest-dev/';
+        $action = "Peserta/nik/{$nik}/tglSEP/{$tglsep}";
+
+        $headers = [
+            'Accept'       => 'application/json',
+            'Content-Type' => 'application/json',
+            'X-cons-id'    => $consid,
+            'X-Timestamp'  => $timestamp,
+            'X-Signature'  => $this->generateSignatureDev($consid, $secretkey, $timestamp),
+            'user_key'     => $userkey,
+        ];
+
+        $client = new \GuzzleHttp\Client([
+            'base_uri' => $url,
+            'headers'  => $headers,
+            'verify'   => false, // disable SSL verify kalau di dev
+        ]);
+
+        try {
+            $res = $client->request("GET", $action);
+            $result = json_decode($res->getBody());
+        } catch (\Exception $e) {
+            return response()->json([
+                "metadata" => [
+                    "code" => 500,
+                    "message" => "Request failed: ".$e->getMessage()
+                ],
+                "response" => null
+            ], 500);
+        }
+
+        // decrypt jika ada response terenkripsi
+        $string = $result->response ?? null;
+        if ($string) {
+            $key = $consid.$secretkey.$timestamp;
+            $getDecryption = $this->stringDecrypt($key, $string);
+            $result->response = json_decode($getDecryption);
+        }
+
+        return response()->json($result, 200);
+    }
+
+    public function getRujukanByNoKartu($nokartu)
+    {
+        $consid    = env('BPJS_CONSID_DEV');
+        $secretkey = env('BPJS_SECRETKEY_DEV');
+        $userkey   = env('BPJS_USERKEY_DEV');
+        $timestamp = $this->bpjsTimestamp();
+
+        $url    = 'https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest-dev/';
+        $action = "Rujukan/RS/Peserta/{$nokartu}";
+
+        $headers = [
+            'Accept'       => 'application/json',
+            'Content-Type' => 'application/json; charset=utf-8',
+            'X-cons-id'    => $consid,
+            'X-Timestamp'  => $timestamp,
+            'X-Signature'  => $this->generateSignatureDev($consid, $secretkey, $timestamp),
+            'user_key'     => $userkey,
+        ];
+
+        $client = new \GuzzleHttp\Client([
+            'base_uri' => $url,
+            'headers'  => $headers,
+            'verify'   => false, // disable SSL verify kalau di dev
+        ]);
+
+        try {
+            $res = $client->request("GET", $action);
+            $result = json_decode($res->getBody());
+        } catch (\Exception $e) {
+            return response()->json([
+                "metadata" => [
+                    "code" => 500,
+                    "message" => "Request failed: ".$e->getMessage()
+                ],
+                "response" => null
+            ], 500);
+        }
+
+        // decrypt jika ada response terenkripsi
+        $string = $result->response ?? null;
+        if ($string) {
+            $key = $consid.$secretkey.$timestamp;
+            $getDecryption = $this->stringDecrypt($key, $string);
+            $result->response = json_decode($getDecryption);
+        }
+
+        return response()->json($result, 200);
+    }
+
+    public function insertRujukan(Request $request)
+    {
+        $consid    = env('BPJS_CONSID_DEV');
+        $secretkey = env('BPJS_SECRETKEY_DEV');
+        $userkey   = env('BPJS_USERKEY_DEV');
+        $timestamp = $this->bpjsTimestamp();
+
+        $client = new Client([
+            'base_uri' => 'https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest-dev/',
+            'timeout'  => 30,
+            'verify'   => false, // kalau di dev, matikan SSL verify
+        ]);
+
+        // Payload harus dibungkus ke dalam "request"
+        $payload = [
+            'noSep'        => '0151R0130824V001316',
+            'tglRujukan'   => '2025-08-24',
+            'tglRencanaKunjungan' => '2025-08-24',
+            'ppkDirujuk'   => '0151R013',
+            'jnsPelayanan' => '2',
+            'catatan'      => 'Perlu penanganan lebih lanjut',
+            'diagRujukan'  => 'A09',
+            'tipeRujukan'  => '0',
+            'poliRujukan'  => 'SAR',
+            'user'         => 'adminRS',
+        ];
+
+        try {
+            $response = $client->post('Rujukan/2.0/insert', [
+                'headers' => [
+                    'Content-Type'  => 'application/json', // HARUS JSON
+                    'X-cons-id'     => $consid,
+                    'X-Timestamp'   => $timestamp,
+                    'X-Signature'   => $this->generateSignatureDev($consid, $secretkey, $timestamp),
+                    'user_key'      => $userkey,
+                ],
+                'body' => json_encode($payload) // kirim JSON
+                // 'json' => [  // langsung pakai json
+                //     // 'request' => [
+                //         'noSep'        => '0151R0130824V001316',
+                //         'tglRujukan'   => '2025-08-24',
+                //         'tglRencanaKunjungan' => '2025-08-24',
+                //         'ppkDirujuk'   => '0151R013',
+                //         'jnsPelayanan' => '2',
+                //         'catatan'      => 'Perlu penanganan lebih lanjut',
+                //         'diagRujukan'  => 'A09',
+                //         'tipeRujukan'  => '0',
+                //         'poliRujukan'  => 'SAR',
+                //         'user'         => 'adminRS',
+                //     // ]
+                // ]
+            ]);
+            // print_r($response);
+            // die();
+
+            $body = json_decode($response->getBody()->getContents(), true);
+            return $body;
+
+        } catch (RequestException $e) {
+            return [
+                'error' => true,
+                'message' => $e->getMessage(),
+                'response' => $e->hasResponse() ? $e->getResponse()->getBody()->getContents() : null,
+            ];
+        }
+    }
+
+
+    // public function getPesertaByNIK()
+    // {
+    //     // DEFINE SECRET VAR
+    //     $consid = env('BPJS_CONSID');
+    //     $secretkey = env('BPJS_SECRETKEY');
+    //     $userkey = env('BPJS_USERKEY');
+    //     $url = '';
+    //     // $url = 'Peserta/peserta/nik/3311072207970001';
+
+    //     // API to BPJS
+    //     // $result = $this->vclaimGet($url);
+
+    //     // print_r($this->generateSignature());
+    //     // die();
+    //     $client = new Client();
+    //     $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest/Peserta/nik/3311072207970001/tglSEP/2025-08-01', [
+    //         'headers' => [
+    //             'Accept' => 'application/Json',
+    //             'X-cons-id' => $consid,
+    //             'X-Timestamp' => $this->bpjsTimestamp(),
+    //             'X-Signature' => $this->generateSignature(),
+    //             'user_key' => $userkey,
+    //         ]
+    //     ]);
+    //     $result = json_decode($res->getBody());
+    //     // print_r($res);
+    //     // die();
+
+    //     // DEFINE VAR INTO DECRYPTION PROGRESS
+    //     $string = $result->response;
+    //     $key = $consid.$secretkey.$this->bpjsTimestamp();
+
+    //     // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
+    //     $getDecryption = $this->stringDecrypt($key, $string);
+
+    //     $data = [
+    //         // 'metacode' => $result->metaData->code,
+    //         // 'metamessage' => $result->metaData->message,
+    //         'response' => json_decode($getDecryption)
+    //     ];
+    //     // print_r(json_decode($getDecryption));
+    //     // die();
+
+    //     return response()->json($data, 200);
+    // }
 
     public function refPoli()
     {
@@ -312,6 +525,71 @@ class AntreanController extends Controller
         return json_decode($res->getBody());
     }
 
+    // public function createRujukan()
+    // {
+    //     $consid = env('BPJS_CONSID');
+    //     $userkey = env('BPJS_USERKEY');
+
+    //     $client = new Client();
+
+    //     $res = $client->post('https://apijkn.bpjs-kesehatan.go.id/antreanrs/'.$url, [
+    //         'json' => [
+    //             'kodebooking' => $kdbook
+    //         ],
+    //         'headers' => [
+    //             'X-cons-id' => $consid,
+    //             'X-Timestamp' => $this->bpjsTimestamp(),
+    //             'X-Signature' => $this->generateSignature(),
+    //             'user_key' => $userkey,
+    //         ]
+    //     ]);
+
+    //     // RESULT API INTO JSON DECODED
+    //     return json_decode($res->getBody());
+    // }
+
+    public function vclaimGet($url)
+    {
+        $consid = env('BPJS_CONSID');
+        $userkey = env('BPJS_USERKEY');
+
+        $client = new Client();
+        $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest/'.$url, [
+            'headers' => [
+                'Accept' => 'application/Json',
+                'X-cons-id' => $consid,
+                'X-Timestamp' => $this->bpjsTimestamp(),
+                'X-Signature' => $this->generateSignature(),
+                'user_key' => $userkey,
+            ]
+        ]);
+        // RESULT API INTO JSON DECODED
+        return json_decode($res->getBody());
+    }
+
+    // public function vclaimPost($url, $kdbook)
+    // {
+    //     $consid = env('BPJS_CONSID_DEV');
+    //     $userkey = env('BPJS_USERKEY_DEV');
+
+    //     $client = new Client();
+
+    //     $res = $client->post('https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest/'.$url, [
+    //         'json' => [
+    //             'kodebooking' => $kdbook
+    //         ],
+    //         'headers' => [
+    //             'X-cons-id' => $consid,
+    //             'X-Timestamp' => $this->bpjsTimestamp(),
+    //             'X-Signature' => $this->generateSignature(),
+    //             'user_key' => $userkey,
+    //         ]
+    //     ]);
+
+    //     // RESULT API INTO JSON DECODED
+    //     return json_decode($res->getBody());
+    // }
+
     public function antreanPost($url, $kdbook)
     {
         $consid = env('BPJS_CONSID');
@@ -340,6 +618,28 @@ class AntreanController extends Controller
         $consid = env('BPJS_CONSID');
         $secretkey = env('BPJS_SECRETKEY');
         $userkey = env('BPJS_USERKEY');
+        // $consid = env('BPJS_CONSID');
+        // $secretkey = env('BPJS_SECRETKEY');
+        // $userkey = env('BPJS_USERKEY');
+
+        // Get Timestamp
+        date_default_timezone_set('UTC');
+        $tStamp = strval(time()-strtotime('1970-01-01 00:00:00'));
+
+        // Computes the signature by hashing the salt with the secret key as the key
+        $signature = hash_hmac('sha256', $consid."&".$tStamp, $secretkey, true);
+
+        // base64 encode�
+        $encodedSignature = base64_encode($signature);
+
+		return $encodedSignature;
+	}
+
+	public function generateSignatureDev()
+	{
+        $consid = env('BPJS_CONSID_DEV');
+        $secretkey = env('BPJS_SECRETKEY_DEV');
+        $userkey = env('BPJS_USERKEY_DEV');
         // $consid = env('BPJS_CONSID');
         // $secretkey = env('BPJS_SECRETKEY');
         // $userkey = env('BPJS_USERKEY');
