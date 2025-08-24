@@ -14,9 +14,10 @@ use App\Http\Controllers\Rekrutmen\RegistrasiController;
 use App\Http\Controllers\Rekrutmen\HasilController;
 use App\Http\Controllers\Publik\JadwalSpesialisController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AntrianController;
 
 // STARTING CREATIONS
-// Auth::routes(['register' => false]); // SEMENTARA OFF DULU UNTUK LOGIN ADMIN
+Auth::routes(['register' => false]); // SEMENTARA OFF DULU UNTUK LOGIN ADMIN
 
 // Route::get('/', function () {
 //     return view('pages.portal.index');
@@ -50,14 +51,18 @@ Route::get('/rekrutmen/registrasi/{tokenId}/sertifikat', [RegistrasiController::
     // JADWAL
     Route::get('/publik/jadwal', [JadwalSpesialisController::class, 'index'])->name('jadwal.index');
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['web', 'auth']], function() {
     // SYSTEM
     // Route::resource('roles', RoleController::class);
     // Route::resource('users', UserController::class);
     // Route::resource('products', ProductController::class);
 
     // DASHBOARD
-    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+    // ANTRIAN
+        // DISPLAY
+        Route::get('/antrian/display', [AntrianController::class, 'indexDisplay'])->name('antrian.display.index');
 });
 
 
