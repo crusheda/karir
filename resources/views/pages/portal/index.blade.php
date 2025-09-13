@@ -48,16 +48,16 @@
                     <div class="swiper pe-none">
                         <div class="swiper-wrapper ticker">
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/bpjskes.jpg') }}"
-                                    style="width:100px" alt="" /></div>
+                                    style="width:120px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/bpjsnaker.jpg') }}"
+                                    style="width:120px" alt="" /></div>
+                            <div class="swiper-slide px-5 py-1"><img src="{{ asset('img/mitra/taspen.png') }}"
                                     style="width:100px" alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/taspen.png') }}"
-                                    style="" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/brilife.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/admedika.jpg') }}"
                                     style="width:100px" alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/alodokter.jpg') }}"
+                            <div class="swiper-slide px-5 py-1"><img src="{{ asset('img/mitra/alodokter.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/arah.jpg') }}"
                                     style="width:100px" alt="" /></div>
@@ -65,28 +65,28 @@
                                     style="width:90px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/bjs.jpg') }}"
                                     style="width:100px" alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/iforte.jpg') }}"
+                            <div class="swiper-slide px-5 py-1"><img src="{{ asset('img/mitra/iforte.jpg') }}"
                                     style="width:100px" alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/indihome.jpg') }}"
+                            <div class="swiper-slide px-5 py-1"><img src="{{ asset('img/mitra/indihome.jpg') }}"
                                     style="width:100px" alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/jr.jpg') }}"
+                            <div class="swiper-slide px-5 py-1"><img src="{{ asset('img/mitra/jr.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/lazismu.jpg') }}"
                                     style="width:100px" alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/mdmc.jpg') }}"
+                            <div class="swiper-slide px-5 py-1"><img src="{{ asset('img/mitra/mdmc.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/pmi.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/pos.jpg') }}"
                                     style="width:100px" alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/suryamedika.jpg') }}"
-                                    style="width:100px" alt="" /></div>
+                            <div class="swiper-slide px-5 py-1"><img src="{{ asset('img/mitra/suryamedika.jpg') }}"
+                                    style="width:120px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/telkom.jpg') }}"
-                                    style="width:100px" alt="" /></div>
-                            <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/turbonet.jpg') }}"
                                     style="width:100px" alt="" /></div>
                             <div class="swiper-slide px-5"><img src="{{ asset('img/mitra/tirtamakmur.jpg') }}"
                                     style="width:80px" alt="" /></div>
+                            <div class="swiper-slide px-5 py-3"><img src="{{ asset('img/mitra/kai.png') }}"
+                                    style="width:60px" alt="" /></div>
                         </div>
                         <!--/.swiper-wrapper -->
                     </div>

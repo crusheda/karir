@@ -17,11 +17,17 @@
                         </script> . <br class="d-none d-lg-block" />All rights reserved.
                     </p>
                     <nav class="nav social social-muted">
-                        <a href="https://x.com/rspkusukoharjo" target="_blank"><i class="uil uil-twitter" style="font-size: 25px;color:black"></i></a>
-                        <a href="https://www.facebook.com/rspkusukoharjo" target="_blank"><i class="uil uil-facebook-f" style="font-size: 25px"></i></a>
-                        <a href="https://www.instagram.com/rspkusukoharjo" target="_blank"><i class="uil uil-instagram" style="font-size: 25px"></i></a>
-                        <a href="https://www.youtube.com/channel/UC7KDgt-THy4y9tdso4YbDSw" target="_blank" class="ms-1"><i class="uil uil-youtube" style="font-size: 25px"></i></a>
-                        <a href="https://www.tiktok.com/@rspkusukoharjo" target="_blank" class="ms-1" style="margin-top:5px"><i class="fi fi-brands-tik-tok" style="color: black"></i></a>
+                        <a href="https://x.com/rspkusukoharjo" target="_blank" aria-label="X (rspkusukoharjo)" class="py-1">
+                            <!-- SVG X logo, warna mengikuti CSS color -->
+                            <svg class="icon-x" role="img" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" style="color: black">
+                                <title>X (Twitter)</title>
+                                <path d="M714.163 519.284L1160.89 0H1054.1L667.137 450.887L364.795 0H0L468.63 681.821L0 1226.37H106.795L512.144 744.038L835.205 1226.37H1200L714.137 519.284H714.163ZM560.205 682.149L517.94 621.369L145.259 79.497H310.929L604.116 501.832L646.381 562.612L1038.21 1150.57H872.536L560.205 682.123V682.149Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/rspkusukoharjo" target="_blank" class="py-1"><i class="uil uil-facebook-f" style="font-size: 25px"></i></a>
+                        <a href="https://www.instagram.com/rspkusukoharjo" target="_blank" class="py-1"><i class="uil uil-instagram" style="font-size: 25px"></i></a>
+                        <a href="https://www.youtube.com/channel/UC7KDgt-THy4y9tdso4YbDSw" target="_blank" class="ms-1 py-1"><i class="uil uil-youtube" style="font-size: 25px"></i></a>
+                        <a href="https://www.tiktok.com/@rspkusukoharjo" target="_blank" class="ms-1 py-1" style="margin-top:5px"><i class="fi fi-brands-tik-tok" style="color: black"></i></a>
                     </nav>
                     <!-- /.social -->
                 </div>
