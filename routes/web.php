@@ -37,6 +37,7 @@ Route::post('/rekrutmen/registrasi', [RegistrasiController::class, 'daftar'])->n
 
 Route::get('/rekrutmen/hasil', [HasilController::class, 'index'])->name('hasil.index');
 Route::post('/rekrutmen/hasil', [HasilController::class, 'result'])->name('hasil.result');
+Route::post('/rekrutmen/kehadiran', [HasilController::class, 'kehadiran'])->name('push.kehadiran');
 
 // ENDPOINT
 Route::get('/rekrutmen/registrasi/{tokenId}/foto', [RegistrasiController::class, 'downloadfoto'])->name('registrasi.download.foto');

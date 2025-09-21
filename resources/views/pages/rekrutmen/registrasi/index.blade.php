@@ -127,41 +127,42 @@
                                 <div class="col-md-12">
                                     <div class="alert alert-secondary">
                                         <h6>Keterangan Upload File</h6>
-                                        Batas maksimal file upload <b>1 mb</b>
+                                        <i class="fa-fw fas fa-caret-right nav-icon"></i> Batas maksimal file upload <b class="text-danger">1 mb</b> <br>
+                                        <i class="fa-fw fas fa-caret-right nav-icon"></i> Upload dokumen sesuai <b class="text-info">format</b> <b class="text-primary">file</b> yang telah ditentukan
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="mb-1">Ijazah Terakhir (<b>PDF</b>) <b class="text-danger">*</b></label>
+                                    <label class="mb-1">Ijazah Terakhir (<b class="text-info">PDF</b>) <b class="text-danger">*</b></label>
                                     <div class="form-floating mb-4">
                                         <input type="file" class="form-control" name="up-ijazah" accept=".pdf" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="mb-1">Transkip Nilai (<b>PDF</b>) <b class="text-danger">*</b></label>
+                                    <label class="mb-1">Transkip Nilai (<b class="text-info">PDF</b>) <b class="text-danger">*</b></label>
                                     <div class="form-floating mb-4">
                                         <input type="file" class="form-control" name="up-transkip" accept=".pdf" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="mb-1">Surat Lamaran (<b>PDF</b>) <b class="text-danger">*</b></label>
+                                    <label class="mb-1">Surat Lamaran (<b class="text-info">PDF</b>) <b class="text-danger">*</b></label>
                                     <div class="form-floating mb-4">
                                         <input type="file" class="form-control" name="up-lamaran" accept=".pdf" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="mb-1">Curriculum Vitae (<b>PDF</b>) <b class="text-danger">*</b></label>
+                                    <label class="mb-1">Curriculum Vitae (<b class="text-info">PDF</b>) <b class="text-danger">*</b></label>
                                     <div class="form-floating mb-4">
                                         <input type="file" class="form-control" name="up-cv" accept=".pdf" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="mb-1">Pas Photo (<b>JPG/PNG</b>) <b class="text-danger">*</b></label>
+                                    <label class="mb-1">Pas Photo (<b class="text-primary">JPG/PNG</b>) <b class="text-danger">*</b></label>
                                     <div class="form-floating mb-4">
                                         <input type="file" class="form-control" name="up-foto" accept=".jpg,.jpeg,.png" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="mb-1">Sertifikat Pelatihan (<b>PDF</b>)</label>
+                                    <label class="mb-1">Sertifikat Pelatihan (<b class="text-info">PDF</b>)</label>
                                     <div class="form-floating mb-4">
                                         <input type="file" class="form-control" name="up-sertif" accept=".pdf">
                                     </div>

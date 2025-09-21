@@ -14,9 +14,15 @@
         </div>
     @endif
 @endif
+{{-- PESAN ERROR BIASA --}}
+@if (session('error'))
+    <div class="alert alert-danger text-left" style="text-align: justify">
+        {!! session('error') !!}
+    </div>
+@endif
 {{-- PESAN SUKSES --}}
 @if (session('success'))
     <div class="alert alert-success text-left" style="text-align: justify">
-        {{ session('success') }}
+        {!! session('success') !!}
     </div>
 @endif
