@@ -52,7 +52,7 @@ Route::get('bpjs/bridging/antrean/poli/{poli}/{tgl}', [AntreanController::class,
 // Route::get('bpjs/bridging/tester/jadwal/', 'Bpjs\AntreanController@cariJadwalTest');
 // Route::get('bpjs/bridging/tester/decrypt/{string}', 'Bpjs\AntreanController@decrypt');
 
+Route::get('rekrutmen/registrasi/download/{dokumen}/{peserta}', [RegistrasiController::class, 'previewPdf'])->name('rekrutmen.registrasi.previewPdf');
 //-----------------------------------------------------------------    A  U  T  H  -  A  P  I    -----------------------------------------------------------------
 Route::group(['middleware' => ['web', 'auth']], function() {
-
 });

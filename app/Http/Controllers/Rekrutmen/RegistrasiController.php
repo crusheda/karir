@@ -232,6 +232,46 @@ class RegistrasiController extends Controller
         return response()->json($data, 200);
     }
 
+    function previewPdf($dokumen,$peserta)
+    {
+        $decryptedId = Crypt::decryptString(urldecode($peserta));
+        $getPeserta = registrasi::where('id',$decryptedId)->first();
+
+        $path = '';
+        if ($dokumen == 1) {
+            $path = $getPeserta->p_foto;
+        } elseif ($dokumen == 2) {
+            $path = $getPeserta->p_cv;
+        } elseif ($dokumen == 3) {
+            $path = $getPeserta->p_ijazah;
+        } elseif ($dokumen == 4) {
+            $path = $getPeserta->p_transkip;
+        } elseif ($dokumen == 5) {
+            $path = $getPeserta->p_lamaran;
+        } elseif ($dokumen == 6) {
+            $path = $getPeserta->p_sertifikat;
+        } else {
+            return Response::json(array(
+                'message' => "Request Dokumen Tidak Valid!",
+                'code' => 404,
+            ));
+        }
+
+        $outputMerged = storage_path().'/app/public/'.$path;
+
+        $mime = File::mimeType($outputMerged);
+
+        return response()->file($outputMerged, [
+            'Content-Type' => $mime,
+        ]);
+
+        // if ($mime === 'application/pdf') {
+        //     // PDF
+        // } elseif (str_starts_with($mime, 'image/')) {
+        //     // Image
+        // }
+    }
+
     // DOWNLOAD LAMPIRAN
     function downloadfoto($tokenId)
     {
