@@ -202,13 +202,13 @@
 
                                 // kolom Ruangan pakai rowspan
                                 if (!ruangPrinted) {
-                                    tbody += `<td rowspan="${totalRuanganRowspan}">${ruang}</td>`;
+                                    tbody += `<td class="text-start" rowspan="${totalRuanganRowspan}">${ruang}</td>`;
                                     ruangPrinted = true;
                                 }
 
                                 // kolom Kamar pakai rowspan
                                 if (!kamarPrinted) {
-                                    tbody += `<td rowspan="${totalKamarRowspan}">${kamar}</td>`;
+                                    tbody += `<td class="text-start" rowspan="${totalKamarRowspan}">${kamar}</td>`;
                                     kamarPrinted = true;
                                 }
 

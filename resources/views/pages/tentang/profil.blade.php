@@ -584,7 +584,7 @@
                                 <div class="item-inner">
                                     <div class="card" style="height: 300px;max-height: 300px;">
                                         <div class="card-body">
-                                            <img class="rounded-circle w-15 mb-4" src="/img/pejabat/eko.png"
+                                            <img class="rounded-circle w-16 mb-4" src="/img/pejabat/eko.png"
                                                 srcset="/img/pejabat/eko.png 2x" alt="" />
                                             <h4 class="mb-1">KRT. Eko Pujiatmoko, SE., M.Ak</h4>
                                             <div class="meta mb-2">Direktur AIK Dan Sumber Daya</div>
