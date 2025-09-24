@@ -17,6 +17,7 @@
                         <h6 class="dropdown-header">Informasi</h6>
                         <ul class="list-unstyled cc-2 pb-lg-1">
                             <li><a class="dropdown-item {{ request()->routeIs('jadwal.index') ? 'active' : '' }}" href="{{ route('jadwal.index') }}">Jadwal Dokter Spesialis</a></li>
+                            <li><a class="dropdown-item {{ request()->routeIs('tt.index') ? 'active' : '' }}" href="{{ route('tt.index') }}">Ketersediaan Tempat Tidur</a></li>
                             <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Pendaftaran Online</s></a></li>
                             <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Alur Pelayanan</s></a></li>
                             <li><a class="dropdown-item text-muted" href="javascript:void(0);"><s>Fasilitas Umum</s></a></li>

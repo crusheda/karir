@@ -13,6 +13,7 @@ use App\Http\Controllers\Rekrutmen\PengumumanController;
 use App\Http\Controllers\Rekrutmen\RegistrasiController;
 use App\Http\Controllers\Rekrutmen\HasilController;
 use App\Http\Controllers\Publik\JadwalSpesialisController;
+use App\Http\Controllers\Publik\KetersediaanTTController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AntrianController;
 
@@ -51,6 +52,8 @@ Route::get('/rekrutmen/registrasi/{tokenId}/sertifikat', [RegistrasiController::
 // PUBLIK
     // JADWAL
     Route::get('/publik/jadwal', [JadwalSpesialisController::class, 'index'])->name('jadwal.index');
+    // KETERSEDIAAN TT
+    Route::get('/publik/tt', [KetersediaanTTController::class, 'index'])->name('tt.index');
 
 Route::group(['middleware' => ['web', 'auth']], function() {
     // SYSTEM

@@ -13,153 +13,289 @@ use Illuminate\Http\Request;
 
 class AntreanController extends Controller
 {
+    // INITIALIZE VARIABLE
+        // PRODUCTION
+            protected $consid;
+            protected $secretkey;
+            protected $userkey;
+            protected $client;
+            protected $baseurlvclaim;
+            protected $baseurlantrean;
+        // DEV
+            protected $consid_dev;
+            protected $secretkey_dev;
+            protected $userkey_dev;
+            protected $client_dev;
+            protected $baseurlvclaim_dev;
+            protected $baseurlantrean_dev;
+
+    public function __construct()
+    {
+        // PRODUCTION
+        $this->consid             = env('BPJS_CONSID');
+        $this->secretkey          = env('BPJS_SECRETKEY');
+        $this->userkey            = env('BPJS_USERKEY');
+        $this->baseurlvclaim      = 'https://apijkn.bpjs-kesehatan.go.id/vclaim-rest/';
+        $this->baseurlantrean     = 'https://apijkn.bpjs-kesehatan.go.id/antreanrs/';
+        $this->client             = new Client([
+                                        'base_uri' => $this->baseurlvclaim,
+                                        'timeout'  => 30,
+                                        'verify'   => false,
+                                    ]);
+
+        // DEV
+        $this->consid_dev         = env('BPJS_CONSID_DEV');
+        $this->secretkey_dev      = env('BPJS_SECRETKEY_DEV');
+        $this->userkey_dev        = env('BPJS_USERKEY_DEV');
+        $this->baseurlvclaim_dev  = 'https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest-dev/';
+        $this->baseurlantrean_dev = 'https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/';
+        $this->client_dev         = new Client([
+                                        'base_uri' => $this->baseurlvclaim_dev,
+                                        'timeout'  => 30,
+                                        'verify'   => false,
+                                    ]);
+    }
+
     // API
-    function testerBpjs() {
-        $consid = env('BPJS_CONSID');
-        $secretkey = env('BPJS_SECRETKEY');
-        $userkey = env('BPJS_USERKEY'); //  6e5c8afbf6be0a6d9c794edad8006ad2
-        // $url = 'ref/poli';
-        $url = 'jadwaldokter/kodepoli/INT/tanggal/2023-09-11';
+    // function testerBpjs() {
+    //     $url = 'jadwaldokter/kodepoli/INT/tanggal/2023-09-11';
 
-        $client = new Client();
-        $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/'.$url, [
-            'headers' => [
-                'X-cons-id' => $consid,
-                'X-Timestamp' => $this->bpjsTimestamp(),
-                'X-Signature' => $this->generateSignatureTester(),
-                'user_key' => $userkey,
-            ]
-        ]); // url_live : https://apijkn.bpjs-kesehatan.go.id/antreanrs/
+    //     $client = new Client();
+    //     $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/'.$url, [
+    //         'headers' => [
+    //             'X-cons-id' => $consid,
+    //             'X-Timestamp' => $this->bpjsTimestamp(),
+    //             'X-Signature' => $this->generateSignatureTester(),
+    //             'user_key' => $userkey,
+    //         ]
+    //     ]); // url_live : https://apijkn.bpjs-kesehatan.go.id/antreanrs/
 
-        // RESULT API INTO DECODED JSON
-        $result = json_decode($res->getBody());
+    //     // RESULT API INTO DECODED JSON
+    //     $result = json_decode($res->getBody());
 
-        // DEFINE VAR INTO DECRYPTION PROGRESS
-        $string = $result->response;
-        $key = $consid.$secretkey.$this->bpjsTimestamp();
+    //     // DEFINE VAR INTO DECRYPTION PROGRESS
+    //     $string = $result->response;
+    //     $key = $consid.$secretkey.$this->bpjsTimestamp();
 
-        // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
-        $getDecryption = $this->stringDecrypt($key, $string);
+    //     // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
+    //     $getDecryption = $this->stringDecrypt($key, $string);
 
+    //     $data = [
+    //         'response' => json_decode($getDecryption)
+    //     ];
+
+    //     return response()->json($data, 200);
+    // }
+
+    // function jadwalBpjs() {
+    //     $consid = env('BPJS_CONSID');
+    //     $secretkey = env('BPJS_SECRETKEY');
+    //     $userkey = env('BPJS_USERKEY');
+
+    //     $client = new Client();
+    //     $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/jadwaldokter/kodepoli/INT/tanggal/2023-10-04', [
+    //         'headers' => [
+    //             'X-cons-id' => $consid,
+    //             'X-Timestamp' => $this->bpjsTimestamp(),
+    //             'X-Signature' => $this->generateSignatureTester(),
+    //             'user_key' => $userkey,
+    //         ]
+    //     ]); // url_live : https://apijkn.bpjs-kesehatan.go.id/antreanrs/
+
+    //     // RESULT API INTO DECODED JSON
+    //     $result = json_decode($res->getBody());
+
+    //     // DEFINE VAR INTO DECRYPTION PROGRESS
+    //     $string = $result->response;
+    //     $key = $consid.$secretkey.$this->bpjsTimestamp();
+
+    //     // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
+    //     $getDecryption = $this->stringDecrypt($key, $string);
+
+    //     $data = [
+    //         'response' => json_decode($getDecryption)
+    //     ];
+
+    //     return response()->json($data, 200);
+    // }
+
+    // function kdbook($kd) {
+    //     $consid = env('BPJS_CONSID');
+    //     $secretkey = env('BPJS_SECRETKEY');
+    //     $userkey = env('BPJS_USERKEY');
+
+    //     $client = new Client();
+    //     $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/antrean/pendaftaran/kodebooking/'.$kd, [
+    //         'headers' => [
+    //             'X-cons-id' => $consid,
+    //             'X-Timestamp' => $this->bpjsTimestamp(),
+    //             'X-Signature' => $this->generateSignatureTester(),
+    //             'user_key' => $userkey,
+    //         ]
+    //     ]); // url_live : https://apijkn.bpjs-kesehatan.go.id/antreanrs/
+
+    //     // RESULT API INTO DECODED JSON
+    //     $result = json_decode($res->getBody());
+    //     // dd($result);
+
+    //     // DEFINE VAR INTO DECRYPTION PROGRESS
+    //     $string = $result->response;
+    //     $key = $consid.$secretkey.$this->bpjsTimestamp();
+
+    //     // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
+    //     $getDecryption = $this->stringDecrypt($key, $string);
+
+    //     $data = [
+    //         'response' => json_decode($getDecryption)
+    //     ];
+
+    //     dd(json_decode($getDecryption)[0]);
+
+    //     return response()->json($data, 200);
+    // }
+
+    // PRODUCTION
+    function showKey()
+    {
         $data = [
-            'response' => json_decode($getDecryption)
+            'consid' => $this->consid,
+            'secretkey' => $this->secretkey,
+            'userkey' => $this->userkey,
+            'signature' => $this->generateSignature(),
+            'timestamp' => $this->bpjsTimestamp(),
         ];
 
         return response()->json($data, 200);
     }
 
-    function jadwalBpjs() {
-        $consid = env('BPJS_CONSID');
-        $secretkey = env('BPJS_SECRETKEY');
-        $userkey = env('BPJS_USERKEY');
+    public function cariSEP($SEP)
+    {
+        $action = "SEP/{$SEP}";
 
-        $client = new Client();
-        $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/jadwaldokter/kodepoli/INT/tanggal/2023-10-04', [
-            'headers' => [
-                'X-cons-id' => $consid,
-                'X-Timestamp' => $this->bpjsTimestamp(),
-                'X-Signature' => $this->generateSignatureTester(),
-                'user_key' => $userkey,
-            ]
-        ]); // url_live : https://apijkn.bpjs-kesehatan.go.id/antreanrs/
-
-        // RESULT API INTO DECODED JSON
-        $result = json_decode($res->getBody());
-
-        // DEFINE VAR INTO DECRYPTION PROGRESS
-        $string = $result->response;
-        $key = $consid.$secretkey.$this->bpjsTimestamp();
-
-        // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
-        $getDecryption = $this->stringDecrypt($key, $string);
-
-        $data = [
-            'response' => json_decode($getDecryption)
+        $headers = [
+            // 'Accept'       => 'application/json',
+            // 'Content-Type' => 'application/json; charset=utf-8',
+            'Content-Type' => 'Application/x-www-form-urlencoded',
+            'X-cons-id'    => $this->consid,
+            'X-Timestamp'  => $this->bpjsTimestamp(),
+            'X-Signature'  => $this->generateSignature(),
+            'user_key'     => $this->userkey,
         ];
 
-        return response()->json($data, 200);
+        try {
+            $res = $this->client->request("GET", $action, [
+                'headers' => $headers
+            ]);
+            $result = json_decode($res->getBody());
+        } catch (\Exception $e) {
+            return response()->json([
+                "metadata" => [
+                    "code" => 500,
+                    "message" => "Request failed: ".$e->getMessage()
+                ],
+                "response" => null
+            ], 500);
+        }
+
+        // decrypt jika ada response terenkripsi
+        $string = $result->response ?? null;
+        if ($string) {
+            $getDecryption = $this->stringDecrypt($string);
+            $result->response = json_decode($getDecryption);
+        }
+
+        return response()->json($result, 200);
     }
 
-    function kdbook($kd) {
-        $consid = env('BPJS_CONSID');
-        $secretkey = env('BPJS_SECRETKEY');
-        $userkey = env('BPJS_USERKEY');
+    public function cariSEPInternal($SEP)
+    {
+        $action = "SEP/Internal/{$SEP}";
 
-        $client = new Client();
-        $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/antrean/pendaftaran/kodebooking/'.$kd, [
-            'headers' => [
-                'X-cons-id' => $consid,
-                'X-Timestamp' => $this->bpjsTimestamp(),
-                'X-Signature' => $this->generateSignatureTester(),
-                'user_key' => $userkey,
-            ]
-        ]); // url_live : https://apijkn.bpjs-kesehatan.go.id/antreanrs/
-
-        // RESULT API INTO DECODED JSON
-        $result = json_decode($res->getBody());
-        // dd($result);
-
-        // DEFINE VAR INTO DECRYPTION PROGRESS
-        $string = $result->response;
-        $key = $consid.$secretkey.$this->bpjsTimestamp();
-
-        // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
-        $getDecryption = $this->stringDecrypt($key, $string);
-
-        $data = [
-            'response' => json_decode($getDecryption)
+        $headers = [
+            // 'Accept'       => 'application/json',
+            // 'Content-Type' => 'application/json; charset=utf-8',
+            'Content-Type' => 'Application/x-www-form-urlencoded',
+            'X-cons-id'    => $this->consid,
+            'X-Timestamp'  => $this->bpjsTimestamp(),
+            'X-Signature'  => $this->generateSignature(),
+            'user_key'     => $this->userkey,
         ];
 
-        dd(json_decode($getDecryption)[0]);
+        try {
+            $res = $this->client->request("GET", $action, [
+                'headers' => $headers
+            ]);
+            $result = json_decode($res->getBody());
+        } catch (\Exception $e) {
+            return response()->json([
+                "metadata" => [
+                    "code" => 500,
+                    "message" => "Request failed: ".$e->getMessage()
+                ],
+                "response" => null
+            ], 500);
+        }
 
-        return response()->json($data, 200);
+        // decrypt jika ada response terenkripsi
+        $string = $result->response ?? null;
+        if ($string) {
+            $getDecryption = $this->stringDecrypt($string);
+            $result->response = json_decode($getDecryption);
+        }
+
+        return response()->json($result, 200);
     }
 
-    function sigtime() {
-        $consid = env('BPJS_CONSID');
-        $secretkey = env('BPJS_SECRETKEY');
-        $userkey = env('BPJS_USERKEY');
+    public function cariRujukan($NORUJUKAN)
+    {
+        $action = "Rujukan/{$NORUJUKAN}";
 
-        // Get Timestamp
-        date_default_timezone_set('UTC');
-        $tStamp = strval(time()-strtotime('1970-01-01 00:00:00'));
-
-        // Computes the signature by hashing the salt with the secret key as the key
-        $signature = hash_hmac('sha256', $consid."&".$tStamp, $secretkey, true);
-
-        // base64 encode�
-        $encodedSignature = base64_encode($signature);
-
-        $data = [
-            'consid' => $consid,
-            'secretkey' => $secretkey,
-            'userkey' => $userkey,
-            'signature' => $encodedSignature,
-            'timestamp' => $tStamp,
+        $headers = [
+            // 'Accept'       => 'application/json',
+            'Content-Type' => 'application/json; charset=utf-8',
+            // 'Content-Type' => 'Application/x-www-form-urlencoded',
+            'X-cons-id'    => $this->consid,
+            'X-Timestamp'  => $this->bpjsTimestamp(),
+            'X-Signature'  => $this->generateSignature(),
+            'user_key'     => $this->userkey,
         ];
 
-        // dd($data);
+        try {
+            $res = $this->client->request("GET", $action, [
+                'headers' => $headers
+            ]);
+            $result = json_decode($res->getBody());
+        } catch (\Exception $e) {
+            return response()->json([
+                "metadata" => [
+                    "code" => 500,
+                    "message" => "Request failed: ".$e->getMessage()
+                ],
+                "response" => null
+            ], 500);
+        }
 
-        return response()->json($data, 200);
+        // decrypt jika ada response terenkripsi
+        $string = $result->response ?? null;
+        if ($string) {
+            $getDecryption = $this->stringDecrypt($string);
+            $result->response = json_decode($getDecryption);
+        }
+
+        return response()->json($result, 200);
     }
 
     public function getPesertaByNIK($nik, $tglsep)
     {
-        $consid    = env('BPJS_CONSID_DEV');
-        $secretkey = env('BPJS_SECRETKEY_DEV');
-        $userkey   = env('BPJS_USERKEY_DEV');
-        $timestamp = $this->bpjsTimestamp();
-
-        $url    = 'https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest-dev/';
         $action = "Peserta/nik/{$nik}/tglSEP/{$tglsep}";
 
         $headers = [
             'Accept'       => 'application/json',
             'Content-Type' => 'application/json',
-            'X-cons-id'    => $consid,
-            'X-Timestamp'  => $timestamp,
-            'X-Signature'  => $this->generateSignatureDev($consid, $secretkey, $timestamp),
-            'user_key'     => $userkey,
+            'X-cons-id'    => $this->consid,
+            'X-Timestamp'  => $this->bpjsTimestamp,
+            'X-Signature'  => $this->generateSignature(),
+            'user_key'     => $this->userkey,
         ];
 
         $client = new \GuzzleHttp\Client([
@@ -194,25 +330,19 @@ class AntreanController extends Controller
 
     public function getRujukanByNoKartu($nokartu)
     {
-        $consid    = env('BPJS_CONSID_DEV');
-        $secretkey = env('BPJS_SECRETKEY_DEV');
-        $userkey   = env('BPJS_USERKEY_DEV');
-        $timestamp = $this->bpjsTimestamp();
-
-        $url    = 'https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest-dev/';
         $action = "Rujukan/RS/Peserta/{$nokartu}";
 
         $headers = [
             'Accept'       => 'application/json',
             'Content-Type' => 'application/json; charset=utf-8',
-            'X-cons-id'    => $consid,
-            'X-Timestamp'  => $timestamp,
-            'X-Signature'  => $this->generateSignatureDev($consid, $secretkey, $timestamp),
-            'user_key'     => $userkey,
+            'X-cons-id'    => $this->consid,
+            'X-Timestamp'  => $this->bpjsTimestamp,
+            'X-Signature'  => $this->generateSignature(),
+            'user_key'     => $this->userkey,
         ];
 
-        $client = new \GuzzleHttp\Client([
-            'base_uri' => $url,
+        $client = new Client([
+            'base_uri' => $this->url,
             'headers'  => $headers,
             'verify'   => false, // disable SSL verify kalau di dev
         ]);
@@ -233,8 +363,7 @@ class AntreanController extends Controller
         // decrypt jika ada response terenkripsi
         $string = $result->response ?? null;
         if ($string) {
-            $key = $consid.$secretkey.$timestamp;
-            $getDecryption = $this->stringDecrypt($key, $string);
+            $getDecryption = $this->stringDecrypt($string);
             $result->response = json_decode($getDecryption);
         }
 
@@ -243,16 +372,7 @@ class AntreanController extends Controller
 
     public function insertRujukan(Request $request)
     {
-        $consid    = env('BPJS_CONSID_DEV');
-        $secretkey = env('BPJS_SECRETKEY_DEV');
-        $userkey   = env('BPJS_USERKEY_DEV');
-        $timestamp = $this->bpjsTimestamp();
-
-        $client = new Client([
-            'base_uri' => 'https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest-dev/',
-            'timeout'  => 30,
-            'verify'   => false, // kalau di dev, matikan SSL verify
-        ]);
+        $url = 'Rujukan/2.0/insert';
 
         // Payload harus dibungkus ke dalam "request"
         $payload = [
@@ -269,13 +389,13 @@ class AntreanController extends Controller
         ];
 
         try {
-            $response = $client->post('Rujukan/2.0/insert', [
+            $response = $this->client->post($url, [
                 'headers' => [
                     'Content-Type'  => 'application/json', // HARUS JSON
-                    'X-cons-id'     => $consid,
-                    'X-Timestamp'   => $timestamp,
-                    'X-Signature'   => $this->generateSignatureDev($consid, $secretkey, $timestamp),
-                    'user_key'      => $userkey,
+                    'X-cons-id'     => $this->consid,
+                    'X-Timestamp'   => $this->bpjsTimestamp,
+                    'X-Signature'   => $this->generateSignature(),
+                    'user_key'      => $this->userkey,
                 ],
                 'body' => json_encode($payload) // kirim JSON
                 // 'json' => [  // langsung pakai json
@@ -357,21 +477,13 @@ class AntreanController extends Controller
 
     public function refPoli()
     {
-        // DEFINE SECRET VAR
-        $consid = env('BPJS_CONSID');
-        $secretkey = env('BPJS_SECRETKEY');
-        $userkey = env('BPJS_USERKEY');
         $url = 'ref/poli';
 
         // API to BPJS
         $result = $this->antreanGet($url);
 
-        // DEFINE VAR INTO DECRYPTION PROGRESS
-        $string = $result->response;
-        $key = $consid.$secretkey.$this->bpjsTimestamp();
-
         // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
-        $getDecryption = $this->stringDecrypt($key, $string);
+        $getDecryption = $this->stringDecrypt($result->response);
 
         $data = [
             // 'metacode' => $result->metaData->code,
@@ -384,66 +496,50 @@ class AntreanController extends Controller
         return response()->json($data, 200);
     }
 
-    public function refPoliTest()
-    {
-        // DEFINE SECRET VAR
-        $consid = env('BPJS_CONSID');
-        $secretkey = env('BPJS_SECRETKEY');
-        $userkey = env('BPJS_USERKEY');
-        $url = 'ref/poli';
+    // public function refPoliTest()
+    // {
+    //     $url = 'ref/poli';
 
-        // API to BPJS
-        $result = $this->antreanGetTester($url);
-        dd($result);
-        // DEFINE VAR INTO DECRYPTION PROGRESS
-        $string = $result->response;
-        $key = $consid.$secretkey.$this->bpjsTimestamp();
+    //     // API to BPJS
+    //     $result = $this->antreanGetTester($url);
 
-        // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
-        $getDecryption = $this->stringDecrypt($key, $string);
+    //     // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
+    //     $getDecryption = $this->stringDecrypt($result->response);
 
-        $data = [
-            // 'metacode' => $result->metaData->code,
-            // 'metamessage' => $result->metaData->message,
-            'response' => json_decode($getDecryption)
-        ];
-        // print_r(json_decode($getDecryption));
-        // die();
+    //     $data = [
+    //         // 'metacode' => $result->metaData->code,
+    //         // 'metamessage' => $result->metaData->message,
+    //         'response' => json_decode($getDecryption)
+    //     ];
+    //     // print_r(json_decode($getDecryption));
+    //     // die();
 
-        return response()->json($data, 200);
-    }
+    //     return response()->json($data, 200);
+    // }
 
-    function decrypt($string) {
-        $consid = env('BPJS_CONSID');
-        $secretkey = env('BPJS_SECRETKEY');
-        // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
-        $key = $consid.$secretkey.$this->bpjsTimestamp();
-        $getDecryption = $this->stringDecrypt($key, $string);
+    // function decrypt($string) {
+    //     $consid = env('BPJS_CONSID');
+    //     $secretkey = env('BPJS_SECRETKEY');
+    //     // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
+    //     $key = $consid.$secretkey.$this->bpjsTimestamp();
+    //     $getDecryption = $this->stringDecrypt($string);
 
-        $data = [
-            'response' => json_decode($getDecryption)
-        ];
+    //     $data = [
+    //         'response' => json_decode($getDecryption)
+    //     ];
 
-        return response()->json($data, 200);
-    }
+    //     return response()->json($data, 200);
+    // }
 
     public function cariJadwalTest()
     {
-        // DEFINE SECRET VAR
-        $consid = env('BPJS_CONSID');
-        $secretkey = env('BPJS_SECRETKEY');
-        $userkey = env('BPJS_USERKEY');
         $url = 'jadwaldokter/kodepoli/INT/tanggal/2023-09-12';
 
         // API to BPJS
         $result = $this->antreanGetTester($url);
 
-        // DEFINE VAR INTO DECRYPTION PROGRESS
-        $string = $result->response;
-        $key = $consid.$secretkey.$this->bpjsTimestamp();
-
         // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
-        $getDecryption = $this->stringDecrypt($key, $string);
+        $getDecryption = $this->stringDecrypt($result->response);
 
         $data = [
             // 'consid' => $consid,
@@ -461,23 +557,13 @@ class AntreanController extends Controller
 
     public function cariJadwal($poli, $tgl)
     {
-        // DEFINE SECRET VAR
-        $consid = env('BPJS_CONSID');
-        $secretkey = env('BPJS_SECRETKEY');
-        $userkey = env('BPJS_USERKEY');
         $url = 'jadwaldokter/kodepoli/'.$poli.'/tanggal/'.$tgl;
 
         // API to BPJS
         $result = $this->antreanGet($url);
 
-        // print_r($result);
-        // die();
-        // DEFINE VAR INTO DECRYPTION PROGRESS
-        $string = $result->response;
-        $key = $consid.$secretkey.$this->bpjsTimestamp();
-
         // RESULT DECRYPT WITH AES 256 (mode CBC) - SHA256 AND DECOMPRESSION WITH LZ-STRING
-        $getDecryption = $this->stringDecrypt($key, $string);
+        $getDecryption = $this->stringDecrypt($result->response);
 
         $data = [
             // 'metacode' => $result->metaData->code,
@@ -488,7 +574,6 @@ class AntreanController extends Controller
         return response()->json($data, 200);
     }
 
-    // TOOLS BPJS -------------------------------------------------------------------------------------------------------------------------------
     public function antreanGet($url)
     {
         $consid = env('BPJS_CONSID');
@@ -507,23 +592,23 @@ class AntreanController extends Controller
         return json_decode($res->getBody());
     }
 
-    public function antreanGetTester($url)
-    {
-        $consid = env('BPJS_CONSID');
-        $userkey = env('BPJS_USERKEY');
+    // public function antreanGetTester($url)
+    // {
+    //     $consid = env('BPJS_CONSID');
+    //     $userkey = env('BPJS_USERKEY');
 
-        $client = new Client();
-        $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/'.$url, [
-            'headers' => [
-                'X-cons-id' => $consid,
-                'X-Timestamp' => $this->bpjsTimestamp(),
-                'X-Signature' => $this->generateSignature(),
-                'user_key' => $userkey,
-            ]
-        ]);
-        // RESULT API INTO JSON DECODED
-        return json_decode($res->getBody());
-    }
+    //     $client = new Client();
+    //     $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/antreanrs_dev/'.$url, [
+    //         'headers' => [
+    //             'X-cons-id' => $consid,
+    //             'X-Timestamp' => $this->bpjsTimestamp(),
+    //             'X-Signature' => $this->generateSignature(),
+    //             'user_key' => $userkey,
+    //         ]
+    //     ]);
+    //     // RESULT API INTO JSON DECODED
+    //     return json_decode($res->getBody());
+    // }
 
     // public function createRujukan()
     // {
@@ -548,24 +633,24 @@ class AntreanController extends Controller
     //     return json_decode($res->getBody());
     // }
 
-    public function vclaimGet($url)
-    {
-        $consid = env('BPJS_CONSID');
-        $userkey = env('BPJS_USERKEY');
+    // public function vclaimGet($url)
+    // {
+    //     $consid = env('BPJS_CONSID');
+    //     $userkey = env('BPJS_USERKEY');
 
-        $client = new Client();
-        $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest/'.$url, [
-            'headers' => [
-                'Accept' => 'application/Json',
-                'X-cons-id' => $consid,
-                'X-Timestamp' => $this->bpjsTimestamp(),
-                'X-Signature' => $this->generateSignature(),
-                'user_key' => $userkey,
-            ]
-        ]);
-        // RESULT API INTO JSON DECODED
-        return json_decode($res->getBody());
-    }
+    //     $client = new Client();
+    //     $res = $client->get('https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest/'.$url, [
+    //         'headers' => [
+    //             'Accept' => 'application/Json',
+    //             'X-cons-id' => $consid,
+    //             'X-Timestamp' => $this->bpjsTimestamp(),
+    //             'X-Signature' => $this->generateSignature(),
+    //             'user_key' => $userkey,
+    //         ]
+    //     ]);
+    //     // RESULT API INTO JSON DECODED
+    //     return json_decode($res->getBody());
+    // }
 
     // public function vclaimPost($url, $kdbook)
     // {
@@ -590,44 +675,34 @@ class AntreanController extends Controller
     //     return json_decode($res->getBody());
     // }
 
-    public function antreanPost($url, $kdbook)
-    {
-        $consid = env('BPJS_CONSID');
-        $userkey = env('BPJS_USERKEY');
+    // public function antreanPost($url, $kdbook)
+    // {
+    //     $consid = env('BPJS_CONSID');
+    //     $userkey = env('BPJS_USERKEY');
 
-        $client = new Client();
+    //     $client = new Client();
 
-        $res = $client->post('https://apijkn.bpjs-kesehatan.go.id/antreanrs/'.$url, [
-            'json' => [
-                'kodebooking' => $kdbook
-            ],
-            'headers' => [
-                'X-cons-id' => $consid,
-                'X-Timestamp' => $this->bpjsTimestamp(),
-                'X-Signature' => $this->generateSignature(),
-                'user_key' => $userkey,
-            ]
-        ]);
+    //     $res = $client->post('https://apijkn.bpjs-kesehatan.go.id/antreanrs/'.$url, [
+    //         'json' => [
+    //             'kodebooking' => $kdbook
+    //         ],
+    //         'headers' => [
+    //             'X-cons-id' => $consid,
+    //             'X-Timestamp' => $this->bpjsTimestamp(),
+    //             'X-Signature' => $this->generateSignature(),
+    //             'user_key' => $userkey,
+    //         ]
+    //     ]);
 
-        // RESULT API INTO JSON DECODED
-        return json_decode($res->getBody());
-    }
+    //     // RESULT API INTO JSON DECODED
+    //     return json_decode($res->getBody());
+    // }
 
+    // ------------------------------------------------------------  TOOLS BPJS  --------------------------------------------------------------
 	public function generateSignature()
 	{
-        $consid = env('BPJS_CONSID');
-        $secretkey = env('BPJS_SECRETKEY');
-        $userkey = env('BPJS_USERKEY');
-        // $consid = env('BPJS_CONSID');
-        // $secretkey = env('BPJS_SECRETKEY');
-        // $userkey = env('BPJS_USERKEY');
-
-        // Get Timestamp
-        date_default_timezone_set('UTC');
-        $tStamp = strval(time()-strtotime('1970-01-01 00:00:00'));
-
         // Computes the signature by hashing the salt with the secret key as the key
-        $signature = hash_hmac('sha256', $consid."&".$tStamp, $secretkey, true);
+        $signature = hash_hmac('sha256', $this->consid."&".$this->bpjsTimestamp(), $this->secretkey, true);
 
         // base64 encode�
         $encodedSignature = base64_encode($signature);
@@ -635,71 +710,24 @@ class AntreanController extends Controller
 		return $encodedSignature;
 	}
 
-	public function generateSignatureDev()
+	public function bpjsTimestamp() // DEFAULT
 	{
-        $consid = env('BPJS_CONSID_DEV');
-        $secretkey = env('BPJS_SECRETKEY_DEV');
-        $userkey = env('BPJS_USERKEY_DEV');
-        // $consid = env('BPJS_CONSID');
-        // $secretkey = env('BPJS_SECRETKEY');
-        // $userkey = env('BPJS_USERKEY');
-
-        // Get Timestamp
-        date_default_timezone_set('UTC');
-        $tStamp = strval(time()-strtotime('1970-01-01 00:00:00'));
-
-        // Computes the signature by hashing the salt with the secret key as the key
-        $signature = hash_hmac('sha256', $consid."&".$tStamp, $secretkey, true);
-
-        // base64 encode�
-        $encodedSignature = base64_encode($signature);
-
-		return $encodedSignature;
-	}
-
-	public function generateSignatureTester()
-	{
-        $consid = env('BPJS_CONSID');
-        $secretkey = env('BPJS_SECRETKEY');
-        $userkey = env('BPJS_USERKEY');
-        // $userkey = '6e5c8afbf6be0a6d9c794edad8006ad2';
-
-        // Get Timestamp
-        date_default_timezone_set('UTC');
-        $tStamp = strval(time()-strtotime('1970-01-01 00:00:00'));
-
-        // Computes the signature by hashing the salt with the secret key as the key
-        $signature = hash_hmac('sha256', $consid."&".$tStamp, $secretkey, true);
-
-        // base64 encode�
-        $encodedSignature = base64_encode($signature);
-
-		return $encodedSignature;
-	}
-
-	public function bpjsTimestamp()
-	{
-        // Computes the timestamp
-        date_default_timezone_set('UTC');
-        $result = strval(time()-strtotime('1970-01-01 00:00:00'));
-		return $result;
-	}
-
-	public function getTimestamp($date)
-	{
-        // Computes the timestamp
-        Carbon::setLocale('id');
-        return $result = Carbon::parse($date / 1000)->format("d M Y, H:m:s");
-        // return date("d/m/Y H:i:s", $seconds);
-        // return Carbon::createFromFormat('Y-m-d H:i:s.v', $date);
-
+        return (string) gmdate('U');
         // date_default_timezone_set('UTC');
-        // $result = strval(time($date)-strtotime('1970-01-01 00:00:00'));
+        // $result = strval(time()-strtotime('1970-01-01 00:00:00'));
 		// return $result;
 	}
 
-	public static function stringDecrypt($key, $string)
+	// public function getTimestamp($date)
+	// {
+    //     Carbon::setLocale('id');
+    //     return $result = Carbon::parse($date / 1000)->format("d M Y, H:m:s");
+	// }
+
+	public function stringDecrypt($string)
 	{
+        $key = $this->consid.$this->secretkey.$this->bpjsTimestamp();
+
 		$encrtyp_method = 'AES-256-CBC';
 
         $key_hash = hex2bin(hash('sha256', $key));
