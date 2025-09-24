@@ -34,7 +34,7 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-    
+
     'bpjs' => [
         'base_url' => env('BPJS_BASE_URL', 'https://apijkn.bpjs-kesehatan.go.id/'),
         'base_url_dev' => env('BPJS_DEV_BASE_URL', 'https://apijkn-dev.bpjs-kesehatan.go.id/'),

@@ -1,7 +1,7 @@
 @extends('layouts.sub')
 
 @section('content')
-    <section class="wrapper bg-pale-green">
+    <section class="wrapper image-wrapper bg-image bg-overlay bg-overlay-light-600" data-image-src="{{ asset('img/photos/bg24.png') }}">
         <div class="container pt-17 pb-19 pt-md-19 pb-md-20 text-center">
             <div class="row">
                 <div class="col-md-10 col-xl-8 mx-auto">
@@ -25,46 +25,67 @@
         <!-- /.container -->
     </section>
     <section class="wrapper bg-light">
-        <div class="container pb-14 pb-md-16">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="blog single mt-n17">
+        <div class="container pb-11">
+            <div class="row text-center mb-14 mb-md-16">
+                <div class="col-xl-10 mx-auto mt-n19">
                         <div class="card shadow-lg">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-xl-10 mx-auto">
-                                        <div class="card image-wrapper bg-full gradient-6 bg-overlay bg-overlay-400 text-white mt-n5 mt-lg-0 mt-lg-n50p mb-lg-n50p border-radius-lg-top">
-                                            <div class="row align-items-center counter-wrapper gy-4 text-center card-body p-xl-10">
-                                                <div class="col-md-3">
-                                                    <h3 class="counter counter-lg text-white" style="visibility: visible;" id="count-tt"><i class="fa fa-spinner fa-spin fa-fw"></i></h3>
-                                                    <p>Total TT</p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <h3 class="counter counter-lg text-white" style="visibility: visible;" id="count-tersedia"><i class="fa fa-spinner fa-spin fa-fw"></i></h3>
-                                                    <p>Tersedia</p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <h3 class="counter counter-lg text-white" style="visibility: visible;" id="count-terpesan"><i class="fa fa-spinner fa-spin fa-fw"></i></h3>
-                                                    <p>Terpesan</p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <h3 class="counter counter-lg text-white" style="visibility: visible;" id="count-terisi"><i class="fa fa-spinner fa-spin fa-fw"></i></h3>
-                                                    <p>Terpakai</p>
-                                                </div>
+                                    <div class="col-md-6 col-xl-3 mb-4">
+                                        <div class="card lift">
+                                            <div class="card-body">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#d3d1fb" d="M22.102 11.147v1.731H1.904V6.672H0v12.414h1.904v-2.837h20.198v3.074H24v-8.178z"/><path fill="#f3bede" d="M8.709 11.165v.001c0 .564-.457 1.022-1.022 1.022H3.793a1.022 1.022 0 0 1-1.022-1.022v-.002c0-.564.457-1.022 1.022-1.022h3.894c.564 0 1.022.457 1.022 1.022zm11.034-4.001h-2.37V4.8h-1.68v2.365h-2.365v1.68h2.364v2.365h1.68V8.845h2.37z"/></svg>
+                                                <h4 class="counter counter-lg" id="count-tt"><i class="fa fa-spinner fa-spin fa-fw"></i></h4>
+                                                <p class="mb-0">Total TT</p>
                                             </div>
                                             <!--/.card-body -->
                                         </div>
                                         <!--/.card -->
                                     </div>
-                                    <!-- /column -->
+                                    <!--/column -->
+                                    <div class="col-md-6 col-xl-3 mb-4">
+                                        <div class="card lift">
+                                            <div class="card-body">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><g fill="none"><path stroke="#d3d1fb" stroke-linecap="round" stroke-linejoin="round" d="M21.5 18.5v-11a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v11m-3 0v-8h-7a1 1 0 0 0-1 1v7"/><path stroke="#e3cdfb" stroke-linecap="round" stroke-linejoin="round" d="M3.5 10.5h18v3h-19v-2a1 1 0 0 1 1-1"/><path fill="#e3cdfb" d="M10.5 12.5v-1a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1"/></g></svg>
+                                                <h4 class="counter counter-lg" id="count-tersedia"><i class="fa fa-spinner fa-spin fa-fw"></i></h4>
+                                                <p class="mb-0">Tersedia</p>
+                                            </div>
+                                            <!--/.card-body -->
+                                        </div>
+                                        <!--/.card -->
+                                    </div>
+                                    <!--/column -->
+                                    <div class="col-md-6 col-xl-3 mb-4">
+                                        <div class="card lift">
+                                            <div class="card-body">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#e3cdfb" d="M19.2 9.5L16 7.7V4h1.5v2.8l2.4 1.4l-.7 1.3m3 2.2c.5.7.8 1.5.8 2.3v9h-2v-3H3v3H1V8h2v9h8v-6.4c-.6-1.1-1-2.3-1-3.6c0-3.9 3.1-7 7-7s7 3.1 7 7c0 1.8-.7 3.4-1.8 4.7M12 7c0 2.8 2.2 5 5 5s5-2.2 5-5s-2.2-5-5-5s-5 2.2-5 5m-5 9c1.7 0 3-1.3 3-3s-1.3-3-3-3s-3 1.3-3 3s1.3 3 3 3Z"/></svg>
+                                                <h4 class="counter counter-lg" id="count-terpesan"><i class="fa fa-spinner fa-spin fa-fw"></i></h4>
+                                                <p class="mb-0">Terpesan</p>
+                                            </div>
+                                            <!--/.card-body -->
+                                        </div>
+                                        <!--/.card -->
+                                    </div>
+                                    <!--/column -->
+                                    <div class="col-md-6 col-xl-3 mb-4">
+                                        <div class="card lift">
+                                            <div class="card-body">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 2048 1280"><path fill="#d3d1fb" d="M256 768h1728q26 0 45 19t19 45v448h-256v-256H256v256H0V64q0-26 19-45T64 0h128q26 0 45 19t19 45v704zm576-320q0-106-75-181t-181-75t-181 75t-75 181t75 181t181 75t181-75t75-181zm1216 256v-64q0-159-112.5-271.5T1664 256H960q-26 0-45 19t-19 45v384h1152z"/></svg>
+                                                <h4 class="counter counter-lg" id="count-terisi"><i class="fa fa-spinner fa-spin fa-fw"></i></h4>
+                                                <p class="mb-0">Terpakai</p>
+                                            </div>
+                                            <!--/.card-body -->
+                                        </div>
+                                        <!--/.card -->
+                                    </div>
                                 </div>
                                 <div class="table-responsive" id="tablett">
-                                    <div class="alert alert-info">
-                                        Refresh otomatis dalam <span id="countdown">300</span> detik
+                                    <div class="alert alert-info" id="countdown-info" hidden>
+                                        Refresh otomatis dalam <span id="countdown">60</span> detik
                                     </div>
                                     <table class="table table-bordered table-hover">
                                         <thead>
-                                            <tr class="bg-leaf">
+                                            <tr class="bg-violet">
                                                 <th class="text-white text-center">No</th>
                                                 <th class="text-white">Ruangan</th>
                                                 <th class="text-white">Kamar</th>
@@ -75,7 +96,7 @@
 
                                         <tbody id="tampil-tbody"><tr><center><td colspan="9"><i class="fa fa-spinner fa-spin fa-fw"></i> Memproses data...</td></center></tr></tbody>
                                     </table>
-                                    <div id="pagination" class="mt-3"></div>
+                                    {{-- <div id="pagination" class="mt-3"></div> --}}
                                     {{-- <p class="mb-0">Konfirmasi jadwal pada Bagian Informasi RS : <a href="https://wa.me/6285150763480" target="_blank"><u>+6285150763480</u> (Whatsapp)</a></p> --}}
                                 </div>
                             </div>
@@ -88,12 +109,11 @@
                 <!-- /column -->
             </div>
             <!-- /.row -->
-        </div>
         <!-- /.container -->
     </section>
 
     <script>
-        let interval = 300; // 5 menit = 300 detik
+        let interval = 60; // 5 menit = 300 detik
         let countdown = interval;
 
         $(document).ready(function() {
@@ -108,7 +128,7 @@
 
                 let minutes = Math.floor(countdown / 60);
                 let seconds = countdown % 60;
-                let formatted = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                let formatted = `${seconds < 10 ? '0' : ''}${seconds}`; // ${minutes}:${seconds < 10 ? '0' : ''}${seconds}
 
                 document.getElementById('countdown').textContent = formatted;
 
@@ -122,7 +142,7 @@
         function refresh() {
             $("#tampil-tbody").empty();
             $("#tampil-tbody").append(`<tr><center><td colspan="9"><i class="fa fa-spinner fa-spin fa-fw"></i> Memproses data...</td></center></tr>`);
-            
+
             $('#count-tt').empty().html(`<i class="fa fa-spinner fa-spin fa-fw"></i>`);
             $('#count-tersedia').empty().html(`<i class="fa fa-spinner fa-spin fa-fw"></i>`);
             $('#count-terpesan').empty().html(`<i class="fa fa-spinner fa-spin fa-fw"></i>`);
@@ -197,9 +217,9 @@
 
                                 // kolom Status
                                 let status = '';
-                                if (item.STATUS == 1) status = "<b class='text-green'>Kamar Tersedia</b>";
-                                else if (item.STATUS == 2) status = "<b class='text-sky'>Kamar Terpesan</b>";
-                                else if (item.STATUS == 3) status = "<b class='text-red'>Kamar Terisi</b>";
+                                if (item.STATUS == 1) status = "<b class='text-green'>Bed Masih Tersedia</b>";
+                                else if (item.STATUS == 2) status = "<b class='text-sky'>Bed Telah Terpesan</b>";
+                                else if (item.STATUS == 3) status = "<b class='text-red'>Bed Telah Terisi</b>";
 
                                 tbody += `<td class="text-end">${status}</td>`;
 
@@ -209,7 +229,9 @@
                     }
 
                     $("#tampil-tbody").html(tbody);
-                    
+
+                    $("#countdown-info").prop('hidden', false);
+
                     // let itemsPerPage = 20;
                     // let items = $("#tampil-tbody tr"); // ambil semua tr hasil render
                     // let numItems = items.length;
@@ -228,10 +250,10 @@
                     // items.hide().slice(0, itemsPerPage).show();
 
                     // tampilkan hasil count
-                    $('#count-tt').text(totalTT);
-                    $('#count-tersedia').text(countTersedia);
-                    $('#count-terpesan').text(countTerpesan);
-                    $('#count-terisi').text(countTerisi);
+                    $('#count-tt').text(totalTT+" Bed");
+                    $('#count-tersedia').text(countTersedia+" Bed");
+                    $('#count-terpesan').text(countTerpesan+" Bed");
+                    $('#count-terisi').text(countTerisi+" Bed");
 
                     // Notifikasi
                     const Toast = Swal.mixin({
@@ -247,8 +269,14 @@
                     })
                 },
                 error: function () {
+                    $("#countdown-info").prop('hidden', true);
+                    $('#count-tt').text(`xx`);
+                    $('#count-tersedia').text(`xx`);
+                    $('#count-terpesan').text(`xx`);
+                    $('#count-terisi').text(`xx`);
+
                     $("#tampil-tbody").empty();
-                    $('#tampil-tbody').append("<tr style='padding-top: 0px'><td colspan='10'>Pencarian gagal, pastikan anda telah memilih tanggal pelayanan dengan benar</td></tr>");
+                    $('#tampil-tbody').append("<tr style='padding-top: 0px'><td colspan='10'>Ketersediaan Tempat Tidur gagal ditampilkan. Silakan coba lagi.</td></tr>");
                     // NOTIFIKASI
                     const Toast = Swal.mixin({
                         toast: true,
@@ -264,7 +292,7 @@
 
                     Toast.fire({
                         icon: 'error',
-                        title: 'Pastikan Anda tidak mengosongi semua data yang dibutuhkan dalam pencarian'
+                        title: 'Data Ketersediaan Tempat Tidur gagal ditampilkan. Silakan coba lagi'
                     })
                 }
             });
