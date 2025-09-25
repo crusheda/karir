@@ -9,6 +9,8 @@ use App\Http\Controllers\Publik\JadwalSpesialisController;
 use App\Http\Controllers\Rekrutmen\RegistrasiController;
 use App\Http\Controllers\Publik\KetersediaanTTController;
 
+use App\Http\Controllers\Admin\AntrianController;
+
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
 // })->middleware('auth:sanctum');
@@ -18,6 +20,7 @@ use App\Http\Controllers\Publik\KetersediaanTTController;
     Route::get('rekrutmen/registrasi/download/{dokumen}/{peserta}', [RegistrasiController::class, 'previewPdf'])->name('rekrutmen.registrasi.previewPdf');
 // KETERSEDIAAN TT
     Route::get('informasi/tt', [KetersediaanTTController::class, 'getTT'])->name('ketersediaan.tt.getTT');
+    Route::get('antrean/poli/display', [AntrianController::class, 'getAntreanPoli'])->name('antrean.poli.display');
 
 // --------------------------------------------  API BPJS  --------------------------------------------
 // PRODUCTION API

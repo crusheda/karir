@@ -31,6 +31,11 @@
     </div>
     <!-- END PAGE-->
 
+    <!-- Logout Form -->
+    <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+    </form>
+
     <script>
         function openFullscreen() {
             let elem = document.documentElement; // seluruh halaman

@@ -60,11 +60,9 @@
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle {{ request()->routeIs(['pengumuman.index','rekrutmen.index']) ? 'active' : '' }}" href="javascript:void(0);" data-bs-toggle="dropdown">Rekrutmen</a>
         <ul class="dropdown-menu">
-            {{-- <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="{{ route('pengumuman.index') }}">Pengumuman</a></li>
-            <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('rekrutmen.index') ? 'active' : '' }}" href="{{ route('rekrutmen.index') }}">Registrasi</a></li> --}}
-            <li class="nav-item"><a class="dropdown-item text-muted {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="javascript:void(0);"><s>Pengumuman</s></a></li>
-            <li class="nav-item"><a class="dropdown-item text-muted {{ request()->routeIs('registrasi.index') ? 'active' : '' }}" href="javascript:void(0);"><s>Registrasi</s></a></li>
-            <li class="nav-item"><a class="dropdown-item text-muted {{ request()->routeIs('hasil.index') ? 'active' : '' }}" href="javascript:void(0);"><s>Hasil Seleksi</s></a></li>
+            <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('pengumuman.index') ? 'active' : '' }}" href="{{ route('pengumuman.index') }}">Pengumuman</a></li>
+            <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('registrasi.index') ? 'active' : '' }}" href="{{ route('registrasi.index') }}">Registrasi</a></li>
+            <li class="nav-item"><a class="dropdown-item {{ request()->routeIs('hasil.index') ? 'active' : '' }}" href="{{ route('hasil.index') }}">Hasil Seleksi</a></li>
         </ul>
     </li>
     {{-- <li class="nav-item"><a class="nav-link {{ request()->routeIs('rekrutmen.index') ? 'active' : '' }}" href="{{ route('rekrutmen.index') }}">Rekrutmen</a></li> --}}

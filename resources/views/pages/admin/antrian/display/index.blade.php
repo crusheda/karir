@@ -45,10 +45,19 @@
                     <div class="card custom-card">
                         <div class="card-header bg-dark-gradient rounded">
                             <div class="d-flex justify-content-between align-items-center w-100">
-                                <div id="poli" class="fs-3 fw-bold text-fixed-white text-start">Antrean Poli Syaraf</div>
+                                <div id="poli" class="fs-3 fw-bold text-fixed-white text-start"><div class="spinner-border text-white" role="status"><span class="visually-hidden">Memuat Nama Poliklinik...</span></div></div>
                                 <div id="antrian-jam" class="fs-3 fw-bold text-fixed-white text-end">. . .</div>
                             </div>
                         </div>
+                <div class="progress" style="height: 15px;">
+                    <div id="refresh-progress"
+                        class="progress-bar bg-warning"
+                        role="progressbar"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        style="width: 0%">
+                    </div>
+                </div>
                     </div>
                 </div>
 
@@ -62,16 +71,8 @@
                             </div>
                         </div>
                         <div class="card-body card-bg-light overflow-auto">
-                            <div class="card custom-card mb-3 shadow">
-                                <div class="card-body card-bg-light d-flex align-items-center">
-                                    <div class="me-3 border border-primary rounded d-flex justify-content-center align-items-center" style="height: auto; width: 100px;">
-                                        <span class="fs-1 fw-bold p-2">14</span>
-                                    </div>
-                                    <div>
-                                        <div class="fs-5 fw-medium">Dalam Proses</div>
-                                        <p class="mb-0 text-muted fs-6">Finished by today</p>
-                                    </div>
-                                </div>
+                            <div class="card custom-card mb-3 shadow" id="menunggu">
+                                <div class="text-center p-4"><div class="spinner-border text-info" role="status"><span class="visually-hidden">Memuat Antrean...</span></div></div>
                             </div>
                         </div>
                     </div>
@@ -100,15 +101,8 @@
                                 </div> --}}
                             </div>
                         </div>
-                        <div class="card-body card-bg-light d-flex flex-column justify-content-center align-items-center text-center" style="height: 100vh;">
-                            <div class="mb-3">
-                                <h2 class="fw-bold" style="font-size: 50px">NOMOR ANTRIAN</h2>
-                                <h1 class="fw-bold text-danger" style="font-size: 250px">233</h1>
-                            </div>
-                            <div class="mb-3">
-                                <div class="fs-1 fw-bold mb-3"><u>Poliklinik Syaraf</u></div>
-                                <p class="mb-3 fs-2 fw-bold">RM. 000569</p>
-                            </div>
+                        <div class="card-body card-bg-light d-flex flex-column justify-content-center align-items-center text-center" style="height: 100vh;" id="dipanggil">
+                            <div class="text-center p-4"><div class="spinner-border text-danger" role="status"><span class="visually-hidden">Memuat Antrean...</span></div></div>
                         </div>
                     </div>
                 </div>
@@ -136,29 +130,8 @@
                                 </div> --}}
                             </div>
                         </div>
-                        <div class="card-body card-bg-light overflow-auto">
-                            <div class="card custom-card mb-3 shadow">
-                                <div class="card-body card-bg-light d-flex align-items-center">
-                                    <div class="me-3 border border-primary rounded d-flex justify-content-center align-items-center" style="height: auto; width: 100px;">
-                                        <span class="fs-1 fw-bold p-2">199</span>
-                                    </div>
-                                    <div>
-                                        <div class="fs-5 fw-medium">Dalam Proses</div>
-                                        <p class="mb-0 text-muted fs-6">Finished by today</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card custom-card mb-3 shadow">
-                                <div class="card-body card-bg-light d-flex align-items-center">
-                                    <div class="me-3 border border-primary rounded d-flex justify-content-center align-items-center" style="height: auto; width: 100px;">
-                                        <span class="fs-1 fw-bold p-2">5</span>
-                                    </div>
-                                    <div>
-                                        <div class="fs-5 fw-medium">Dalam Proses</div>
-                                        <p class="mb-0 text-muted fs-6">Finished by today</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="card-body card-bg-light overflow-auto" id="selesai">
+                            <div class="text-center p-4"><div class="spinner-border text-success" role="status"><span class="visually-hidden">Memuat Antrean...</span></div></div>
                         </div>
                     </div>
                 </div>
@@ -169,9 +142,13 @@
     </div>
 
     <script>
+        let refreshInterval = 5000; // 1 menit = 60000 ms, 5000 = 5 detik
+        let progressBar = $("#refresh-progress");
+        let progressInterval; // simpan interval supaya bisa dihentikan
+
         $(document).ready(function() {
-            updateJam(); // inisialisasi pertama
-            setInterval(updateJam, 1000); // update tiap detik
+            updateJam();
+            setInterval(updateJam, 1000);
 
             var elem = $("#myDiv")[0]; // ambil elemen DOM murni dari jQuery object
 
@@ -189,20 +166,118 @@
                 // $("#closeFullscreenBtn").prop('hidden',false);
             });
 
-            // $("#closeFullscreenBtn").on("click", function() {
-            //     if (document.exitFullscreen) {
-            //     document.exitFullscreen();
-            //     } else if (document.mozCancelFullScreen) { // Firefox
-            //     document.mozCancelFullScreen();
-            //     } else if (document.webkitExitFullscreen) { // Chrome, Safari, Opera
-            //     document.webkitExitFullscreen();
-            //     } else if (document.msExitFullscreen) { // IE/Edge
-            //     document.msExitFullscreen();
-            //     }
-            //     $("#openFullscreenBtn").prop('hidden',false);
-            //     $("#closeFullscreenBtn").prop('hidden',true);
-            // });
-        })
+            refresh(); // panggil pertama kali
+            // startProgressBar();
+        });
+
+        function startProgressBar() {
+            clearInterval(progressInterval); // pastikan tidak ada interval lama
+
+            // Matikan animasi sementara
+            progressBar.css({
+                "transition": "none",
+                "width": "0%"
+            });
+
+            // Force reflow supaya browser benar2 terapkan width 0%
+            progressBar[0].offsetHeight;
+
+            // Hidupkan lagi animasi
+            progressBar.css("transition", "width 0.1s linear");
+
+            let step = 100 / (refreshInterval / 100);
+            let progress = 0;
+
+            progressInterval = setInterval(() => {
+                progress += step;
+                if (progress > 100) progress = 100;
+
+                progressBar.css("width", progress + "%");
+
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    refresh();
+                }
+            }, 100);
+        }
+
+        function stopProgressBar() {
+            clearInterval(progressInterval);
+            progressBar.css("width", "0%"); // reset
+        }
+
+        function refresh() {
+            $('#menunggu').html('<div class="text-center p-4"><div class="spinner-border text-info" role="status"><span class="visually-hidden">Memuat Antrean...</span></div></div>');
+            $('#dipanggil').html('<div class="text-center p-4"><div class="spinner-border text-danger" role="status"><span class="visually-hidden">Memuat Antrean...</span></div></div>');
+            $('#selesai').html('<div class="text-center p-4"><div class="spinner-border text-success" role="status"><span class="visually-hidden">Memuat Antrean...</span></div></div>');
+            $.ajax({
+                url: "/api/antrean/poli/display",
+                type: "GET",
+                dataType: "json",
+                success: function(res) {
+                    $('#poli').text('Antrean ' + res.poli.NAMARUANGAN);
+
+                    // render data
+                    let rows_menunggu = "";
+                    let rows_selesai = "";
+
+                    $.each(res.menunggu, function(index, item) {
+                        rows_menunggu += `
+                            <div class="card-body card-bg-light d-flex align-items-center">
+                                <div class="me-3 border border-primary rounded d-flex justify-content-center align-items-center" style="height: auto; width: 100px;">
+                                    <span class="fs-1 fw-bold p-2">${item.NOMORANTREAN.toString().padStart(3, '0')}</span>
+                                </div>
+                                <div>
+                                    <div class="fs-5 fw-medium">Menunggu Dipanggil</div>
+                                    <p class="mb-0 text-muted fs-6">RM. ${item.NORM.toString().padStart(8, '0')}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    $("#menunggu").empty().html(rows_menunggu);
+
+                    $('#dipanggil').empty().append(`
+                        <div class="mb-3">
+                            <h2 class="fw-bold" style="font-size: 50px">NOMOR ANTRIAN</h2>
+                            <h1 class="fw-bold text-danger" style="font-size: 250px">${res.dipanggil.NOMORANTREAN.toString().padStart(3, '0')}</h1>
+                        </div>
+                        <div class="mb-3">
+                            <div class="fw-bold mb-3" style="font-size:60px"><u>${res.dipanggil.NAMARUANGAN}</u></div>
+                            <p class="mb-3 fs-2 fw-bold">RM. ${res.dipanggil.NORM.toString().padStart(8, '0')}</p>
+                        </div>
+                    `);
+
+                    $.each(res.selesai, function(index, item) {
+                        rows_selesai += `
+                            <div class="card custom-card mb-3 shadow">
+                                <div class="card-body card-bg-light d-flex align-items-center">
+                                    <div class="me-3 border border-primary rounded d-flex justify-content-center align-items-center" style="height: auto; width: 100px;">
+                                        <span class="fs-1 fw-bold p-2">${item.NOMORANTREAN.toString().padStart(3, '0')}</span>
+                                    </div>
+                                    <div>
+                                        <div class="fs-5 fw-medium">Sudah Dipanggil</div>
+                                        <p class="mb-0 text-muted fs-6">RM. ${item.NORM.toString().padStart(8, '0')}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    $("#selesai").empty().html(rows_selesai);
+
+                    // kalau sukses -> jalankan progress bar lagi
+                    startProgressBar();
+                },
+                error: function(xhr, status, error) {
+                    console.error("Gagal load antrean:", error);
+                    $('#menunggu').html('');
+                    $('#dipanggil').html('');
+                    $('#selesai').html('');
+                    stopProgressBar();
+                    // coba ulang setelah 5 detik
+                    setTimeout(refresh, 3000);
+                }
+            });
+        }
 
         function padZero(num) {
             return num < 10 ? '0' + num : num;
