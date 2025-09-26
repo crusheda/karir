@@ -19,6 +19,7 @@
                     </div>
                 </div>
                 <div>
+                    <button id="enableSound" class="btn btn-info me-1">🔔 Aktifkan Notifikasi</button>
                     <button class="btn btn-primary-light btn-wave me-1 waves-effect waves-light">
                         <i class="ti ti-users align-middle"></i> Pendaftaran
                     </button>
@@ -112,7 +113,7 @@
                         <div class="card-header bg-success-gradient">
                             <div class="align-items-center text-center w-100">
                                 <div class="p-4">
-                                    <div class="fs-1 text-fixed-white fw-bold">Antrian Selesai</div>
+                                    <div class="fs-1 text-fixed-white fw-bold">Sudah Dipanggil</div>
                                     {{-- <p class="mb-0 text-fixed-white op-7 fs-12">Finished by today</p> --}}
                                 </div>
                                 {{-- <div class="ms-auto">
@@ -145,8 +146,26 @@
         let refreshInterval = 5000; // 1 menit = 60000 ms, 5000 = 5 detik
         let progressBar = $("#refresh-progress");
         let progressInterval; // simpan interval supaya bisa dihentikan
+        let lastNomorDipanggil = null;
+        let soundEnabled = false;
+
+        function playSound() {
+            if (!soundEnabled) return;
+            // ganti path sesuai file mp3 kamu
+            let audio = new Audio('/sounds/in.wav');
+            audio.play().catch(err => console.log("Audio tidak bisa diputar:", err));
+        }
 
         $(document).ready(function() {
+            $("#enableSound").on("click", function() {
+                let audio = new Audio('/sounds/in.wav');
+                audio.play().then(() => {
+                    soundEnabled = true;
+                    alert("Suara notifikasi aktif ✅");
+                    $(this).hide(); // sembunyikan tombol setelah aktif
+                }).catch(err => console.log("Gagal aktifkan suara:", err));
+            });
+
             updateJam();
             setInterval(updateJam, 1000);
 
@@ -221,47 +240,81 @@
                     let rows_menunggu = "";
                     let rows_selesai = "";
 
-                    $.each(res.menunggu, function(index, item) {
-                        rows_menunggu += `
-                            <div class="card-body card-bg-light d-flex align-items-center">
-                                <div class="me-3 border border-primary rounded d-flex justify-content-center align-items-center" style="height: auto; width: 100px;">
-                                    <span class="fs-1 fw-bold p-2">${item.NOMORANTREAN.toString().padStart(3, '0')}</span>
-                                </div>
-                                <div>
-                                    <div class="fs-5 fw-medium">Menunggu Dipanggil</div>
-                                    <p class="mb-0 text-muted fs-6">RM. ${item.NORM.toString().padStart(8, '0')}</p>
-                                </div>
+                    if (res.menunggu.length === 0) {
+                        rows_menunggu = `
+                            <div class="card-body text-center text-muted">
+                                Antrean Tidak Ada
                             </div>
                         `;
-                    });
-                    $("#menunggu").empty().html(rows_menunggu);
-
-                    $('#dipanggil').empty().append(`
-                        <div class="mb-3">
-                            <h2 class="fw-bold" style="font-size: 50px">NOMOR ANTRIAN</h2>
-                            <h1 class="fw-bold text-danger" style="font-size: 250px">${res.dipanggil.NOMORANTREAN.toString().padStart(3, '0')}</h1>
-                        </div>
-                        <div class="mb-3">
-                            <div class="fw-bold mb-3" style="font-size:60px"><u>${res.dipanggil.NAMARUANGAN}</u></div>
-                            <p class="mb-3 fs-2 fw-bold">RM. ${res.dipanggil.NORM.toString().padStart(8, '0')}</p>
-                        </div>
-                    `);
-
-                    $.each(res.selesai, function(index, item) {
-                        rows_selesai += `
-                            <div class="card custom-card mb-3 shadow">
+                    } else {
+                        $.each(res.menunggu, function(index, item) {
+                            rows_menunggu += `
                                 <div class="card-body card-bg-light d-flex align-items-center">
                                     <div class="me-3 border border-primary rounded d-flex justify-content-center align-items-center" style="height: auto; width: 100px;">
                                         <span class="fs-1 fw-bold p-2">${item.NOMORANTREAN.toString().padStart(3, '0')}</span>
                                     </div>
                                     <div>
-                                        <div class="fs-5 fw-medium">Sudah Dipanggil</div>
+                                        <div class="fs-5 fw-medium">Menunggu Dipanggil</div>
                                         <p class="mb-0 text-muted fs-6">RM. ${item.NORM.toString().padStart(8, '0')}</p>
                                     </div>
                                 </div>
+                            `;
+                        });
+                    }
+                    $("#menunggu").empty().html(rows_menunggu);
+
+                    if (res.dipanggil) {
+                        $('#dipanggil').empty().append(`
+                            <div class="mb-3">
+                                <h2 class="fw-bold" style="font-size: 50px">NOMOR ANTRIAN</h2>
+                                <h1 class="fw-bold text-danger" style="font-size: 250px">${res.dipanggil.NOMORANTREAN.toString().padStart(3, '0')}</h1>
+                            </div>
+                            <div class="mb-3">
+                                <div class="fw-bold mb-3" style="font-size:60px"><u>${res.dipanggil.NAMARUANGAN}</u></div>
+                                <p class="mb-3 fs-2 fw-bold">RM. ${res.dipanggil.NORM.toString().padStart(8, '0')}</p>
+                            </div>
+                        `);
+                    } else {
+                        $('#dipanggil').empty().append(`
+                            <div class="mb-3">
+                                <h2 class="fw-bold" style="font-size: 50px">NOMOR ANTRIAN</h2>
+                                <h1 class="fw-bold text-danger" style="font-size: 250px">00</h1>
+                            </div>
+                        `);
+                    }
+
+                    // 🔔 cek notifikasi suara
+                    if (res.dipanggil && res.dipanggil.NOMORANTREAN) {
+                        let nomorBaru = res.dipanggil.NOMORANTREAN;
+                        if (lastNomorDipanggil !== null && nomorBaru !== lastNomorDipanggil) {
+                            playSound();
+                        }
+                        lastNomorDipanggil = nomorBaru;
+                    }
+
+                    if (res.selesai.length === 0) {
+                        rows_menunggu = `
+                            <div class="card-body text-center text-muted">
+                                Antrean Tidak Ada
                             </div>
                         `;
-                    });
+                    } else {
+                        $.each(res.selesai, function(index, item) {
+                            rows_selesai += `
+                                <div class="card custom-card mb-3 shadow">
+                                    <div class="card-body card-bg-light d-flex align-items-center">
+                                        <div class="me-3 border border-primary rounded d-flex justify-content-center align-items-center" style="height: auto; width: 100px;">
+                                            <span class="fs-1 fw-bold p-2">${item.NOMORANTREAN.toString().padStart(3, '0')}</span>
+                                        </div>
+                                        <div>
+                                            <div class="fs-5 fw-medium">Sudah Dipanggil</div>
+                                            <p class="mb-0 text-muted fs-6">RM. ${item.NORM.toString().padStart(8, '0')}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    }
                     $("#selesai").empty().html(rows_selesai);
 
                     // kalau sukses -> jalankan progress bar lagi
