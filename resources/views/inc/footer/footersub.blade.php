@@ -32,9 +32,10 @@
                 <div class="widget">
                     <h4 class="widget-title text-white mb-3">Kunjungi Kami</h4>
                     <address class="pe-xl-15 pe-xxl-17">Jl. Mayor Sunaryo No. 37 Sukoharjo, JT (57512)</address>
-                    <strong>Telp:</strong> <a href="tel:0271593979"> 0271 593 979</a>&nbsp;<strong>(24 Jam)</strong><br>
                     <strong>Email:</strong> <a href="mailto:pku.sukoharjo@gmail.com"> pku.sukoharjo@gmail.com</a><br>
-                    <strong>Informasi:</strong> <a href="https://wa.me/6285150763480" target="_blank"> +62 851-5076-3480</a>&nbsp;<strong>(WA)</strong>
+                    <strong>Telp:</strong> <a href="tel:02715991165"> 0271 599 1165</a>&nbsp;<strong>(<b class="text-danger">IGD 24 Jam</b>)</strong><br>
+                    <strong>Telp:</strong> <a href="tel:0271593979"> 0271 593 979</a>&nbsp;<strong>(<b class="text-blue">Informasi RS</b> - Jam Kerja Kantor)</strong><br>
+                    <strong>Whatsapp:</strong> <a href="https://wa.me/6285150763480" target="_blank"> +62 851-5076-3480</a>&nbsp;<strong>(<b class="text-blue">Informasi RS</b> - Jam Kerja Kantor)</strong>
                 </div>
                 <!-- /.widget -->
             </div>

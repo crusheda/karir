@@ -777,7 +777,85 @@
         <!-- /.container -->
     </section>
     <!-- /section -->
-    <section class="wrapper bg-white">
+    <section class="wrapper bg-soft-primary">
+        <div class="container py-14 pt-md-14 pb-md-14">
+            <div class="row gx-md-8 gx-xl-12 gy-10 mb-14 mb-md-18 align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="card shadow-lg me-lg-6">
+                        <div class="card-body p-6">
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-gradient gradient-6 pe-none me-4"><span
+                                            class="number">01</span></span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-1">Kepuasan Pasien Rawat Inap</h4>
+                                    <p class="mb-2">Menampilkan penilaian tingkat kepuasan pasien selama perawatan inap, mencakup pelayanan medis, keperawatan, kenyamanan ruang, dan fasilitas.</p>
+                                    <a target="_blank" class="btn btn-outline-gradient gradient-6 rounded-pill float-end" href="https://docs.google.com/forms/d/1hKArXARDS7jfGFZxbMwavjpeJxEMkVNMS-2l_9RO_Zw/viewform?edit_requested=true"><span>Isi Formulir <i class="uil uil-arrow-up-right ms-1"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.card-body -->
+                    </div>
+                    <!--/.card -->
+                    <div class="card shadow-lg ms-lg-13 mt-6">
+                        <div class="card-body p-6">
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-gradient gradient-7 pe-none me-4"><span
+                                            class="number">02</span></span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-1">Kepuasan Pasien Rawat Jalan</h4>
+                                    <p class="mb-2">Menampilkan penilaian tingkat kepuasan pasien terhadap pelayanan rawat jalan, meliputi kecepatan layanan, sikap petugas, dan kenyamanan.</p>
+                                    <a target="_blank" class="btn btn-outline-gradient gradient-7 rounded-pill float-end" href="https://forms.gle/mgJRxp47kSUe4Zrv6"><span>Isi Formulir <i class="uil uil-arrow-up-right ms-1"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.card-body -->
+                    </div>
+                    <!--/.card -->
+                    <div class="card shadow-lg mx-lg-6 mt-6">
+                        <div class="card-body p-6">
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-gradient gradient-1 pe-none me-4"><span
+                                            class="number">03</span></span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-1">Kepuasan Pasien Rawat Darurat (IGD)</h4>
+                                    <p class="mb-2">Menampilkan penilaian tingkat kepuasan pasien dan keluarga terhadap pelayanan IGD, termasuk kecepatan, ketepatan tindakan, dan kesiapan petugas.</p>
+                                    <a target="_blank" class="btn btn-outline-gradient gradient-1 rounded-pill float-end" href="https://docs.google.com/forms/d/e/1FAIpQLSeu8DE1oejKo5kbaoboyp6fvjPpTbxUY0DzXNSVrZ1wXSWDww/viewform?usp=sharing&ouid=109848120941164858349"><span>Isi Formulir <i class="uil uil-arrow-up-right ms-1"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.card-body -->
+                    </div>
+                    <!--/.card -->
+                </div>
+                <!--/column -->
+                <div class="col-lg-6">
+                    <h2 class="fs-16 text-uppercase text-muted mb-3">Link Publik</h2>
+                    <h3 class="display-4 mb-5">Kepuasan Pasien Rumah Sakit.</h3>
+                    <p>
+                        <blockquote>
+                        Kepuasan pasien merupakan indikator utama dalam menilai mutu pelayanan rumah sakit. Kami berkomitmen untuk memberikan pelayanan
+                        kesehatan yang <i><b>Amanah, Santun, Ramah, Ikhlas (ASRI)</b></i>, dengan menempatkan kebutuhan serta kenyamanan pasien sebagai prioritas utama.
+                        </blockquote>
+                    </p>
+                    <p class="mb-6">Melalui survei kepuasan pasien, kami mengumpulkan penilaian langsung dari pasien dan keluarga terhadap pelayanan yang diterima.
+                        Hasil survei ini menjadi dasar bagi kami untuk melakukan evaluasi dan peningkatan kualitas layanan secara berkelanjutan, demi
+                        mewujudkan pelayanan kesehatan yang lebih baik dari waktu ke waktu.</p>
+                    <p class="mb-6">Partisipasi Anda sangat berarti bagi kami untuk terus meningkatkan mutu pelayanan rumah sakit dan memberikan pengalaman pelayanan
+                        kesehatan yang lebih baik bagi seluruh masyarakat.</p>
+                </div>
+                <!--/column -->
+            </div>
+            <!--/.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <section class="wrapper bg-white angled upper-start lower-start">
         <div class="container py-5 py-md-10">
             <!--/.row -->
             {{-- <div class="row gx-lg-8 gx-xl-12 gy-6 mb-15 mb-md-18">

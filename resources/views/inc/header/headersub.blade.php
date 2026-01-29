@@ -47,7 +47,7 @@
                         </ul>
                     </li> --}}
                     <li class="nav-item d-none d-md-block">
-                        <a href="tel:0271593979" class="btn btn-danger text-white btn-sm"><i class="fas fa-phone text-warning me-2"></i>IGD 24 JAM</a>
+                        <a href="tel:02715991165" class="btn btn-danger text-white btn-sm"><i class="fas fa-phone text-warning me-2"></i>IGD 24 JAM</a>
                         {{-- <a href="{{ route('rekrutmen.index') }}" class="btn btn-sm btn-primary rounded-pill"><i class="uil uil-users-alt me-2"></i> Rekrutmen Pegawai</a> --}}
                         {{-- <a href="{{ route('rekrutmen.index') }}" class="btn btn-sm btn-primary rounded-pill"><i class="uil uil-users-alt me-2"></i> Rekrutmen Pegawai</a> --}}
                     </li>
