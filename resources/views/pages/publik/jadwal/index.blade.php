@@ -38,44 +38,12 @@
                                     terbaru melalui website resmi, aplikasi rumah sakit, atau menghubungi layanan informasi terkait.
                                     Jadwal di bawah diambil dari <span class="underline blue"><b>Sistem Bridging dengan BPJS</span></b>.</p>
                                 <div class="row mb-3">
-                                    <div class="col-lg-6 col-md-6 mb-3">
-                                        <div class="form-group">
-                                            <label>Poliklinik Spesialis</label>
-                                            <select id="xpoli" class="form-select">
-                                                <option value="" selected hidden>Pilih</option>
-                                                <option value="IGD">Poli Umum</option>
-                                                <option value="ANA">Poli Anak</option>
-                                                <option value="BED">Poli Bedah</option>
-                                                <option value="GIG">Poli Gigi</option>
-                                                <option value="INT">Poli Penyakit Dalam</option>
-                                                <option value="IRM">Poli Rehabilitasi Medik</option>
-                                                <option value="JAN">Poli Jantung Dan Pembuluh Darah</option>
-                                                <option value="JIW">Poli Jiwa</option>
-                                                <option value="KLT">Poli Kulit Dan Kelamin</option>
-                                                <option value="MAT">Poli Mata</option>
-                                                <option value="THT">Poli THT-KL</option>
-                                                <option value="OBG">Poli Obstetri Dan Ginekologi (OBGYN)</option>
-                                                <option value="ORT">Poli Orthopedi Dan Traumatology</option>
-                                                <option value="PAR">Poli Paru</option>
-                                                <option value="SAR">Poli Saraf</option>
-                                                <option value="URO">Poli Urologi</option>
-                                                <option value="ANT">Anestesi</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <label>Tanggal Pelayanan</label><br>
-                                            <input type="date" class="form-select" id="xtgl" disabled>
-                                        </div>
+                                    <div class="col-md-4">
+                                        <input type="text" id="searchJadwal" class="form-control"
+                                            placeholder="Cari dokter / poli / hari...">
                                     </div>
                                 </div>
-                                <div class="d-flex align-items-center justify-content-between submit-btn">
-                                    <button class="btn btn-primary" onclick="cariJadwal()"><i class="uil uil-search-alt me-2"></i>Tampilkan</button>
-                                </div>
-
-                                <div class="table-responsive pt-5" id="tablejadwal" hidden>
+                                <div class="table-responsive pt-5" id="tablejadwal">
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="bg-navy">
@@ -87,7 +55,7 @@
                                             </tr>
                                         </thead>
 
-                                        <tbody id="tampil-tbody"><tr><center><td colspan="9"><i class="fa fa-spinner fa-spin fa-fw"></i> Memproses data...</td></center></tr></tbody>
+                                        <tbody id="tampil-tbody"><tr><td colspan="9"><center><i class="fa fa-spinner fa-spin fa-fw"></i> Memproses data...</center></td></tr></tbody>
                                     </table>
                                     <p class="mb-0">Konfirmasi jadwal pada Bagian Informasi RS : <a href="https://wa.me/6285150763480" target="_blank"><u>+6285150763480</u> (Whatsapp)</a></p>
                                 </div>
@@ -107,148 +75,87 @@
 
     <script>
         $(document).ready(function() {
-            $('#xpoli').on('change', function() {
-                if (this.value) {
-                    $("#xtgl").prop('disabled', false);
-                }
+            // $('#xpoli').on('change', function() {
+            //     if (this.value) {
+            //         $("#xtgl").prop('disabled', false);
+            //     }
+            // });
+
+            cariJadwal();
+
+            $('#searchJadwal').on('keyup', function () {
+
+                let value = $(this).val().toLowerCase();
+
+                $("#tampil-tbody tr").each(function(){
+
+                    let row = $(this);
+
+                    if(row.text().toLowerCase().indexOf(value) > -1){
+                        row.show();
+                    } else {
+                        row.hide();
+                    }
+
+                });
             });
+
         });
 
         // function-function
         function cariJadwal() {
-            var xpoli = $("#xpoli").val();
-            var xtgl = $("#xtgl").val();
 
-            if (xpoli.length > 0) {
+            $("#tampil-tbody").html(`
+                <tr><td colspan="9" class="text-center">
+                    <i class="fa fa-spinner fa-spin"></i> Memuat jadwal...
+                </td></tr>
+            `);
+
+            $.get('/api/bpjs/bridging/antrean/poli', function(res){
+
                 $("#tampil-tbody").empty();
-                $("#tampil-tbody").append(`<tr><center><td colspan="9"><i class="fa fa-spinner fa-spin fa-fw"></i> Memproses data...</td></center></tr>`);
-                $("#tablejadwal").prop('hidden', false);
-                // console.log(xpoli);
 
-                $.ajax({
-                    url: "/api/bpjs/bridging/antrean/poli/"+xpoli+"/"+xtgl,
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function(res) {
-                        $("#tampil-tbody").empty();
-                        // console.log(res);
-                        if(res.response == null){
-                            $("#tampil-tbody").append(`<tr><center><td colspan="9"><i class="fa fa-spinner fa-spin fa-fw"></i> Memproses data...</td></center></tr>`);
-                            cariJadwal();
-                            // $('#tampil-tbody').append("<tr style='padding-top: 0px'><td colspan='10'>Data gagal dimuat, silakan ulangi sekali lagi</td></tr>");
-                            // NOTIFIKASI
-                            // const Toast = Swal.mixin({
-                            //     toast: true,
-                            //     position: 'top-end',
-                            //     showConfirmButton: false,
-                            //     timer: 3000,
-                            //     timerProgressBar: true,
-                            //     didOpen: (toast) => {
-                            //         toast.addEventListener('mouseenter', Swal.stopTimer)
-                            //         toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            //     }
-                            // })
+                let lastDokter = null;
+                let rowIndex = 0;
+                let nomor = 1;
 
-                            // Toast.fire({
-                            //     icon: 'error',
-                            //     title: 'Silakan tekan tombol Tampilkan sekali lagi'
-                            // })
-                        } else {
-                            // SHOWING TABLE
-                            var i = 1;
-                            var tampungdokter = null;
-                            Object.values(res.response).forEach(item => {
-                                if (tampungdokter != null) {
-                                    if (item.kodedokter == tampungdokter) {
-                                        // alert('angka i nya udah sampe = '+i);
-                                        document.getElementById("no"+(i-2)).rowSpan = "2";
-                                        document.getElementById("nama"+(i-2)).rowSpan = "2";
-                                        document.getElementById("hari"+(i-2)).rowSpan = "2";
-                                        content = "<tr id='data"+ (i-1) +"' style='padding-top: 0px'><td>" + item.jadwal + "</td><td>" + item.kapasitaspasien + " Pasien</td></tr>";
-                                        $('#tampil-tbody').append(content);
-                                    } else {
-                                        content = "<tr id='data"+ (i-1) +"' style='padding-top: 0px'>"
-                                                + "<td id='no"+ (i-1) +"'>"+ i +"</td>"
-                                                + "<td id='nama"+ (i-1) +"' style='text-align:left'><h6>" + item.namadokter + "</h6><span>" + item.namasubspesialis + " ("+item.kodesubspesialis+")</span></td>"
-                                                + "<td id='hari"+ (i-1) +"'>" + item.namahari + "</td>"
-                                                + "<td>" + item.jadwal + "</td>"
-                                                + "<td>" + item.kapasitaspasien + " Pasien</td>"
-                                                + "</tr>";
-                                        $('#tampil-tbody').append(content);
-                                    }
-                                } else {
-                                    content = "<tr id='data"+ (i-1) +"' style='padding-top: 0px'>"
-                                            + "<td id='no"+ (i-1) +"'>"+ i +"</td>"
-                                            + "<td id='nama"+ (i-1) +"' style='text-align:left'><h6>" + item.namadokter + "</h6><span>" + item.namasubspesialis + " ("+item.kodesubspesialis+")</span></td>"
-                                            + "<td id='hari"+ (i-1) +"'>" + item.namahari + "</td>"
-                                            + "<td>" + item.jadwal + "</td>"
-                                            + "<td>" + item.kapasitaspasien + " Pasien</td>"
-                                            + "</tr>";
-                                    $('#tampil-tbody').append(content);
-                                }
-                                i++;
-                                tampungdokter = item.kodedokter;
-                            });
-                            // NOTIFIKASI
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                didOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
+                res.response.forEach(item => {
 
-                            Toast.fire({
-                                icon: 'success',
-                                title: 'Jadwal Poliklinik berhasil ditampilkan'
-                            })
-                        }
-                    },
-                    error: function () {
-                        $("#tampil-tbody").empty();
-                        $('#tampil-tbody').append("<tr style='padding-top: 0px'><td colspan='10'>Pencarian gagal, pastikan anda telah memilih tanggal pelayanan dengan benar</td></tr>");
-                        // NOTIFIKASI
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 7000,
-                            timerProgressBar: true,
-                            didOpen: (toast) => {
-                                toast.addEventListener('mouseenter', Swal.stopTimer)
-                                toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            }
-                        })
+                    if (lastDokter === item.kodedokter) {
 
-                        Toast.fire({
-                            icon: 'error',
-                            title: 'Pastikan Anda tidak mengosongi semua data yang dibutuhkan dalam pencarian'
-                        })
+                        $(`#no${rowIndex}`).attr('rowspan', parseInt($(`#no${rowIndex}`).attr('rowspan')) + 1);
+                        $(`#nama${rowIndex}`).attr('rowspan', parseInt($(`#nama${rowIndex}`).attr('rowspan')) + 1);
+
+                        $('#tampil-tbody').append(`
+                            <tr>
+                                <td>${item.namahari}</td>
+                                <td>${item.jadwal}</td>
+                                <td>${item.kapasitaspasien}</td>
+                            </tr>
+                        `);
+
+                    } else {
+
+                        rowIndex++;
+
+                        $('#tampil-tbody').append(`
+                            <tr>
+                                <td id="no${rowIndex}" rowspan="1">${nomor++}</td>
+                                <td id="nama${rowIndex}" rowspan="1" style="text-align:left">
+                                    <b>${item.namadokter}</b><br>
+                                    <small>Poliklinik ${item.namasubspesialis}</small>
+                                </td>
+                                <td>${item.namahari}</td>
+                                <td>${item.jadwal}</td>
+                                <td>${item.kapasitaspasien}</td>
+                            </tr>
+                        `);
                     }
+
+                    lastDokter = item.kodedokter;
+
                 });
-            } else {
-                // IF ERROR
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                })
-
-                Toast.fire({
-                    icon: 'error',
-                    title: 'Silakan memilih Poliklinik terlebih dahulul'
-                })
-            }
+            });
         }
     </script>
 @endsection
