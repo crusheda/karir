@@ -75,17 +75,26 @@ class JadwalSpesialisController extends Controller
         });
     }
 
-    public function jadwalMingguanAllPoli()
+    public function jadwalMingguanAllPoli(Request $request)
     {
-        return Cache::remember('jadwal_mingguan_all', 300, function() {
+        $week = $request->week ?? now()->format('Y-\WW');
+
+        [$year,$weekNum] = explode('-W',$week);
+
+        $start = Carbon::now()
+            ->setISODate($year, $weekNum)
+            ->startOfWeek();
+
+        $end = $start->copy()->endOfWeek();
+
+        $cacheKey = "jadwal_mingguan_{$year}_{$weekNum}";
+
+        return Cache::remember($cacheKey, 300, function() use ($start,$end){
 
             $polis = [
                 'IGD','ANA','BED','GIG','INT','IRM','JAN','JIW','KLT',
-                'MAT','THT','OBG','ORT','PAR','SAR','URO','ANT'
+                'MAT','THT','OBG','ORT','PAR','SAR','URO','ANT','KON'
             ];
-
-            $start = Carbon::now()->startOfWeek(Carbon::MONDAY);
-            $end   = Carbon::now()->endOfWeek(Carbon::SUNDAY);
 
             $allData = [];
 
@@ -95,7 +104,7 @@ class JadwalSpesialisController extends Controller
 
                     $tgl = $date->format('Y-m-d');
 
-                    $url = 'jadwaldokter/kodepoli/' . $poli . '/tanggal/' . $tgl;
+                    $url = "jadwaldokter/kodepoli/$poli/tanggal/$tgl";
 
                     $result = $this->bpjs->serviceGet($url);
 
@@ -114,21 +123,19 @@ class JadwalSpesialisController extends Controller
                 }
             }
 
-            // SORT: subspesialis -> dokter
-            usort($allData, function($a, $b) {
+            usort($allData, function($a,$b){
 
-                $x = strcmp($a['namasubspesialis'], $b['namasubspesialis']);
+                $x = strcmp($a['namasubspesialis'],$b['namasubspesialis']);
 
-                if ($x === 0) {
-                    return strcmp($a['namadokter'], $b['namadokter']);
-                }
-
-                return $x;
+                return $x === 0
+                    ? strcmp($a['namadokter'],$b['namadokter'])
+                    : $x;
             });
 
             return response()->json([
-                'response' => $allData
+                'response'=>$allData
             ]);
         });
     }
+
 }

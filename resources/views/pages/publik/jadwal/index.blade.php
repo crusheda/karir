@@ -36,11 +36,16 @@
                                     Biasanya, jadwal dapat berubah sewaktu-waktu tergantung pada kebijakan rumah sakit, kondisi dokter,
                                     atau keadaan darurat tertentu. Oleh karena itu, pasien disarankan untuk selalu memeriksa jadwal
                                     terbaru melalui website resmi, aplikasi rumah sakit, atau menghubungi layanan informasi terkait.
-                                    Jadwal di bawah diambil dari <span class="underline blue"><b>Sistem Bridging dengan BPJS</span></b>.</p>
+                                    Jadwal di bawah diambil dari <span class="underline blue"><b>Sistem Bridging dengan BPJS</span></b>
+                                    dengan berdasarkan Minggu ke-<b class="text-danger">XX</b>. <br><br>Sesuaikan Filter / Pilihan Minggu di bawah ini.
+                                </p>
                                 <div class="row mb-3">
                                     <div class="col-md-4">
+                                        <input type="week" id="weekPicker" class="form-control">
+                                    </div>
+                                    <div class="col-md-4" id="inpSearchJadwal" hidden>
                                         <input type="text" id="searchJadwal" class="form-control"
-                                            placeholder="Cari dokter / poli / hari...">
+                                            placeholder="Cari nama dokter / poli ...">
                                     </div>
                                 </div>
                                 <div class="table-responsive pt-5" id="tablejadwal">
@@ -48,7 +53,7 @@
                                         <thead>
                                             <tr class="bg-navy">
                                                 <th class="text-white">No</th>
-                                                <th class="text-white">Poliklinik Dokter Spesialis</th>
+                                                <th class="text-white">Dokter Spesialis - Poliklinik</th>
                                                 <th class="text-white">Hari</th>
                                                 <th class="text-white">Waktu</th>
                                                 <th class="text-white">Kuota +/-</th>
@@ -72,90 +77,163 @@
         </div>
         <!-- /.container -->
     </section>
+<script>
+$(document).ready(function() {
 
-    <script>
-        $(document).ready(function() {
-            // $('#xpoli').on('change', function() {
-            //     if (this.value) {
-            //         $("#xtgl").prop('disabled', false);
-            //     }
-            // });
+    let currentWeek = $('#weekPicker');
 
-            cariJadwal();
+    // default minggu sekarang
+    let now = new Date();
+    let week = getWeekNumber(now);
+    currentWeek.val(`${now.getFullYear()}-W${week}`);
 
-            $('#searchJadwal').on('keyup', function () {
+    cariJadwal(currentWeek.val());
 
-                let value = $(this).val().toLowerCase();
+    $('#weekPicker').on('change', function(){
+        cariJadwal(this.value);
+    });
 
-                $("#tampil-tbody tr").each(function(){
+    $('#searchJadwal').on('keyup', function () {
 
-                    let row = $(this);
+        let value = $(this).val().toLowerCase();
 
-                    if(row.text().toLowerCase().indexOf(value) > -1){
-                        row.show();
-                    } else {
-                        row.hide();
-                    }
+        let showGroup = false;
 
-                });
-            });
+        $("#tampil-tbody tr").each(function(){
+
+            let row = $(this);
+
+            if(row.find('[rowspan]').length){
+
+                showGroup = row.text().toLowerCase().includes(value);
+
+                row.toggle(showGroup);
+
+            } else {
+
+                row.toggle(showGroup);
+            }
 
         });
+    });
 
-        // function-function
-        function cariJadwal() {
+});
+
+function cariJadwal(week){
+
+    $('#inpSearchJadwal').attr('hidden',true);
+
+    $("#tampil-tbody").html(`
+        <tr>
+            <td colspan="9" class="text-center">
+                <i class="fa fa-spinner fa-spin"></i> Memuat jadwal...
+            </td>
+        </tr>
+    `);
+
+    $.ajax({
+        url: '/api/bpjs/bridging/antrean/poli',
+        method: 'GET',
+        data: {
+            week: week
+        },
+        timeout: 20000, // 20 detik
+
+        success: function(res){
+
+            $("#tampil-tbody").empty();
+
+            if(!res || !res.response || res.response.length === 0){
+
+                $("#tampil-tbody").html(`
+                    <tr>
+                        <td colspan="9" class="text-center text-danger">
+                            Jadwal tidak ditemukan pada minggu ini
+                        </td>
+                    </tr>
+                `);
+
+                return;
+            }
+
+            let lastDokter = null;
+            let rowIndex = 0;
+            let nomor = 1;
+
+            res.response.forEach(item => {
+
+                if (lastDokter === item.kodedokter) {
+
+                    $(`#no${rowIndex}`).attr('rowspan',
+                        parseInt($(`#no${rowIndex}`).attr('rowspan')) + 1
+                    );
+
+                    $(`#nama${rowIndex}`).attr('rowspan',
+                        parseInt($(`#nama${rowIndex}`).attr('rowspan')) + 1
+                    );
+
+                    $('#tampil-tbody').append(`
+                        <tr>
+                            <td>${item.namahari ?? '-'}</td>
+                            <td>${item.jadwal ?? '-'}</td>
+                            <td>${item.kapasitaspasien ?? '-'}</td>
+                        </tr>
+                    `);
+
+                } else {
+
+                    rowIndex++;
+
+                    $('#tampil-tbody').append(`
+                        <tr>
+                            <td id="no${rowIndex}" rowspan="1">${nomor++}</td>
+                            <td id="nama${rowIndex}" rowspan="1">
+                                <b>${item.namadokter ?? '-'}</b><br>
+                                <small>Poliklinik ${item.namasubspesialis ?? '-'}</small>
+                            </td>
+                            <td>${item.namahari ?? '-'}</td>
+                            <td>${item.jadwal ?? '-'}</td>
+                            <td>${item.kapasitaspasien ?? '-'}</td>
+                        </tr>
+                    `);
+                }
+
+                lastDokter = item.kodedokter;
+            });
+
+            $('#inpSearchJadwal').attr('hidden',false);
+        },
+
+        error: function(xhr, status){
+
+            let pesan = 'Gagal memuat jadwal';
+
+            if(status === 'timeout'){
+                pesan = 'Koneksi ke server terlalu lama';
+            }
 
             $("#tampil-tbody").html(`
-                <tr><td colspan="9" class="text-center">
-                    <i class="fa fa-spinner fa-spin"></i> Memuat jadwal...
-                </td></tr>
+                <tr>
+                    <td colspan="9" class="text-center text-danger">
+                        ${pesan}. Silakan refresh halaman.
+                    </td>
+                </tr>
             `);
 
-            $.get('/api/bpjs/bridging/antrean/poli', function(res){
-
-                $("#tampil-tbody").empty();
-
-                let lastDokter = null;
-                let rowIndex = 0;
-                let nomor = 1;
-
-                res.response.forEach(item => {
-
-                    if (lastDokter === item.kodedokter) {
-
-                        $(`#no${rowIndex}`).attr('rowspan', parseInt($(`#no${rowIndex}`).attr('rowspan')) + 1);
-                        $(`#nama${rowIndex}`).attr('rowspan', parseInt($(`#nama${rowIndex}`).attr('rowspan')) + 1);
-
-                        $('#tampil-tbody').append(`
-                            <tr>
-                                <td>${item.namahari}</td>
-                                <td>${item.jadwal}</td>
-                                <td>${item.kapasitaspasien}</td>
-                            </tr>
-                        `);
-
-                    } else {
-
-                        rowIndex++;
-
-                        $('#tampil-tbody').append(`
-                            <tr>
-                                <td id="no${rowIndex}" rowspan="1">${nomor++}</td>
-                                <td id="nama${rowIndex}" rowspan="1" style="text-align:left">
-                                    <b>${item.namadokter}</b><br>
-                                    <small>Poliklinik ${item.namasubspesialis}</small>
-                                </td>
-                                <td>${item.namahari}</td>
-                                <td>${item.jadwal}</td>
-                                <td>${item.kapasitaspasien}</td>
-                            </tr>
-                        `);
-                    }
-
-                    lastDokter = item.kodedokter;
-
-                });
-            });
+            $('#inpSearchJadwal').attr('hidden',true);
         }
-    </script>
+    });
+}
+
+function getWeekNumber(d) {
+
+    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
+    var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+    var weekNo = Math.ceil((((d - yearStart) / 86400000) + 1)/7);
+
+    return weekNo.toString().padStart(2,'0');
+}
+</script>
+
 @endsection
