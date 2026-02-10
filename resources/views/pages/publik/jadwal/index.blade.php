@@ -37,18 +37,24 @@
                                     atau keadaan darurat tertentu. Oleh karena itu, pasien disarankan untuk selalu memeriksa jadwal
                                     terbaru melalui website resmi, aplikasi rumah sakit, atau menghubungi layanan informasi terkait.
                                     Jadwal di bawah diambil dari <span class="underline blue"><b>Sistem Bridging dengan BPJS</span></b>
-                                    dengan berdasarkan Minggu ke-<b class="text-danger">XX</b>. <br><br>Sesuaikan Filter / Pilihan Minggu di bawah ini.
+                                    dengan pencarian jadwal berdasarkan pilihan Minggu ke - <b class="text-danger">XX</b>. <br><br>Sesuaikan <span class="underline blue">Filter / Pilihan Minggu</span> di bawah ini.
                                 </p>
                                 <div class="row mb-3">
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mb-3">
                                         <input type="week" id="weekPicker" class="form-control">
                                     </div>
-                                    <div class="col-md-4" id="inpSearchJadwal" hidden>
+                                    <div class="col-md-4 mb-3" id="inpSearchJadwal" hidden>
                                         <input type="text" id="searchJadwal" class="form-control"
                                             placeholder="Cari nama dokter / poli ...">
                                     </div>
+                                    <div class="col-md-4">
+                                        <button id="btnExportExcel" class="btn btn-expand btn-soft-green rounded-pill w-100" hidden>
+                                            <i class="fa fa-file-excel"></i>
+                                            <span>Export Excel</span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="table-responsive pt-5" id="tablejadwal">
+                                <div class="table-responsive pt-2" id="tablejadwal">
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="bg-navy">
@@ -62,7 +68,7 @@
 
                                         <tbody id="tampil-tbody"><tr><td colspan="9"><center><i class="fa fa-spinner fa-spin fa-fw"></i> Memproses data...</center></td></tr></tbody>
                                     </table>
-                                    <p class="mb-0">Konfirmasi jadwal pada Bagian Informasi RS : <a href="https://wa.me/6285150763480" target="_blank"><u>+6285150763480</u> (Whatsapp)</a></p>
+                                    <p class="mb-0">Konfirmasi jadwal pada Bagian Informasi RS : <br><a href="https://wa.me/6285150763480" target="_blank">Whatsapp: <u>+6285150763480</u></a> - (<span class="underline blue"><b>Jam Kerja Kantor</b></span>)</p>
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -117,11 +123,39 @@ $(document).ready(function() {
         });
     });
 
+    $('#btnExportExcel').on('click', function(){
+
+        let table = document.querySelector("table");
+
+        if(!table){
+            alert('Data belum tersedia');
+            return;
+        }
+
+        let wb = XLSX.utils.book_new();
+
+        let ws = XLSX.utils.table_to_sheet(table, {
+            raw:true
+        });
+
+        XLSX.utils.book_append_sheet(wb, ws, "Jadwal Dokter");
+
+        let tanggal = new Date().toISOString().slice(0,10);
+
+        XLSX.writeFile(wb, `jadwal_dokter_${tanggal}.xlsx`);
+        Toast.fire({
+            icon: 'success',
+            title: 'Jadwal Poliklinik berhasil diexport ke Excell'
+        })
+    });
 });
 
 function cariJadwal(week){
 
     $('#inpSearchJadwal').attr('hidden',true);
+
+    let btn = $('#weekPicker');
+    let btnEx = $('#btnExportExcel');
 
     $("#tampil-tbody").html(`
         <tr>
@@ -137,8 +171,11 @@ function cariJadwal(week){
         data: {
             week: week
         },
-        timeout: 20000, // 20 detik
-
+        timeout: 20000, // 20 detik,
+        beforeSend:function(){
+            btn.prop('disabled',true);
+            btnEx.attr('hidden',true);
+        },
         success: function(res){
 
             $("#tampil-tbody").empty();
@@ -153,6 +190,7 @@ function cariJadwal(week){
                     </tr>
                 `);
 
+                btn.prop('disabled',false);
                 return;
             }
 
@@ -202,6 +240,12 @@ function cariJadwal(week){
             });
 
             $('#inpSearchJadwal').attr('hidden',false);
+            btn.prop('disabled',false);
+            btnEx.attr('hidden',false);
+            Toast.fire({
+                icon: 'success',
+                title: 'Jadwal Poliklinik berhasil ditampilkan'
+            })
         },
 
         error: function(xhr, status){
@@ -221,6 +265,15 @@ function cariJadwal(week){
             `);
 
             $('#inpSearchJadwal').attr('hidden',true);
+            btn.prop('disabled',false);
+            btnEx.attr('hidden',true);
+            Toast.fire({
+                icon: 'error',
+                title: 'Jadwal Poliklinik gagal ditampilkan'
+            })
+        },
+        complete:function(){
+            btn.prop('disabled',false);
         }
     });
 }
