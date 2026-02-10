@@ -1,5 +1,7 @@
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/theme.js') }}"></script>
+<script src="{{ asset('js/iziToast.min.js') }}"></script>
+<script src="{{ asset('libs/toastify-js/src/toastify.js') }}"></script>
 <!-- Magnific Popup Min JS -->
 {{-- <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script> --}}
 <!-- Image Gallery JS -->
@@ -12,4 +14,8 @@
 <!-- DataTables JS -->
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

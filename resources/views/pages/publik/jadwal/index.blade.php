@@ -47,10 +47,15 @@
                                         <input type="text" id="searchJadwal" class="form-control"
                                             placeholder="Cari nama dokter / poli ...">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mb-3">
                                         <button id="btnExportExcel" class="btn btn-expand btn-soft-green rounded-pill w-100" hidden>
                                             <i class="fa fa-file-excel"></i>
                                             <span>Export Excel</span>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button onclick="exportPdf()" class="btn btn-danger">
+                                        Export PDF
                                         </button>
                                     </div>
                                 </div>
@@ -143,12 +148,17 @@ $(document).ready(function() {
         let tanggal = new Date().toISOString().slice(0,10);
 
         XLSX.writeFile(wb, `jadwal_dokter_${tanggal}.xlsx`);
-        Toast.fire({
-            icon: 'success',
-            title: 'Jadwal Poliklinik berhasil diexport ke Excell'
-        })
+        // Toast.fire({
+        //     icon: 'success',
+        //     title: 'Jadwal Poliklinik berhasil diexport ke Excell'
+        // })
     });
+
 });
+
+function exportPdf(){
+    window.open('/api/bpjs/bridging/antrean/poli/pdf?week='+$('#weekPicker').val());
+}
 
 function cariJadwal(week){
 
@@ -242,10 +252,10 @@ function cariJadwal(week){
             $('#inpSearchJadwal').attr('hidden',false);
             btn.prop('disabled',false);
             btnEx.attr('hidden',false);
-            Toast.fire({
-                icon: 'success',
-                title: 'Jadwal Poliklinik berhasil ditampilkan'
-            })
+            // Toast.fire({
+            //     icon: 'success',
+            //     title: 'Jadwal Poliklinik berhasil ditampilkan'
+            // })
         },
 
         error: function(xhr, status){
@@ -267,10 +277,10 @@ function cariJadwal(week){
             $('#inpSearchJadwal').attr('hidden',true);
             btn.prop('disabled',false);
             btnEx.attr('hidden',true);
-            Toast.fire({
-                icon: 'error',
-                title: 'Jadwal Poliklinik gagal ditampilkan'
-            })
+            // Toast.fire({
+            //     icon: 'error',
+            //     title: 'Jadwal Poliklinik gagal ditampilkan'
+            // })
         },
         complete:function(){
             btn.prop('disabled',false);

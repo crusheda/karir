@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\BpjsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 
 class JadwalSpesialisController extends Controller
@@ -138,4 +139,17 @@ class JadwalSpesialisController extends Controller
         });
     }
 
+    public function exportJadwalPdf(Request $request)
+    {
+        $week = $request->week;
+
+        $data = $this->jadwalMingguanAllPoli($request)->getData()->response;
+
+        $pdf = Pdf::loadView('pages.publik.jadwal.pdf', [
+            'jadwal' => $data,
+            'week' => $week
+        ])->setPaper('A4','landscape');
+
+        return $pdf->download('jadwal_dokter.pdf');
+    }
 }

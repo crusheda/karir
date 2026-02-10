@@ -32,6 +32,7 @@ use App\Http\Controllers\Admin\AntrianController;
             // REFERENSI JADWAL DOKTER
                 Route::get('bpjs/bridging/antrean/poli/{poli}/{tgl}', [JadwalSpesialisController::class, 'cariJadwal']);
                 Route::get('bpjs/bridging/antrean/poli', [JadwalSpesialisController::class, 'jadwalMingguanAllPoli']);
+                Route::get('bpjs/bridging/antrean/poli/pdf', [JadwalSpesialisController::class,'exportJadwalPdf']);
 
     // SEP
         Route::get('bpjs/SEP/{NOSEP}', [AntreanController::class, 'cariSEP']);
