@@ -914,16 +914,38 @@
                         <div class="card-body p-md-10 py-xxl-16">
                             <div class="row gx-0">
                                 <div class="col-lg-8 ps-xl-10">
-                                    <span class="ratings five fs-20 mb-3"></span>
-                                    <blockquote class="border-0 fs-lg mb-0">
-                                        <p>“Kesembuhan Datangnya dari Allah, <br>
-                                            Kepuasan Anda adalah tanggungjawab kami”</p>
-                                        <div class="blockquote-details justify-content-center text-center">
-                                            <div class="info p-0">
-                                                <h4 class="ls-sm mb-1">Motto Kami</h4>
-                                            </div>
+
+                                    <h5 class="mb-4">Bagaimana pengalaman Anda?</h5>
+
+                                    <div class="emot-rating">
+
+                                        <div class="emot-item">
+                                            <span class="emot" data-rating="5">😍</span>
+                                            <div class="emot-count" id="count-5">{{ $rating[5] ?? 0 }}</div>
                                         </div>
-                                    </blockquote>
+
+                                        <div class="emot-item">
+                                            <span class="emot" data-rating="4">😊</span>
+                                            <div class="emot-count" id="count-4">{{ $rating[4] ?? 0 }}</div>
+                                        </div>
+
+                                        <div class="emot-item">
+                                            <span class="emot" data-rating="3">😐</span>
+                                            <div class="emot-count" id="count-3">{{ $rating[3] ?? 0 }}</div>
+                                        </div>
+
+                                        <div class="emot-item">
+                                            <span class="emot" data-rating="2">😕</span>
+                                            <div class="emot-count" id="count-2">{{ $rating[2] ?? 0 }}</div>
+                                        </div>
+
+                                        <div class="emot-item">
+                                            <span class="emot" data-rating="1">😡</span>
+                                            <div class="emot-count" id="count-1">{{ $rating[1] ?? 0 }}</div>
+                                        </div>
+
+                                    </div>
+
                                 </div>
                                 <!-- /column -->
                             </div>
@@ -935,6 +957,16 @@
                 </div>
                 <!-- /column -->
             </div>
+
+            {{-- <blockquote class="border-0 fs-lg mb-0">
+                <p>“Kesembuhan Datangnya dari Allah, <br>
+                    Kepuasan Anda adalah tanggungjawab kami”</p>
+                <div class="blockquote-details justify-content-center text-center">
+                    <div class="info p-0">
+                        <h4 class="ls-sm mb-1">Motto Kami</h4>
+                    </div>
+                </div>
+            </blockquote> --}}
 
             <!-- /.row -->
             {{-- <div class="row text-center">
@@ -1144,6 +1176,7 @@
     {{-- <div class='sk-ww-google-reviews sk-view-sample' data-embed-id='25518679'></div> --}}
 
     <script>
+        let isSubmittingRating = false;
         $(document).ready(function() {
             var popup_btn = $('.popup-btn');
             popup_btn.magnificPopup({
@@ -1161,6 +1194,83 @@
                     filter:selector
                 });
                 return  false;
+            });
+
+            $('.emot').click(function(){
+
+                if(isSubmittingRating) return; // mencegah spam klik
+
+                isSubmittingRating = true;
+
+                let rating = $(this).data('rating');
+                let emot = $(this);
+
+                // reset
+                $('.emot').removeClass('active bounce');
+
+                // aktifkan yang dipilih
+                emot.addClass('active bounce');
+
+                $('.emot-rating').addClass('selected');
+
+                $.ajax({
+                    url: "{{ route('rating.store') }}",
+                    type: "POST",
+                    data: {
+                        rating: rating,
+                        _token: $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(res){
+
+                        if (res.status) {
+
+                            let ratingtot = emot.data('rating');
+
+                            let current = parseInt($('#count-'+ratingtot).text());
+
+                            $('#count-'+ratingtot).text(current + 1);
+
+                            Toastify({
+                                text: "Terima kasih atas penilaiannya 😊",
+                                duration: 5000, // milliseconds
+                                gravity: "top", // `top` or `bottom`
+                                position: "right", // `left`, `center`, or `right`
+                                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", // Example colors
+                                stopOnFocus: true, // Prevents dismissing on hover
+                            }).showToast();
+
+                            // disable semua emot setelah berhasil
+                            $('.emot').css('pointer-events','none');
+                            $('.emot-rating').addClass('locked');
+                        } else {
+                            Toastify({
+                                text: "Anda sudah memberikan penilaian sebelumnya",
+                                duration: 5000, // milliseconds
+                                gravity: "top", // `top` or `bottom`
+                                position: "right", // `left`, `center`, or `right`
+                                backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)", // Example colors
+                                stopOnFocus: true, // Prevents dismissing on hover
+                            }).showToast();
+
+                            isSubmittingRating = false;
+                        }
+
+                    },
+                    error: function(err){
+                        isSubmittingRating = false;
+
+                        Toastify({
+                            text: "Terjadi kesalahan saat mengirim penilaian",
+                            duration: 5000, // milliseconds
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center`, or `right`
+                            backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)", // Example colors
+                            stopOnFocus: true, // Prevents dismissing on hover
+                        }).showToast();
+                    }
+
+                });
+
             });
         })
     </script>

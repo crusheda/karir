@@ -1,6 +1,7 @@
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/theme.js') }}"></script>
 <script src="{{ asset('js/iziToast.min.js') }}"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
 <script src="{{ asset('libs/toastify-js/src/toastify.js') }}"></script>
 <!-- Magnific Popup Min JS -->
 {{-- <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script> --}}

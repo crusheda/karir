@@ -9,6 +9,7 @@
         content="rumah sakit, rspkuskh, pkuskh, pkusukoharjo, pku sukoharjo, rs pku, rs pku skh, rs pku sukoharjo, rawat jalan, rawat inap, rs bpjs, pku muhammadiyah sukoharjo, rs pku muhammadiyah sukoharjo, sistem rumah sakit">
     <meta content="Yussuf Faisal" name="author" />
     <title>Portal | RS PKU Muhammadiyah Sukoharjo</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('inc.css')
 </head>
 

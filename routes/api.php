@@ -10,6 +10,7 @@ use App\Http\Controllers\Rekrutmen\RegistrasiController;
 use App\Http\Controllers\Publik\KetersediaanTTController;
 
 use App\Http\Controllers\Admin\AntrianController;
+use App\Http\Controllers\Publik\RatingController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -21,6 +22,8 @@ use App\Http\Controllers\Admin\AntrianController;
 // KETERSEDIAAN TT
     Route::get('informasi/tt', [KetersediaanTTController::class, 'getTT'])->name('ketersediaan.tt.getTT');
     Route::get('antrean/poli/display', [AntrianController::class, 'getAntreanPoli'])->name('antrean.poli.display');
+
+    Route::post('rating', [RatingController::class,'store'])->name('rating.store');
 
 // --------------------------------------------  API BPJS  --------------------------------------------
 // PRODUCTION API
