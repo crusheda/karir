@@ -915,7 +915,17 @@
                             <div class="row gx-0">
                                 <div class="col-lg-8 ps-xl-10">
 
-                                    <h5 class="mb-4">Bagaimana pengalaman Anda?</h5>
+                                    <blockquote class="border-0 fs-lg mb-0">
+                                        <p>“Kesembuhan Datangnya dari Allah, <br>
+                                            Kepuasan Anda adalah tanggungjawab kami”</p>
+                                        <div class="blockquote-details justify-content-center text-center">
+                                            <div class="info p-0">
+                                                <h4 class="ls-sm mb-1">Motto Kami</h4>
+                                            </div>
+                                        </div>
+                                    </blockquote>
+
+                                    {{-- <h5 class="mb-4">Bagaimana pengalaman Anda?</h5>
 
                                     <div class="emot-rating">
 
@@ -944,7 +954,7 @@
                                             <div class="emot-count" id="count-1">{{ $rating[1] ?? 0 }}</div>
                                         </div>
 
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                                 <!-- /column -->
@@ -957,16 +967,6 @@
                 </div>
                 <!-- /column -->
             </div>
-
-            {{-- <blockquote class="border-0 fs-lg mb-0">
-                <p>“Kesembuhan Datangnya dari Allah, <br>
-                    Kepuasan Anda adalah tanggungjawab kami”</p>
-                <div class="blockquote-details justify-content-center text-center">
-                    <div class="info p-0">
-                        <h4 class="ls-sm mb-1">Motto Kami</h4>
-                    </div>
-                </div>
-            </blockquote> --}}
 
             <!-- /.row -->
             {{-- <div class="row text-center">

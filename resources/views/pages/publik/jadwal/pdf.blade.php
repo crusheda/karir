@@ -1,78 +1,86 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style>
-body{
-    font-family: DejaVu Sans;
-    font-size:11px;
-}
+    <style>
+        body {
+            font-family: DejaVu Sans;
+            font-size: 11px;
+        }
 
-h1{
-    text-align:center;
-}
+        h1 {
+            text-align: center;
+        }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-th,td{
-    border:1px solid #004d4d;
-    padding:4px;
-}
+        th,
+        td {
+            border: 1px solid #004d4d;
+            padding: 4px;
+        }
 
-th{
-    background:#e6f2f2;
-}
+        th {
+            background: #e6f2f2;
+        }
 
-.footer{
-    margin-top:10px;
-    font-size:10px;
-}
-</style>
+        .footer {
+            margin-top: 10px;
+            font-size: 10px;
+        }
+    </style>
 </head>
 
 <body>
 
-<center>
-<img src="{{ public_path('images/logo-rs.png') }}" width="90">
-<h2>JADWAL DOKTER PRAKTEK</h2>
-</center>
+    <center>
+        <img src="{{ public_path('img/pku/logo_clear_100kb.png') }}" width="90">
+        <h2 style="margin-bottom: 2px">JADWAL POLIKLINIK SPESIALIS<br>RUMAH SAKIT PKU MUHAMMADIYAH SUKOHARJO</h2>
+        <h3 style="color:rgb(214, 66, 66)"><i>Dicetak pada {{ now()->locale('id')->format('d-m-Y H:i:s') }} WIB</i></h3>
+    </center>
 
-<table>
-<thead>
-<tr>
-<th>No</th>
-<th>Nama</th>
-<th>Spesialis</th>
-<th>Hari</th>
-<th>Jam</th>
-</tr>
-</thead>
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Dokter</th>
+                <th>Poli Spesialis</th>
+                <th>Hari</th>
+                <th>Jam</th>
+            </tr>
+        </thead>
 
-<tbody>
-@php
-$no=1;
-@endphp
+        <tbody>
+            @php
+                $no = 1;
+            @endphp
 
-@foreach($jadwal as $row)
-<tr>
-<td>{{ $no++ }}</td>
-<td>{{ $row->namadokter }}</td>
-<td>{{ $row->namasubspesialis }}</td>
-<td>{{ $row->namahari }}</td>
-<td>{{ $row->jadwal }}</td>
-</tr>
-@endforeach
+            @foreach ($jadwal as $row)
+                <tr>
+                    <td><center>{{ $no++ }}</center></td>
+                    <td>{{ $row->namadokter }}</td>
+                    <td><center>{{ $row->namasubspesialis }}</center></td>
+                    <td><center>{{ $row->namahari }}</center></td>
+                    <td><center>{{ $row->jadwal }}</center></td>
+                </tr>
+            @endforeach
 
-</tbody>
-</table>
+        </tbody>
+    </table>
 
-<div class="footer">
-<p>* Dengan perjanjian</p>
-<p>Pendaftaran ditutup 30 menit sebelum poli dimulai.</p>
-<p>WA: 0851-5076-3480</p>
-</div>
+    <div class="footer">
+        <h3>* Dengan perjanjian</h3>
+        <p>Pendaftaran ditutup 30 menit sebelum poli dimulai.</p>
+        <p>Informasi lebih lanjut, silakan hubungi bagian Informasi RS (<b style="color:red">Jam Kerja Kantor</b>) melalui</p>
+        <ul>
+            <li>Telp: 0271 593 979</li>
+            <li>Whatsapp: 0851-5076-3480</li>
+        </ul>
+    </div>
 
 </body>
+
 </html>

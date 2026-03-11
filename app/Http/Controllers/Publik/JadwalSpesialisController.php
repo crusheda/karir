@@ -148,8 +148,10 @@ class JadwalSpesialisController extends Controller
         $pdf = Pdf::loadView('pages.publik.jadwal.pdf', [
             'jadwal' => $data,
             'week' => $week
-        ])->setPaper('A4','landscape');
+        ])->setPaper('F4','portrait');
 
-        return $pdf->download('jadwal_dokter.pdf');
+        $now = Carbon::now()->locale('id')->format('His');
+
+        return $pdf->download("jadwal_poli_pkuskh_$now.pdf");
     }
 }
