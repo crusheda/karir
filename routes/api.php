@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // INITIALIZE PATH CONTROLLER
 use App\Http\Controllers\Bpjs\AntreanController;
+use App\Http\Controllers\Bpjs\ICareController;
 use App\Http\Controllers\Publik\JadwalSpesialisController;
 use App\Http\Controllers\Rekrutmen\RegistrasiController;
 use App\Http\Controllers\Publik\KetersediaanTTController;
@@ -29,6 +30,9 @@ use App\Http\Controllers\Publik\RatingController;
 // PRODUCTION API
     // PUBLIC
     Route::get('bpjs/bridging/all', [AntreanController::class, 'showKey']);
+
+    // iCare
+    Route::get('bpjs/icare', [ICareController::class, 'getICare']);
 
     // ANTREAN
         // WS BPJS

@@ -42,6 +42,27 @@ class BpjsService
         return json_decode($res->getBody());
     }
 
+    public function serviceGetIcare($url, $no_kartu, $kd_dokter)
+    {
+        $url = '/wsihs/api/rs/validate';
+
+        $response = $this->client->post($url, [
+            'headers' => [
+                'Content-Type' => 'application/json',
+                'X-cons-id'    => $this->consid,
+                'X-Timestamp'  => $this->bpjsTimestamp(),
+                'X-Signature'  => $this->generateSignature(),
+                'user_key'     => $this->userkey,
+            ],
+            'json' => [
+                'param'       => $no_kartu,
+                'kodedokter'  => (int) $kd_dokter,
+            ]
+        ]);
+
+        return json_decode($response->getBody(), true);
+    }
+
     // ------------------------------------------------------------  TOOLS BPJS  --------------------------------------------------------------
 	public function generateSignature()
 	{
@@ -61,7 +82,7 @@ class BpjsService
         // $result = strval(time()-strtotime('1970-01-01 00:00:00'));
 		// return $result;
 	}
-    
+
 	public function stringDecrypt($string)
 	{
         $key = $this->consid.$this->secretkey.$this->bpjsTimestamp();

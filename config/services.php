@@ -39,6 +39,7 @@ return [
         'base_url' => env('BPJS_BASE_URL', 'https://apijkn.bpjs-kesehatan.go.id/'),
         'base_url_dev' => env('BPJS_DEV_BASE_URL', 'https://apijkn-dev.bpjs-kesehatan.go.id/'),
         'services_name_vclaim' => env('BPJS_SERVICE_NAME_VCLAIM', 'vclaim-rest'),
+        'services_name_icare' => env('BPJS_SERVICE_NAME_ICARE', 'ihs'),
         'services_name_antrean' => env('BPJS_SERVICE_NAME_ANTREAN', 'antreanrs'),
     ],
 
